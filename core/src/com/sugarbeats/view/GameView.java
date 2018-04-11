@@ -12,6 +12,11 @@ public class GameView extends BaseView {
     static final int GAME_OVER = 2;
 
     public GameView(SugarBeats game) {
-        super();
+        super(game.getBatch());
+    }
+
+    @Override
+    public void show() {
+
     }
 }

@@ -8,6 +8,11 @@ import com.sugarbeats.SugarBeats;
 
 public class HelpView extends BaseView{
     public HelpView(SugarBeats game) {
+        super(game.getBatch());
+    }
+
+    @Override
+    public void show() {
 
     }
 }

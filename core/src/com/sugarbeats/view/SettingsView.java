@@ -8,6 +8,11 @@ import com.sugarbeats.SugarBeats;
 
 public class SettingsView extends BaseView{
     public SettingsView(SugarBeats game) {
+        super(game.getBatch());
+    }
+
+    @Override
+    public void show() {
 
     }
 }
