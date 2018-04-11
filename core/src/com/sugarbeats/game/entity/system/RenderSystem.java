@@ -1,5 +1,6 @@
 package com.sugarbeats.game.entity.system;
 
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 
