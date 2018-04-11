@@ -1,18 +1,19 @@
-package com.sugarbeats.game;
+package com.sugarbeats;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.sugarbeats.view.MainMenuView;
+import com.sugarbeats.presenter.MainMenuPresenter;
 
 public class SugarBeats extends Game {
+
 	public SpriteBatch batch;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new MainMenuView(this));
+		setScreen(new MainMenuPresenter(this));
 
 	}
 
@@ -29,4 +30,7 @@ public class SugarBeats extends Game {
 		batch.dispose();
 	}
 
+	public SpriteBatch getBatch() {
+		return batch;
+	}
 }

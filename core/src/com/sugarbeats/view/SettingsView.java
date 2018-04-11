@@ -1,6 +1,6 @@
 package com.sugarbeats.view;
 
-import com.sugarbeats.game.SugarBeats;
+import com.sugarbeats.SugarBeats;
 
 /**
  * Created by taphan on 08.03.2018.

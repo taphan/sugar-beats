@@ -3,8 +3,10 @@ package com.sugarbeats.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector3;
-import com.sugarbeats.game.SugarBeats;
+import com.sugarbeats.SugarBeats;
+import com.sugarbeats.presenter.MainMenuPresenter;
 
 import java.awt.Rectangle;
 
@@ -19,9 +21,11 @@ public class MainMenuView extends BaseView{
     Rectangle helpBounds;
     Rectangle settingBounds;
     Vector3 touchPoint;
+    MainMenuPresenter.ViewController controller;
 
-    public MainMenuView(SugarBeats game) {
-        this.game = game;
+    public MainMenuView(Batch batch, MainMenuPresenter.ViewController controller) {
+        super(batch);
+        this.controller = controller;
 
         guiCam = new OrthographicCamera(320, 480);
         guiCam.position.set(320 / 2, 480 / 2, 0);
@@ -31,27 +35,29 @@ public class MainMenuView extends BaseView{
         touchPoint = new Vector3();
     }
 
-    public void update () {
+    @Override
+    public void update (float delta) {
         if (Gdx.input.justTouched()) {
             guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (playBounds.contains(touchPoint.x, touchPoint.y)) {
-                //Assets.playSound(Assets.clickSound);
-                game.setScreen(new GameView(game));
+                controller.onPlay();
                 return;
             }
             if (settingBounds.contains(touchPoint.x, touchPoint.y)) {
-                //Assets.playSound(Assets.clickSound);
-                game.setScreen(new SettingsView(game));
+                controller.onSettings();
                 return;
             }
             if (helpBounds.contains(touchPoint.x, touchPoint.y)) {
-                //Assets.playSound(Assets.clickSound);
-                game.setScreen(new HelpView(game));
-                return;
+                controller.onHelp();
             }
 
         }
+    }
+
+    @Override
+    public void show() {
+
     }
 
     public void draw() {
@@ -62,7 +68,7 @@ public class MainMenuView extends BaseView{
     }
 
     public void render (float delta) {
-        update();
+        update(delta);
         draw();
     }
 
