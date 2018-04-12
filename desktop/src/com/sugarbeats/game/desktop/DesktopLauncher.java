@@ -2,7 +2,7 @@ package com.sugarbeats.game.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.sugarbeats.game.SugarBeats;
+import com.sugarbeats.SugarBeats;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
