@@ -71,15 +71,15 @@ public class CollisionSystem extends EntitySystem {
                 if (powerupBounds.bounds.overlaps(playerBounds.bounds)) {  // Check if powerup was touched by each player
                     engine.removeEntity(powerup);  // Player eats powerup & remove it from map
                     listener.powerup();
-                    playerSystem.getPowerup(player,powerup); // Powerup give a state to player
+                    playerSystem.gainPowerup(player,powerup); // Powerup give a state to player
                 }
             }
 
-            // Check if player collided with another player
+            // TODO: Check if player collided with another player
 
         }
 
-        // Check if bullet hit opponent
+        // TODO: Check if bullet hit opponent
 
     }
 }

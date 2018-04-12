@@ -12,4 +12,5 @@ public class PowerupComponent implements Component{
 
     public static final int SPEED = 0;
     public static final int POWER = 1;
+
 }
