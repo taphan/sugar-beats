@@ -9,5 +9,7 @@ import com.badlogic.ashley.core.Component;
 public class PowerupComponent implements Component{
     public static final float WIDTH = 0.5f;
     public static final float HEIGHT = 0.8f;
-    // How to describe effect ? int or str?
+
+    public static final int SPEED = 0;
+    public static final int POWER = 1;
 }

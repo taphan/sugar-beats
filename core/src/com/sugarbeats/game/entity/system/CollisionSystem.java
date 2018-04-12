@@ -57,6 +57,29 @@ public class CollisionSystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        //PlayerSystem bobSystem = engine.getSystem(PlayerSystem.class);
+        PlayerSystem playerSystem = engine.getSystem(PlayerSystem.class);
+
+        for (int i = 0; i < players.size(); i++) {   // Update all players at each call
+            Entity player = players.get(i);
+            BoundsComponent playerBounds = bm.get(player);
+
+            // Check if player touched powerup
+            for (int j = 0; j < powerups.size(); j++) {
+                Entity powerup = powerups.get(j);
+                BoundsComponent powerupBounds = bm.get(powerup);
+
+                if (powerupBounds.bounds.overlaps(playerBounds.bounds)) {  // Check if powerup was touched by each player
+                    engine.removeEntity(powerup);  // Player eats powerup & remove it from map
+                    listener.powerup();
+                    playerSystem.getPowerup(player,powerup); // Powerup give a state to player
+                }
+            }
+
+            // Check if player collided with another player
+
+        }
+
+        // Check if bullet hit opponent
+
     }
 }
