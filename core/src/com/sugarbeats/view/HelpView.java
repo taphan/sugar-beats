@@ -3,11 +3,11 @@ package com.sugarbeats.view;
 import com.sugarbeats.SugarBeats;
 
 /**
- * Created by taphan on 08.03.2018.
+ * Created by taphan on 11.04.2018.
  */
 
-public class SettingsView extends BaseView{
-    public SettingsView(SugarBeats game) {
+public class HelpView extends BaseView{
+    public HelpView(SugarBeats game) {
         super(game.getBatch());
     }
 

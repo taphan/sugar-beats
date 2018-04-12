@@ -3,7 +3,7 @@ package com.sugarbeats.game.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.sugarbeats.game.SugarBeats;
+import com.sugarbeats.SugarBeats;
 
 public class HtmlLauncher extends GwtApplication {
 
