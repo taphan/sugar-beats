@@ -3,7 +3,6 @@ package com.sugarbeats.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector3;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.presenter.MainMenuPresenter;
@@ -23,8 +22,9 @@ public class MainMenuView extends BaseView{
     Vector3 touchPoint;
     MainMenuPresenter.ViewController controller;
 
-    public MainMenuView(Batch batch, MainMenuPresenter.ViewController controller) {
-        super(batch);
+    public MainMenuView(SugarBeats game, MainMenuPresenter.ViewController controller) {
+        super(game.batch);
+        this.game = game;
         this.controller = controller;
 
         guiCam = new OrthographicCamera(320, 480);
@@ -60,6 +60,7 @@ public class MainMenuView extends BaseView{
 
     }
 
+    @Override
     public void draw() {
         Texture img = new Texture("badlogic.jpg");
         game.batch.begin();

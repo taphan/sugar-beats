@@ -1,6 +1,5 @@
 package com.sugarbeats;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -14,8 +13,8 @@ public class SugarBeats extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		// Start the game by presenting the main menu screen
 		setScreen(new MainMenuPresenter(this));
-
 	}
 
 	@Override
