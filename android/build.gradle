@@ -19,8 +19,8 @@ android {
     }
     defaultConfig {
         applicationId "com.sugarbeats.game"
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion android_min_version
+        targetSdkVersion android_compile_version
         versionCode 1
         versionName "1.0"
     }
@@ -134,4 +134,9 @@ idea {
             }
         }
     }
+}
+
+dependencies{
+    compile "com.google.android.gms:play-services-games:12.0.0"
+
 }
