@@ -3,7 +3,6 @@ package com.sugarbeats.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector3;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.presenter.MainMenuPresenter;
@@ -20,25 +19,31 @@ public class MainMenuView extends BaseView{
     Rectangle playBounds;
     Rectangle helpBounds;
     Rectangle settingBounds;
+    Texture playBtn;
+    Texture settingBtn;
+    Texture helpBtn;
     Vector3 touchPoint;
     MainMenuPresenter.ViewController controller;
 
-    public MainMenuView(Batch batch, MainMenuPresenter.ViewController controller) {
-        super(batch);
+    public MainMenuView(SugarBeats game, MainMenuPresenter.ViewController controller) {
+        super(game.batch);
+        this.game = game;
         this.controller = controller;
 
-        guiCam = new OrthographicCamera(320, 480);
-        guiCam.position.set(320 / 2, 480 / 2, 0);
-        playBounds = new Rectangle(160 - 150, 200 + 18, 300, 36);
-        settingBounds = new Rectangle(160 - 150, 200 - 18, 300, 36);
-        helpBounds = new Rectangle(160 - 150, 200 - 18 - 36, 300, 36);
+        playBtn = new Texture("button_play.png");
+        settingBtn = new Texture("button_settings.png");
+        helpBtn = new Texture("button_help.png");
+        playBounds = new Rectangle(SugarBeats.WIDTH / 2 - playBtn.getWidth() / 2, SugarBeats.HEIGHT - playBtn.getHeight() - SugarBeats.HEIGHT / 2, playBtn.getWidth(), playBtn.getHeight());
+        settingBounds = new Rectangle(SugarBeats.WIDTH / 2 + settingBtn.getWidth() / 2, SugarBeats.HEIGHT - settingBtn.getHeight() - SugarBeats.HEIGHT / 4, settingBtn.getWidth(), settingBtn.getHeight());
+        helpBounds = new Rectangle(SugarBeats.WIDTH / 2 - helpBtn.getWidth() * 3 / 2, SugarBeats.HEIGHT - helpBtn.getHeight() - SugarBeats.HEIGHT / 4, helpBtn.getWidth(), helpBtn.getHeight());
         touchPoint = new Vector3();
     }
 
     @Override
     public void update (float delta) {
         if (Gdx.input.justTouched()) {
-            guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+            // Set touch point to check for whether a menu button has been pressed
+            touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 
             if (playBounds.contains(touchPoint.x, touchPoint.y)) {
                 controller.onPlay();
@@ -60,17 +65,16 @@ public class MainMenuView extends BaseView{
 
     }
 
+    @Override
     public void draw() {
-        Texture img = new Texture("badlogic.jpg");
+        // Draw menu buttons
+        // TODO: Add title picture/text and background
+        // TODO: Discuss about whether its necessary to constantly call the draw() function from render, is it enough to call it once during creation of class?
         game.batch.begin();
-        game.batch.draw(img, 0, 0);
+        game.batch.draw(playBtn, SugarBeats.WIDTH / 2 - playBtn.getWidth() / 2, SugarBeats.HEIGHT / 2);
+        game.batch.draw(settingBtn, SugarBeats.WIDTH / 2 + settingBtn.getWidth() / 2, SugarBeats.HEIGHT / 4);
+        game.batch.draw(helpBtn, SugarBeats.WIDTH / 2 - helpBtn.getWidth() * 3 / 2, SugarBeats.HEIGHT / 4);
         game.batch.end();
     }
-
-    public void render (float delta) {
-        update(delta);
-        draw();
-    }
-
 
 }
