@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\56c30f99141b5a4d8d8104b11dc43c0816c165dc\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\56c30f99141b5a4d8d8104b11dc43c0816c165dc\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\56c30f99141b5a4d8d8104b11dc43c0816c165dc\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\56c30f99141b5a4d8d8104b11dc43c0816c165dc\\output\\res\\layout-v21\\notification_action.xml"
+    }
+]
