@@ -5,10 +5,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sugarbeats.service.INet;
+
 
 public class SugarBeats extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
+
+	private INet logIn;
+
+	public SugarBeats(INet logIn){
+		this.logIn = logIn;
+
+	}
+
+
+
 
 
 
@@ -16,6 +28,8 @@ public class SugarBeats extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+
+
 	}
 
 	@Override
