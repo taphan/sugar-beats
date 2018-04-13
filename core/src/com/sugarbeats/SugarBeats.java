@@ -8,6 +8,10 @@ import com.sugarbeats.presenter.MainMenuPresenter;
 
 public class SugarBeats extends Game {
 
+	public static final int VIRTUAL_WIDTH = 1920;
+	public static final int VIRTUAL_HEIGHT = 1080;
+	public static final int WIDTH = 640;
+	public static final int HEIGHT = 360;
 	public SpriteBatch batch;
 
 	@Override
