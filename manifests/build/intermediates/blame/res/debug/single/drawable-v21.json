@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\56c30f99141b5a4d8d8104b11dc43c0816c165dc\\output\\res\\drawable-v21\\notification_action_background.xml"
     },
@@ -8,8 +16,16 @@
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\863cf2f9d855ab707d2a85d0af1fae5437e86edf\\output\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",

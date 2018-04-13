@@ -1,39 +1,43 @@
 [
     {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_exit.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_tooltip_exit.xml"
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_slide_in_bottom.xml"
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_slide_out_top.xml"
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_enter.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_tooltip_enter.xml"
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
@@ -44,7 +48,51 @@
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_exit.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_exit.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_enter.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_tooltip_enter.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_tooltip_enter.xml"
+    },
+    {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\anim\\abc_slide_in_top.xml"
     }
 ]
