@@ -19,7 +19,4 @@ public abstract class BaseView extends Stage implements IView {
         act(dt);
     }
 
-
-
-
 }

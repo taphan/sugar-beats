@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\56c30f99141b5a4d8d8104b11dc43c0816c165dc\\output\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    }
+]

@@ -10,6 +10,11 @@ import com.sugarbeats.service.INet;
 
 public class SugarBeats extends Game {
 
+	public static final int VIRTUAL_WIDTH = 1920;
+	public static final int VIRTUAL_HEIGHT = 1080;
+	public static final int WIDTH = 640;
+	public static final int HEIGHT = 360;
+  public static final String TITLE = "Sugar Beats";
 	public SpriteBatch batch;
 
 	private INet logIn;
@@ -19,9 +24,12 @@ public class SugarBeats extends Game {
 
 	}
 
+
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		// Start the game by presenting the main menu screen
 		setScreen(new MainMenuPresenter(this));
 	}
 

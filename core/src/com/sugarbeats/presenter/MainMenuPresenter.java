@@ -15,8 +15,13 @@ public class MainMenuPresenter extends BasePresenter{
 
     public MainMenuPresenter(final SugarBeats game) {
         this.game = game;
-        this.view = new MainMenuView(game.getBatch(), new ViewController());
-        // This view must be able to be obtained globally
+
+        this.view = new MainMenuView(game, new ViewController());
+    }
+
+    @Override
+    public IView getView() {
+        return view;
     }
 
     public class ViewController {
