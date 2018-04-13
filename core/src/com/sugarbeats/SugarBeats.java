@@ -1,21 +1,28 @@
 package com.sugarbeats;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.presenter.MainMenuPresenter;
+import com.sugarbeats.service.INet;
+
 
 public class SugarBeats extends Game {
 
 	public SpriteBatch batch;
 
+	private INet logIn;
+
+	public SugarBeats(INet logIn){
+		this.logIn = logIn;
+
+	}
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		setScreen(new MainMenuPresenter(this));
-
 	}
 
 	@Override
