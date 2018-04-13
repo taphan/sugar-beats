@@ -15,6 +15,7 @@ public class MainMenuPresenter extends BasePresenter{
 
     public MainMenuPresenter(final SugarBeats game) {
         this.game = game;
+
         this.view = new MainMenuView(game, new ViewController());
     }
 

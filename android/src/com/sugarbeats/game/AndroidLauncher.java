@@ -8,10 +8,42 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.sugarbeats.SugarBeats;
 
 public class AndroidLauncher extends AndroidApplication {
+
+    private LogIn logIn;
+
+
+
+
+
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
+		logIn = new LogIn(this);
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		initialize(new SugarBeats(), config);
+		initialize(new SugarBeats(logIn), config);
+
+
 	}
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        logIn.signInSilently();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+

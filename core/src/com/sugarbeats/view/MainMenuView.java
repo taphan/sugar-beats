@@ -19,6 +19,7 @@ public class MainMenuView extends BaseView{
     Rectangle playBounds;
     Rectangle helpBounds;
     Rectangle settingBounds;
+
     Texture playBtn;
     Texture settingBtn;
     Texture helpBtn;
@@ -42,6 +43,7 @@ public class MainMenuView extends BaseView{
     @Override
     public void update (float delta) {
         if (Gdx.input.justTouched()) {
+
             // Set touch point to check for whether a menu button has been pressed
             touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 
@@ -76,5 +78,4 @@ public class MainMenuView extends BaseView{
         game.batch.draw(helpBtn, SugarBeats.WIDTH / 2 - helpBtn.getWidth() * 3 / 2, SugarBeats.HEIGHT / 4);
         game.batch.end();
     }
-
 }
