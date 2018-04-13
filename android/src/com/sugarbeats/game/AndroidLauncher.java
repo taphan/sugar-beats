@@ -11,10 +11,6 @@ public class AndroidLauncher extends AndroidApplication {
 
     private LogIn logIn;
 
-
-
-
-
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		logIn = new LogIn(this);
