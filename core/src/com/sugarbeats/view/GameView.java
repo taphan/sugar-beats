@@ -11,6 +11,7 @@ public class GameView extends BaseView {
     static final int GAME_RUNNING = 1;
     static final int GAME_OVER = 2;
 
+
     public GameView(SugarBeats game) {
         super(game.getBatch());
     }
