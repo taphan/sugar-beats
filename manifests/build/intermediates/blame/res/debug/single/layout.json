@@ -8,12 +8,12 @@
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
@@ -24,12 +24,12 @@
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\0fc43dd8b8bb9965b6987848797d5c51d1440e88\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "C:\\Users\\qpb96\\Documents\\NTNU\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
