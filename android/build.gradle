@@ -148,7 +148,7 @@ dependencies{
 //    compile "com.android.support:support-v4:${support_library_version}"
 
     compile 'com.android.support:multidex:1.0.0'
-    compile google
+
 
 
 }
