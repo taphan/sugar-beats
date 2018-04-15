@@ -24,6 +24,7 @@ android {
         targetSdkVersion android_compile_version
         versionCode 2
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -145,7 +146,9 @@ buildscript {
 dependencies{
 //    compile "com.android.support:appcompat-v7:${appcompat_library_version}"
 //    compile "com.android.support:support-v4:${support_library_version}"
-    compile "com.google.android.gms:play-services-games:12.0.1"
-    compile "com.google.android.gms:play-services-auth:12.0.1"
+
+    compile 'com.android.support:multidex:1.0.0'
+    compile google
+
 
 }

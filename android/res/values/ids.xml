@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-</resources>
 
-<!--
+
+
 <resources>
     <string name="app_id" translatable="false">168036996701</string>
     <string name="package_name" translatable="false">com.sugarbeats.game</string>
-</resources> -->
+  <string name="achievement_dum_dum">CgkIpsC36qwWEAIQAw</string>
+  <string name="leaderboard_highest">CgkIpsC36qwWEAIQAA</string>
+</resources>
