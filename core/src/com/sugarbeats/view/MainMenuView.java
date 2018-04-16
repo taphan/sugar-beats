@@ -14,6 +14,24 @@ import com.sugarbeats.service.AudioService;
 
 public class MainMenuView extends BaseView{
     SugarBeats game;
+
+    Rectangle playBounds;
+    Rectangle helpBounds;
+    Rectangle settingBounds;
+    Rectangle hsBounds;
+    Rectangle highScoreBounds;
+    Rectangle achieveMentsBounds;
+    Rectangle multiplayerBounds;
+
+    Texture playBtn;
+    Texture settingBtn;
+    Texture helpBtn;
+    Texture hsBtn;
+    Texture acBtn;
+    Texture mBtn;
+
+
+
     Vector3 touchPoint;
     MainMenuPresenter.ViewController controller;
     OrthographicCamera cam;
@@ -29,6 +47,27 @@ public class MainMenuView extends BaseView{
 
         cam = new OrthographicCamera();
         cam.setToOrtho(false, WIDTH, HEIGHT);
+
+
+        playBtn = new Texture("button_play.png");
+        settingBtn = new Texture("button_settings.png");
+        helpBtn = new Texture("button_help.png");
+        hsBtn = new Texture("button_highscore.png");
+        acBtn = new Texture("button_achievements.png");
+        mBtn = new Texture("button_multiplayer.png");
+
+        playBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
+        settingBounds = new Rectangle(WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, settingBtn.getWidth() / 3, settingBtn.getHeight() / 3);
+        helpBounds = new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        hsBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        highScoreBounds = new Rectangle(WIDTH / 2 - hsBtn.getWidth()/3 / 2, HEIGHT / 4, hsBtn.getWidth() / 3, hsBtn.getHeight() / 3);
+        achieveMentsBounds = new Rectangle(WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
+        multiplayerBounds= new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2, mBtn.getWidth() / 3, mBtn.getHeight() / 3);
+
+
+
+
+
         touchPoint = new Vector3();
     }
 
@@ -56,6 +95,18 @@ public class MainMenuView extends BaseView{
                 AudioService.playSound(AudioService.buttonPressSound);
                 System.out.println("hs bounds");
             }
+            if (hsBounds.contains(touchPoint.x, touchPoint.y)) {
+                controller.onShowLeaderboard();
+                System.out.println("HIGHSCORE bounds");
+            }
+            if (achieveMentsBounds.contains(touchPoint.x, touchPoint.y)) {
+                controller.onShowAchievments();
+                System.out.println("Achievements bounds");
+            }
+            if (multiplayerBounds.contains(touchPoint.x, touchPoint.y)) {
+                controller.onMultiPlayer();
+                System.out.println("Achievements bounds");
+            }
 
         }
     }
@@ -73,11 +124,16 @@ public class MainMenuView extends BaseView{
         cam.update();
         game.batch.setProjectionMatrix(cam.combined);
         game.batch.begin();
+
+ 
         game.batch.draw(AssetService.mainMenu, 0, 0, WIDTH, HEIGHT); //BAD!! Needs to be more dynamic
         game.batch.draw(AssetService.playBtn, WIDTH / 2 - AssetService.playBtn.getWidth()/3 / 2, HEIGHT / 2, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
         game.batch.draw(AssetService.settingBtn, WIDTH / 2 + AssetService.settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, AssetService.settingBtn.getWidth() / 3, AssetService.settingBtn.getHeight() / 3);
         game.batch.draw(AssetService.helpBtn, WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, AssetService.helpBtn.getWidth() / 3, AssetService.helpBtn.getHeight() / 3);
         game.batch.draw(AssetService.hsBtn, WIDTH / 2 - AssetService.playBtn.getWidth()/3 / 2, HEIGHT / 4, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
+        game.batch.draw(acBtn, WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
+        game.batch.draw(mBtn, WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2, mBtn.getWidth() / 3, mBtn.getHeight() / 3);
+
         game.batch.end();
     }
 }

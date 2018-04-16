@@ -31,7 +31,7 @@ public class MainMenuPresenter extends BasePresenter{
         }
 
         public void onHelp() {
-            game.setScreen(new HelpPresenter(game, MainMenuPresenter.this));
+            game.setScreen(new HelpPresenter(game,MainMenuPresenter.this));
         }
 
         public void onSettings() {
@@ -40,6 +40,19 @@ public class MainMenuPresenter extends BasePresenter{
 
         public void onQuit() {
             Gdx.app.exit();
+        }
+
+        public void onMultiPlayer(){
+            game.setScreen(new MultiPlayerMenuPresenter(game ));
+        }
+
+        public void onShowLeaderboard(){
+            SugarBeats.playServices.showScore();
+
+        }
+
+        public void onShowAchievments() {
+            SugarBeats.playServices.showAchievement();
         }
 
     }

@@ -17,4 +17,5 @@ public interface IPlayService {
         public void showAchievement();
         public void showScore();
         public boolean isSignedIn();
+        public void invitePlayers(boolean autoMatch);
     }
