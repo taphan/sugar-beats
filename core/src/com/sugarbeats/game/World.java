@@ -67,4 +67,9 @@ public class World {
 
         return entity;
     }
+
+    public void update(float delta) {
+        if (state == WORLD_STATE_RUNNING)
+            engine.update(delta);
+    }
 }

@@ -54,12 +54,12 @@ public class PlayerSystem extends IteratingSystem {
         MovementComponent mov = mm.get(entity);
         PlayerComponent player = pm.get(entity);
 
-        if (t.pos.x < 0) {
-            t.pos.x = World.WORLD_WIDTH;
+        if (t.position.x < 0) {
+            t.position.x = World.WORLD_WIDTH;
         }
         // Prevent player from going outside of the world's width
-        if (t.pos.x > World.WORLD_WIDTH) {
-            t.pos.x = 0;
+        if (t.position.x > World.WORLD_WIDTH) {
+            t.position.x = 0;
         }
     }
 

@@ -36,7 +36,7 @@ public class RenderSystem extends IteratingSystem {
         float originY = height * 0.5f;
 
 
-        batch.draw(tex, originX, originY);
+        batch.draw(tex, originX, originY,180,50);
         batch.end();
 
     }

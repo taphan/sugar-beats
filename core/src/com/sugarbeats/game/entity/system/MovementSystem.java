@@ -13,7 +13,7 @@ import com.sugarbeats.game.entity.component.TransformComponent;
  */
 
 public class MovementSystem extends IteratingSystem{
-    private Vector2 tmp = new Vector2();
+    private Vector2 temp = new Vector2();
 
     private ComponentMapper<TransformComponent> tm = ComponentMapper.getFor(TransformComponent.class);
     private ComponentMapper<MovementComponent> mm = ComponentMapper.getFor(MovementComponent.class);
@@ -27,29 +27,15 @@ public class MovementSystem extends IteratingSystem{
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        TransformComponent pos = tm.get(entity);
-        MovementComponent mov = mm.get(entity);;
+        TransformComponent position = tm.get(entity);
+        MovementComponent movement = mm.get(entity);;
 
-        tmp.set(mov.accel).scl(deltaTime);
-        mov.velocity.add(tmp);
+        temp.set(movement.acceleration).scl(deltaTime);
+        movement.velocity.add(temp);
 
-        tmp.set(mov.velocity).scl(deltaTime);
-        pos.pos.add(tmp.x, tmp.y, 0.0f);
-    }
-/*
-    public void addToEngine(Engine engine) {
-        entities =  engine.getEntitiesFor(Family.all(PositionComponent.class, VelocityComponent.class).get());
+        temp.set(movement.velocity).scl(deltaTime);
+        position.position.add(temp.x, temp.y, 0.0f);
     }
 
-    public void update(float deltaTime){
-        for (int i = 0; i < entities.size() ; i++) {
-            Entity entity = entities.get(i);
-            TransformComponent position = tm.get(entity);
-            MovementComponent velocity = mm.get(entity);
-
-        position.pos.x += velocity * GameInput.KeyForce.x * deltaTime; // GameInput in managers
-        }
-    }
-*/
 
 }
