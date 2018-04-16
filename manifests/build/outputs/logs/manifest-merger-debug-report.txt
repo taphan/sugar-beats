@@ -1,15 +1,16 @@
 -- Merging decision tree log ---
 manifest
 ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:1:1-29:12
+
 	package
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:2:5-36
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml:2:5-36
+		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:1:11-69
+		ADDED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml:1:11-69
 	android:versionCode
 		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
@@ -56,3 +57,4 @@ ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidM
 		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:23:13-37
 	android:name
 		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:22:13-58
+

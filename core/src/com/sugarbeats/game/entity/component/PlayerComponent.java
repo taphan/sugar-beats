@@ -9,6 +9,11 @@ import com.badlogic.ashley.core.Component;
 public class PlayerComponent implements Component{
     public static final int STATE_FALL = 0;
     public static final int STATE_HIT = 1;
+    public static final int STATE_PLAY = 2;
+    public static final int STATE_STANDBY = 3;
+    public static final int STATE_NORMAL = 4;
+    public static final int STATE_BOOSTED = 5;  // Ate power up
+
 
     public static final float WIDTH = 0.8f;
     public static final float HEIGHT = 0.8f;
