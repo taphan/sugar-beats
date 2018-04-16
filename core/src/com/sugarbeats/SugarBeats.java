@@ -4,8 +4,10 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sugarbeats.presenter.GamePresenter;
 import com.sugarbeats.presenter.MainMenuPresenter;
 import com.sugarbeats.service.INet;
+import com.sugarbeats.view.GameView;
 
 
 public class SugarBeats extends Game {
@@ -14,7 +16,7 @@ public class SugarBeats extends Game {
 	public static final int VIRTUAL_HEIGHT = 1080;
 	public static final int WIDTH = 640;
 	public static final int HEIGHT = 360;
-  public static final String TITLE = "Sugar Beats";
+  	public static final String TITLE = "Sugar Beats";
 	public SpriteBatch batch;
 
 	private INet logIn;
@@ -24,6 +26,8 @@ public class SugarBeats extends Game {
 
 	}
 
+	// For at Desktop skal fungere
+	public SugarBeats() {}
 
 
 	@Override
@@ -31,6 +35,7 @@ public class SugarBeats extends Game {
 		batch = new SpriteBatch();
 		// Start the game by presenting the main menu screen
 		setScreen(new MainMenuPresenter(this));
+		//setScreen(new GamePresenter(this, new MainMenuPresenter(this)));
 	}
 
 	@Override
