@@ -5,7 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.presenter.MainMenuPresenter;
-import com.sugarbeats.service.INet;
+import com.sugarbeats.service.IPlayService;
 
 
 public class SugarBeats extends Game {
@@ -14,15 +14,18 @@ public class SugarBeats extends Game {
 	public static final int VIRTUAL_HEIGHT = 1080;
 	public static final int WIDTH = 640;
 	public static final int HEIGHT = 360;
-  public static final String TITLE = "Sugar Beats";
+  	public static final String TITLE = "Sugar Beats";
 	public SpriteBatch batch;
 
-	private INet logIn;
+	public static IPlayService playServices;
 
-	public SugarBeats(INet logIn){
-		this.logIn = logIn;
-
+	public SugarBeats(IPlayService playServices){
+		this.playServices = playServices;
 	}
+
+	// For at Desktop skal fungere
+	public SugarBeats() {}
+
 
 
 
