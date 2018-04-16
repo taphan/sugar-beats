@@ -6,7 +6,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.presenter.GamePresenter;
 import com.sugarbeats.presenter.MainMenuPresenter;
+import com.sugarbeats.presenter.QPTEST;
 import com.sugarbeats.service.INet;
+import com.sugarbeats.service.IPlayService;
+
 import com.sugarbeats.view.GameView;
 
 
@@ -19,15 +22,16 @@ public class SugarBeats extends Game {
   	public static final String TITLE = "Sugar Beats";
 	public SpriteBatch batch;
 
-	private INet logIn;
+	public static IPlayService playServices;
 
-	public SugarBeats(INet logIn){
-		this.logIn = logIn;
-
+	public SugarBeats(IPlayService playServices){
+		this.playServices = playServices;
 	}
 
 	// For at Desktop skal fungere
 	public SugarBeats() {}
+
+
 
 
 	@Override
@@ -35,7 +39,6 @@ public class SugarBeats extends Game {
 		batch = new SpriteBatch();
 		// Start the game by presenting the main menu screen
 		setScreen(new MainMenuPresenter(this));
-		//setScreen(new GamePresenter(this, new MainMenuPresenter(this)));
 	}
 
 	@Override
