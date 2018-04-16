@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sugarbeats.game.Assets;
 import com.sugarbeats.presenter.MainMenuPresenter;
 import com.sugarbeats.service.IPlayService;
 
@@ -23,7 +24,7 @@ public class SugarBeats extends Game {
 		this.playServices = playServices;
 	}
 
-	// For at Desktop skal fungere
+	// For Desktop to work
 	public SugarBeats() {}
 
 
@@ -32,6 +33,8 @@ public class SugarBeats extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		//Load assets: graphics and sound
+		Assets.load();
 		// Start the game by presenting the main menu screen
 		setScreen(new MainMenuPresenter(this));
 	}
