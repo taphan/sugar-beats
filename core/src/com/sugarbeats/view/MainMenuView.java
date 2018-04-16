@@ -18,10 +18,12 @@ public class MainMenuView extends BaseView{
     Rectangle playBounds;
     Rectangle helpBounds;
     Rectangle settingBounds;
+    Rectangle hsBounds;
 
     Texture playBtn;
     Texture settingBtn;
     Texture helpBtn;
+    Texture hsBtn;
     Vector3 touchPoint;
     MainMenuPresenter.ViewController controller;
     OrthographicCamera cam;
@@ -41,9 +43,11 @@ public class MainMenuView extends BaseView{
         playBtn = new Texture("button_play.png");
         settingBtn = new Texture("button_settings.png");
         helpBtn = new Texture("button_help.png");
+        hsBtn = new Texture("button_highscore.png");
         playBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
-        settingBounds = new Rectangle(WIDTH / 2 + settingBtn.getWidth()/3 / 2, HEIGHT / 4, settingBtn.getWidth() / 3, settingBtn.getHeight() / 3);
-        helpBounds = new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        settingBounds = new Rectangle(WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, settingBtn.getWidth() / 3, settingBtn.getHeight() / 3);
+        helpBounds = new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        hsBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
         touchPoint = new Vector3();
     }
 
@@ -53,7 +57,6 @@ public class MainMenuView extends BaseView{
 
             // Set touch point to check for whether a menu button has been pressed
             cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
-            System.out.println(touchPoint + ", y: " + (HEIGHT-touchPoint.y));
             if (playBounds.contains(touchPoint.x, touchPoint.y)) {
                 controller.onPlay();
                 return;
@@ -64,6 +67,9 @@ public class MainMenuView extends BaseView{
             }
             if (helpBounds.contains(touchPoint.x, touchPoint.y)) {
                 controller.onHelp();
+            }
+            if (hsBounds.contains(touchPoint.x, touchPoint.y)) {
+                System.out.println("hs bounds");
             }
 
         }
@@ -83,8 +89,9 @@ public class MainMenuView extends BaseView{
         game.batch.setProjectionMatrix(cam.combined);
         game.batch.begin();
         game.batch.draw(playBtn, WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
-        game.batch.draw(settingBtn, WIDTH / 2 + settingBtn.getWidth()/3 / 2, HEIGHT / 4, settingBtn.getWidth() / 3, settingBtn.getHeight() / 3);
-        game.batch.draw(helpBtn, WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        game.batch.draw(settingBtn, WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, settingBtn.getWidth() / 3, settingBtn.getHeight() / 3);
+        game.batch.draw(helpBtn, WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        game.batch.draw(hsBtn, WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 4, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
         game.batch.end();
     }
 }
