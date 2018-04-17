@@ -5,4 +5,6 @@ package com.sugarbeats.game.entity;
  */
 
 public interface EntityComponent {
+
+
 }
