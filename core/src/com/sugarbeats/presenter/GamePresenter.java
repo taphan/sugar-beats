@@ -9,6 +9,9 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.system.AnimationSystem;
+import com.sugarbeats.game.entity.system.GravitySystem;
+import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.view.GameView;
@@ -33,6 +36,7 @@ public class GamePresenter extends ScreenAdapter{
         world = new World(engine);
         view = new GameView(game);
         setupEngine(engine, game.getBatch());
+        world.create();
 
     }
 
@@ -41,6 +45,11 @@ public class GamePresenter extends ScreenAdapter{
         PlayerSystem playerSystem = new PlayerSystem(world);
         engine.addSystem(renderSystem);
         engine.addSystem(playerSystem);
+        engine.addSystem(new MovementSystem());
+        engine.addSystem(new GravitySystem());
+        engine.addSystem(new AnimationSystem());
+
+
     }
 
     @Override

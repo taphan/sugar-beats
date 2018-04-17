@@ -11,6 +11,8 @@ import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.service.AssetService;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 /**
  * Created by Quynh on 4/11/2018.
@@ -55,9 +57,8 @@ public class World {
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
-        //animation.animations.put(PlatformComponent.STATE_NORMAL, Assets.platform);
-        //animation.animations.put(PlatformComponent.STATE_PULVERIZING, Assets.breakingPlatform);
-
+        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character1);
+        texture.region = AssetService.character2;
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
 
@@ -69,7 +70,7 @@ public class World {
         }
 
         // TODO: Give player positions (randomized)
-        position.position.add(5.0f,1.0f,0.0f);
+        position.position.add(225.0f,100.0f,0.0f);
 
         entity.add(animation);
         entity.add(player);

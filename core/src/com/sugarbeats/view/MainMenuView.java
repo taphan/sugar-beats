@@ -135,7 +135,6 @@ public class MainMenuView extends BaseView{
         game.batch.draw(AssetService.hsBtn, WIDTH / 2 - AssetService.playBtn.getWidth()/3 / 2, HEIGHT / 4, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
         game.batch.draw(acBtn, WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
         game.batch.draw(mBtn, WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2, mBtn.getWidth() / 3, mBtn.getHeight() / 3);
-
         game.batch.end();
     }
 }
