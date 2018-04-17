@@ -7,7 +7,6 @@ package com.sugarbeats.service;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.math.Rectangle;
 import com.sugarbeats.SugarBeats;
 
@@ -39,6 +38,9 @@ public class AssetService {
     public static Texture background1;
     public static Texture background2;
     public static Texture background3;
+
+    //Characters
+    public static Texture character1;
 
     //Buttons within the game, with hitboxes
     public static Texture rightBtn;
@@ -91,6 +93,9 @@ public class AssetService {
         helpBounds = new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
         hsBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
 
+        background1 = new Texture("ground1.png");
+        character1 = new Texture("character1.png");
+        
         //TODO: add graphics and bounds for gameplay buttons
 
 
