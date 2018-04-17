@@ -34,6 +34,7 @@ public class PlayerSystem extends IteratingSystem {
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<PowerupComponent> pwrm;
 
+    private float velocityX;
 
     public PlayerSystem(World world) {
         super(family);
@@ -44,6 +45,8 @@ public class PlayerSystem extends IteratingSystem {
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
+
+        velocityX = 0.0f;
     }
 
     // TODO: Finish all player logics (change states)
@@ -61,6 +64,8 @@ public class PlayerSystem extends IteratingSystem {
         if (t.position.x > World.WORLD_WIDTH) {
             t.position.x = 0;
         }
+
+        mov.velocity.x = velocityX;
     }
 
     //TODO: powerup logic
@@ -73,5 +78,9 @@ public class PlayerSystem extends IteratingSystem {
         // If powerup = SPEED: multiply player's velocity by 1.25
 
         // If powerup = POWER: multiply player's damage by 1.25
+    }
+
+    public void setVelocity(float velocity) {
+        this.velocityX = velocity;
     }
 }

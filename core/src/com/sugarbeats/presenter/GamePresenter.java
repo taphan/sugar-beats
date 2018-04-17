@@ -1,11 +1,15 @@
 package com.sugarbeats.presenter;
 
 import com.badlogic.ashley.core.PooledEngine;
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.view.GameView;
 
@@ -16,7 +20,7 @@ import com.sugarbeats.view.GameView;
 public class GamePresenter extends ScreenAdapter{
 
     SugarBeats game;
-    private Screen screen;
+    private Screen parent;
     protected final PooledEngine engine;
     World world;
     GameView view;
@@ -24,7 +28,7 @@ public class GamePresenter extends ScreenAdapter{
 
     public GamePresenter(SugarBeats game, Screen parent) {
         this.game = game;
-        this.screen = screen;
+        this.parent = parent;
         engine = new PooledEngine();
         world = new World(engine);
         view = new GameView(game);
@@ -34,7 +38,9 @@ public class GamePresenter extends ScreenAdapter{
 
     private void setupEngine(PooledEngine engine, SpriteBatch batch) {
         RenderSystem renderSystem = new RenderSystem(batch);
+        PlayerSystem playerSystem = new PlayerSystem(world);
         engine.addSystem(renderSystem);
+        engine.addSystem(playerSystem);
     }
 
     @Override
@@ -46,7 +52,21 @@ public class GamePresenter extends ScreenAdapter{
         if (delta > 0.1f) delta = 0.1f;
         world.update(delta);
         engine.update(delta);
+        updateInput();
     }
 
+    private void updateInput() {
+        Application.ApplicationType appType = Gdx.app.getType();
+        float veloX = 0.0f;
+
+        if (appType == Application.ApplicationType.Android || appType == Application.ApplicationType.iOS) {
+            veloX = Gdx.input.getAccelerometerX();
+        } else {
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = 5f;
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = -5f;
+        }
+
+        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+    }
 
 }
