@@ -17,6 +17,7 @@ public class GameView extends BaseView {
     public GameView(SugarBeats game) {
         super(game.getBatch());
 
+
     }
 
     @Override
