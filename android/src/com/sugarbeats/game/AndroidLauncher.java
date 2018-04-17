@@ -19,6 +19,10 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService{
 	private GameHelper gameHelper;
 	private final static int requestCode = 1;
 	public static final int RC_ACHIEVEMENTS = 1;
+	private static final int RC_SELECT_PLAYERS = 100;
+	private static final int MIN_PLAYERS = 1;
+	private static final int MAX_PLAYERS = 7;
+
 
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
@@ -169,14 +173,11 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService{
 		return gameHelper.isSignedIn();
 	}
 
-
-
-
-
-
-
-
-
+	@Override
+	public void invitePlayers(boolean autoMatch) {
+		Intent intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(gameHelper.getApiClient(),MIN_PLAYERS,MAX_PLAYERS, autoMatch);
+		startActivityForResult(intent, RC_SELECT_PLAYERS);
+	}
 
 
 }
