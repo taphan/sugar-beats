@@ -10,6 +10,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.system.AnimationSystem;
+import com.sugarbeats.game.entity.system.CollisionSystem;
+import com.sugarbeats.game.entity.system.CollisionSystem.CollisionListener;
 import com.sugarbeats.game.entity.system.GravitySystem;
 import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
@@ -28,6 +30,8 @@ public class GamePresenter extends ScreenAdapter{
     World world;
     GameView view;
 
+    CollisionListener collisionListener;
+
 
     public GamePresenter(SugarBeats game, Screen parent) {
         this.game = game;
@@ -35,6 +39,23 @@ public class GamePresenter extends ScreenAdapter{
         engine = new PooledEngine();
         world = new World(engine);
         view = new GameView(game);
+        collisionListener = new CollisionListener() {
+            @Override
+            public void powerup () {
+                System.out.println("Power up sound");
+            }
+
+            @Override
+            public void ground () {
+                System.out.println("Touched the ground!!!");
+            }
+
+            @Override
+            public void hit () {
+                System.out.println("Ouchie got hit..");
+            }
+
+        };
         setupEngine(engine, game.getBatch());
         world.create();
 
@@ -48,8 +69,7 @@ public class GamePresenter extends ScreenAdapter{
         engine.addSystem(new MovementSystem());
         engine.addSystem(new GravitySystem());
         engine.addSystem(new AnimationSystem());
-
-
+        engine.addSystem(new CollisionSystem(world, collisionListener));
     }
 
     @Override

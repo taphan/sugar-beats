@@ -68,6 +68,11 @@ public class PlayerSystem extends IteratingSystem {
         mov.velocity.x = velocityX;
     }
 
+    public void hitGround(Entity entity) {
+        MovementComponent mov = mm.get(entity);
+        mov.velocity.y = 0.0f;
+    }
+
     //TODO: powerup logic
     public void gainPowerup (Entity player, Entity powerup) {
         if (!family.matches(player)) return;

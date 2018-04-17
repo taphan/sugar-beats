@@ -36,9 +36,14 @@ public class AssetService {
     public static Rectangle hsBounds;
 
     //Backgrounds within the game
-    public static Texture background1;
-    public static Texture background2;
-    public static Texture background3;
+    public static TextureRegion background1;
+    public static TextureRegion background2;
+    public static TextureRegion background3;
+
+    //Map within the game
+    public static TextureRegion map1;
+    public static TextureRegion map2;
+    public static TextureRegion map3;
 
     //Characters
     public static TextureRegion character2;
@@ -95,9 +100,12 @@ public class AssetService {
         helpBounds = new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
         hsBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
 
-        background1 = new Texture("ground1.png");
+        map1 = new TextureRegion(loadTexture("ground1.png"));
+        background1 = new TextureRegion(loadTexture("map1.png"));
+        background2 = new TextureRegion(loadTexture("map2.png"));
+
         //character2 = new TextureRegion(new Texture("heliregion.png"),0,0,162,65);
-        Texture heliLoad = loadTexture("superjumper_items.png");
+        Texture heliLoad = loadTexture("character1.png");
         character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(heliLoad,0,65),new TextureRegion(heliLoad,162,65));
         character2 = new TextureRegion(heliLoad, 0, 224, 300, 110);
 
