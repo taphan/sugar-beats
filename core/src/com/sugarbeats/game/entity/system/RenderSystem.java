@@ -15,13 +15,13 @@ import com.sugarbeats.game.entity.component.TransformComponent;
 
 public class RenderSystem extends IteratingSystem {
     Texture tex;
-    private ComponentMapper<TransformComponent> transformM;
+    private ComponentMapper<TransformComponent> tm;
     private SpriteBatch batch;
 
 
     public RenderSystem(SpriteBatch batch) {
         super(Family.all(TransformComponent.class, TextureComponent.class).get());
-        transformM = ComponentMapper.getFor(TransformComponent.class);
+        tm = ComponentMapper.getFor(TransformComponent.class);
         this.batch = batch;
     }
     @Override

@@ -3,6 +3,7 @@ package com.sugarbeats.game;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.math.Vector2;
+import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
 import com.sugarbeats.game.entity.component.GravityComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
@@ -44,6 +45,8 @@ public class World {
 
     private Entity createPlayer(int playerNr){
         Entity entity = engine.createEntity();
+
+        AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         PlayerComponent player = engine.createComponent(PlayerComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
         GravityComponent gravity = engine.createComponent(GravityComponent.class);
@@ -51,6 +54,9 @@ public class World {
         MovementComponent movement = engine.createComponent(MovementComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
+
+        //animation.animations.put(PlatformComponent.STATE_NORMAL, Assets.platform);
+        //animation.animations.put(PlatformComponent.STATE_PULVERIZING, Assets.breakingPlatform);
 
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
@@ -65,6 +71,7 @@ public class World {
         // TODO: Give player positions (randomized)
         position.position.add(5.0f,1.0f,0.0f);
 
+        entity.add(animation);
         entity.add(player);
         entity.add(bounds);
         entity.add(gravity);
