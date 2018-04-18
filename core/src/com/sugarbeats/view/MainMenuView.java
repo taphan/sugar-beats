@@ -40,12 +40,12 @@ public class MainMenuView extends BaseView{
         cam = new OrthographicCamera();
         cam.setToOrtho(false, WIDTH, HEIGHT);
 
-        playBounds = new Rectangle(WIDTH / 2 - AssetService.playBtn.getWidth()/3 / 2, HEIGHT / 2, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
-        settingBounds = new Rectangle(WIDTH / 2 + AssetService.settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, AssetService.settingBtn.getWidth() / 3, AssetService.settingBtn.getHeight() / 3);
-        helpBounds = new Rectangle(WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, AssetService.helpBtn.getWidth() / 3, AssetService.helpBtn.getHeight() / 3);
-        hsBounds = new Rectangle(WIDTH / 2 - AssetService.hsBtn.getWidth()/3 / 2, HEIGHT / 4, AssetService.hsBtn.getWidth() / 3, AssetService.hsBtn.getHeight() / 3);
-        achieveMentsBounds = new Rectangle(WIDTH / 2 + AssetService.settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 2, AssetService.acBtn.getWidth() / 3, AssetService.acBtn.getHeight() / 3);
-        multiplayerBounds= new Rectangle(WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2, AssetService.mBtn.getWidth() / 3, AssetService.mBtn.getHeight() / 3);
+        playBounds = new Rectangle(WIDTH / 2 + AssetService.playBtn.getWidth()/3 / 2 + 120, HEIGHT / 2 + 25, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
+        settingBounds = new Rectangle(WIDTH / 2 - AssetService.settingBtn.getWidth()/3*3 / 2 - 135, HEIGHT / 2 - 30, AssetService.settingBtn.getWidth() / 3, AssetService.settingBtn.getHeight() / 3);
+        helpBounds = new Rectangle(WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 130, HEIGHT / 4 + 18, AssetService.helpBtn.getWidth() / 3, AssetService.helpBtn.getHeight() / 3);
+        hsBounds = new Rectangle(WIDTH / 2 + AssetService.hsBtn.getWidth()/3*3 / 2 - 15, HEIGHT / 4 + 20, AssetService.hsBtn.getWidth() / 3, AssetService.hsBtn.getHeight() / 3);
+        achieveMentsBounds = new Rectangle(WIDTH / 2 - AssetService.acBtn.getWidth()/3 *3/ 2 - 135, HEIGHT / 2 + 5, AssetService.acBtn.getWidth() / 3, AssetService.acBtn.getHeight() / 3);
+        multiplayerBounds= new Rectangle(WIDTH / 2 + AssetService.mBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2 - 25, AssetService.mBtn.getWidth() / 3, AssetService.mBtn.getHeight() / 3);
 
         touchPoint = new Vector3();
     }
@@ -103,12 +103,12 @@ public class MainMenuView extends BaseView{
 
         game.batch.begin();
         game.batch.draw(AssetService.mainMenu, 0, 0, WIDTH, HEIGHT); //BAD!! Needs to be more dynamic
-        game.batch.draw(AssetService.playBtn, WIDTH / 2 - AssetService.playBtn.getWidth()/3 / 2, HEIGHT / 2, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
-        game.batch.draw(AssetService.settingBtn, WIDTH / 2 + AssetService.settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, AssetService.settingBtn.getWidth() / 3, AssetService.settingBtn.getHeight() / 3);
-        game.batch.draw(AssetService.helpBtn, WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, AssetService.helpBtn.getWidth() / 3, AssetService.helpBtn.getHeight() / 3);
-        game.batch.draw(AssetService.hsBtn, WIDTH / 2 - AssetService.hsBtn.getWidth()/3 / 2, HEIGHT / 4, AssetService.hsBtn.getWidth() / 3, AssetService.hsBtn.getHeight() / 3);
-        game.batch.draw(AssetService.acBtn, WIDTH / 2 + AssetService.settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 2, AssetService.acBtn.getWidth() / 3, AssetService.acBtn.getHeight() / 3);
-        game.batch.draw(AssetService.mBtn, WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2, AssetService.mBtn.getWidth() / 3, AssetService.mBtn.getHeight() / 3);
+        game.batch.draw(AssetService.playBtn, WIDTH / 2 + AssetService.playBtn.getWidth()/3 / 2 + 120, HEIGHT / 2 + 25, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
+        game.batch.draw(AssetService.settingBtn, WIDTH / 2 - AssetService.settingBtn.getWidth()/3*3 / 2 - 135, HEIGHT / 2 - 30, AssetService.settingBtn.getWidth() / 3, AssetService.settingBtn.getHeight() / 3);
+        game.batch.draw(AssetService.helpBtn, WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 130, HEIGHT / 4 + 18, AssetService.helpBtn.getWidth() / 3, AssetService.helpBtn.getHeight() / 3);
+        game.batch.draw(AssetService.hsBtn, WIDTH / 2 + AssetService.hsBtn.getWidth()/3*3 / 2 - 15, HEIGHT / 4 + 20, AssetService.hsBtn.getWidth() / 3 + 10, AssetService.hsBtn.getHeight() / 3);
+        game.batch.draw(AssetService.acBtn, WIDTH / 2 - AssetService.acBtn.getWidth()/3 *3/ 2 - 135, HEIGHT / 2 + 5, AssetService.acBtn.getWidth() / 3, AssetService.acBtn.getHeight() / 3);
+        game.batch.draw(AssetService.mBtn, WIDTH / 2 + AssetService.mBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2 - 25, AssetService.mBtn.getWidth() / 3, AssetService.mBtn.getHeight() / 3);
         game.batch.end();
     }
 }
