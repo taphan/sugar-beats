@@ -27,18 +27,22 @@ public class AssetService {
     public static Texture settingBtn;
     public static Texture helpBtn;
     public static Texture hsBtn;
+    public static Texture acBtn;
+    public static Texture mBtn;
+
     //TODO: Add logic for music/soundeffects on/off? Good for usability
     //TODO: Add a 'back'-button?
 
-    public static Rectangle playBounds;
-    public static Rectangle settingBounds;
-    public static Rectangle helpBounds;
-    public static Rectangle hsBounds;
 
     //Backgrounds within the game
-    public static Texture background1;
-    public static Texture background2;
-    public static Texture background3;
+    public static TextureRegion background1;
+    public static TextureRegion background2;
+    public static TextureRegion background3;
+
+    //Map within the game
+    public static TextureRegion map1;
+    public static TextureRegion map2;
+    public static TextureRegion map3;
 
     //Characters
     public static TextureRegion character2;
@@ -74,6 +78,8 @@ public class AssetService {
     public static Animation getHitAnim;
     public static Animation deathAnim;
 
+
+
     public static Texture loadTexture (String file) { //For loading multiple textures for text regions
         return new Texture(Gdx.files.internal(file));
     }
@@ -89,20 +95,20 @@ public class AssetService {
         settingBtn = new Texture("button_settings.png");
         helpBtn = new Texture("button_help.png");
         hsBtn = new Texture("button_highscore.png");
+        acBtn = new Texture("button_achievements.png");
+        mBtn = new Texture("button_multiplayer.png");
 
-        playBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
-        settingBounds = new Rectangle(WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, settingBtn.getWidth() / 3, settingBtn.getHeight() / 3);
-        helpBounds = new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
-        hsBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        map1 = new TextureRegion(loadTexture("ground1.png"));
+        background1 = new TextureRegion(loadTexture("map1.png"));
+        background2 = new TextureRegion(loadTexture("map2.png"));
 
-        background1 = new Texture("ground1.png");
         //character2 = new TextureRegion(new Texture("heliregion.png"),0,0,162,65);
-        Texture heliLoad = loadTexture("superjumper_items.png");
+        Texture heliLoad = loadTexture("character1.png");
         character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(heliLoad,0,65),new TextureRegion(heliLoad,162,65));
         character2 = new TextureRegion(heliLoad, 0, 224, 300, 110);
 
         //TODO: add graphics and bounds for gameplay buttons
-
+        fireBtn = new Texture("button_shoot.png");
 
         //Animation logic
         //TODO: use the link below on how to make animations

@@ -4,15 +4,16 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.game.entity.component.AnimationComponent;
+import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
 import com.sugarbeats.game.entity.component.GravityComponent;
+import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 import com.sugarbeats.service.AssetService;
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 /**
  * Created by Quynh on 4/11/2018.
@@ -26,7 +27,7 @@ public class World {
     public static final int WORLD_STATE_RUNNING = 0;
     public static final int WORLD_STATE_GAME_OVER = 1;
 
-    public static final Vector2 gravity = new Vector2(0, -12);
+    public static final Vector2 gravity = new Vector2(0, -9.81f);
     private PooledEngine engine;
     public int state;
 
@@ -36,6 +37,7 @@ public class World {
     }
 
     public void create() {
+        createGround();
         createPlayer(1);
         Entity player2 = createPlayer(2);
 
@@ -70,7 +72,8 @@ public class World {
         }
 
         // TODO: Give player positions (randomized)
-        position.position.add(225.0f,220.0f,0.0f);
+        position.position.add(225.0f,200.0f,0.0f);
+        position.scale.add(-0.7f, -0.7f);
 
         entity.add(animation);
         entity.add(player);
@@ -84,6 +87,43 @@ public class World {
         engine.addEntity(entity);
 
         return entity;
+    }
+
+    // If it is possible to choose between several maps, send in an int as a parameter
+    private void createGround() {
+        Entity entity = engine.createEntity();
+        GroundComponent ground = engine.createComponent(GroundComponent.class);
+        BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
+        TransformComponent position = engine.createComponent(TransformComponent.class);
+        TextureComponent texture = engine.createComponent(TextureComponent.class);
+
+        texture.region = AssetService.map1;
+        bounds.bounds.width = GroundComponent.WIDTH;
+        bounds.bounds.height = GroundComponent.HEIGHT;
+        position.position.add(4.0f,0.0f,0.0f);
+
+        entity.add(ground);
+        entity.add(bounds);
+        entity.add(position);
+        entity.add(texture);
+        engine.addEntity(entity);
+    }
+
+    // Note: currently very messy background
+    private void createBackground() {
+        Entity entity = engine.createEntity();
+
+        BackgroundComponent background = engine.createComponent(BackgroundComponent.class);
+        TransformComponent position = engine.createComponent(TransformComponent.class);
+        TextureComponent texture = engine.createComponent(TextureComponent.class);
+
+        texture.region = AssetService.background1;
+
+        entity.add(background);
+        entity.add(position);
+        entity.add(texture);
+
+        engine.addEntity(entity);
     }
 
     public void update(float delta) {

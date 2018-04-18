@@ -8,6 +8,7 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.PowerupComponent;
@@ -29,12 +30,14 @@ public class CollisionSystem extends EntitySystem {
     public static interface CollisionListener {   // Listens to collisions
         public void powerup();  // Player got powerup
         public void hit();      // Player hit opponent
+        public void ground();   // Player touched the ground
     }
 
     private Engine engine;
     private World world;
     private CollisionListener listener;
     private ImmutableArray<Entity> players;
+    private ImmutableArray<Entity> ground;
     private ImmutableArray<Entity> powerups;
 
     public CollisionSystem(World world, CollisionListener listener) {
@@ -52,16 +55,30 @@ public class CollisionSystem extends EntitySystem {
         this.engine = engine;
 
         players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
+        ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
         powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
     }
 
     @Override
     public void update(float deltaTime) {
         PlayerSystem playerSystem = engine.getSystem(PlayerSystem.class);
-
         for (int i = 0; i < players.size(); i++) {   // Update all players at each call
             Entity player = players.get(i);
             BoundsComponent playerBounds = bm.get(player);
+            TransformComponent playerPosition = tm.get(player);
+
+            // Check if player has been dropped to the ground
+            Entity currentGround = ground.get(0);
+            TransformComponent groundPosition = tm.get(currentGround);
+            BoundsComponent groundBounds = bm.get(currentGround);
+
+            // TODO: Adjust the if-sentence to not hardcode the coordinate
+            if (playerPosition.position.y - (groundPosition.position.y + groundBounds.bounds.height) <= 160) {
+                if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
+                    // If the player is standing on a ground, stop falling
+                    playerSystem.hitGround(player);
+                }
+            }
 
             // Check if player touched powerup
             for (int j = 0; j < powerups.size(); j++) {

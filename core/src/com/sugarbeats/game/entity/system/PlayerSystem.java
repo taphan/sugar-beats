@@ -5,7 +5,6 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.sugarbeats.game.World;
-import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.PowerupComponent;
@@ -23,8 +22,8 @@ public class PlayerSystem extends IteratingSystem {
     private static final Family family = Family.all(PlayerComponent.class,
             StateComponent.class,
             TransformComponent.class,
-            MovementComponent.class,
-            HealthComponent.class).get();
+            MovementComponent.class).get();
+    // Deleting HealthComponent.class from the family makes it possible to process this system!!
 
     private World world;
 
@@ -50,24 +49,29 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     // TODO: Finish all player logics (change states)
+
     @Override
-    protected void processEntity(Entity entity, float deltaTime) {
+    public void processEntity(Entity entity, float deltaTime) {
         TransformComponent t = tm.get(entity);
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
         PlayerComponent player = pm.get(entity);
-
+/*
         if (t.position.x < 0) {
             t.position.x = World.WORLD_WIDTH;
         }
         // Prevent player from going outside of the world's width
         if (t.position.x > World.WORLD_WIDTH) {
             t.position.x = 0;
-        }
+        }*/
 
-        mov.velocity.x = velocityX;
-        System.out.println("Set velocity to: "+ mov.velocity.x);
+        //mov.velocity.x = velocityX;
+        mov.velocity.x = this.velocityX;
+    }
 
+    public void hitGround(Entity entity) {
+        MovementComponent mov = mm.get(entity);
+        mov.velocity.y = 0.0f;
     }
 
     //TODO: powerup logic
@@ -83,6 +87,7 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     public void setVelocity(float velocity) {
+        //System.out.println("set new velocity: " + this.velocityX);
         this.velocityX = velocity;
     }
 }
