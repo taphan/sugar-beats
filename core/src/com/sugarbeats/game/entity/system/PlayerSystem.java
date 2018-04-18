@@ -5,7 +5,6 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.sugarbeats.game.World;
-import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.PowerupComponent;
@@ -23,8 +22,8 @@ public class PlayerSystem extends IteratingSystem {
     private static final Family family = Family.all(PlayerComponent.class,
             StateComponent.class,
             TransformComponent.class,
-            MovementComponent.class,
-            HealthComponent.class).get();
+            MovementComponent.class).get();
+    // Deleting HealthComponent.class from the family makes it possible to process this system!!
 
     private World world;
 
@@ -50,9 +49,9 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     // TODO: Finish all player logics (change states)
+
     @Override
     public void processEntity(Entity entity, float deltaTime) {
-        System.out.println("processing");
         TransformComponent t = tm.get(entity);
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
@@ -68,7 +67,7 @@ public class PlayerSystem extends IteratingSystem {
         }
 
         //mov.velocity.x = velocityX;
-        mov.velocity.add(velocityX,0);
+        mov.velocity.x = this.velocityX;
     }
 
     public void hitGround(Entity entity) {
