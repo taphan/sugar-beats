@@ -91,7 +91,7 @@ public class GamePresenter extends ScreenAdapter{
         float veloX = 0.0f;
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
-        if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) veloX = 250f;
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 250f;
 
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
