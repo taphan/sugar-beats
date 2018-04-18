@@ -40,6 +40,7 @@ public class World {
         createGround();
         createPlayer(1);
         Entity player2 = createPlayer(2);
+        //createwalking();
 
         //createCamera(player1);
         //createBackground();
@@ -59,8 +60,11 @@ public class World {
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
-        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character1);
-        texture.region = AssetService.character2;
+        //animation.animations.put(AnimationComponent.STATE_NORMAL, AssetService.character2);
+        animation.animations.put(PlayerComponent.STATE_NORMAL, AssetService.character2);
+        //texture.region = AssetService.character2;
+
+
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
 
@@ -85,7 +89,7 @@ public class World {
         entity.add(texture);
 
         engine.addEntity(entity);
-
+        state.set(PlayerComponent.STATE_NORMAL);
         return entity;
     }
 

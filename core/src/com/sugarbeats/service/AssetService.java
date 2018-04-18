@@ -45,7 +45,8 @@ public class AssetService {
     public static TextureRegion map3;
 
     //Characters
-    public static TextureRegion character2;
+    //public static TextureRegion character2;
+    public static Animation<TextureRegion> character2;
     public static Animation<TextureRegion> character1;
 
     //Buttons within the game, with hitboxes
@@ -71,6 +72,8 @@ public class AssetService {
     public static Rectangle pauseBounds;
 
     //Animations
+    public static Texture walk;
+
     public static Animation walkAnim;
     public static Animation shootAnim;
     public static Animation projectimeAnim;
@@ -103,9 +106,15 @@ public class AssetService {
         background2 = new TextureRegion(loadTexture("map2.png"));
 
         //character2 = new TextureRegion(new Texture("heliregion.png"),0,0,162,65);
-        Texture heliLoad = loadTexture("character1.png");
-        character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(heliLoad,0,65),new TextureRegion(heliLoad,162,65));
-        character2 = new TextureRegion(heliLoad, 0, 224, 300, 110);
+        //character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(wl,0,65),new TextureRegion(heliLoad,162,65));
+        //character2 = new TextureRegion(walk, 1500, 0, 500, 500);
+
+        walk = loadTexture("char1ani.png");
+        character2 = new Animation<TextureRegion>(0.2f,
+                new TextureRegion(walk, 0, 0, 500, 500),
+                new TextureRegion(walk, 500, 0, 500, 500),
+                new TextureRegion(walk, 1000, 0, 500, 500),
+                new TextureRegion(walk, 1500, 0, 500, 500));
 
         //TODO: add graphics and bounds for gameplay buttons
         fireBtn = new Texture("button_shoot.png");
@@ -114,6 +123,9 @@ public class AssetService {
         //TODO: use the link below on how to make animations
         // https://github.com/saltares/ashley-superjumper/blob/master/core/src/com/siondream/superjumper/Assets.java
         //We might have to do it differently from them though, I suspect these animations run as an infinite loop regardless of user input
+
+       //character2.setPlayMode(Animation.PlayMode.LOOP);
     }
+
 
 }
