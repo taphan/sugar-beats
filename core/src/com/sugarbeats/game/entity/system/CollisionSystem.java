@@ -72,19 +72,13 @@ public class CollisionSystem extends EntitySystem {
             TransformComponent groundPosition = tm.get(currentGround);
             BoundsComponent groundBounds = bm.get(currentGround);
 
-            if (playerPosition.position.y > groundPosition.position.y) {
+            // TODO: Adjust the if-sentence to not hardcode the coordinate
+            if (playerPosition.position.y - (groundPosition.position.y + groundBounds.bounds.height) <= 160) {
                 if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
                     // If the player is standing on a ground, stop falling
-                    /*System.out.println("player y: " + playerPosition.position.y);
-                    System.out.println("ground y: " + groundPosition.position.y);
-                    System.out.println("player bound: " + playerBounds.bounds.getX() + " ," + playerBounds.bounds.getY());
-                    System.out.println("ground bound: " + groundBounds.bounds.getX() + " ," + groundBounds.bounds.getY());
-                    */
-                    System.out.println("Hit the ground");
                     playerSystem.hitGround(player);
                 }
             }
-
 
             // Check if player touched powerup
             for (int j = 0; j < powerups.size(); j++) {

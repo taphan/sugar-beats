@@ -75,6 +75,9 @@ public class GamePresenter extends ScreenAdapter{
     @Override
     public final void render(float delta) {
         update(delta);
+        view.update(delta);
+        view.draw();
+        view.show();
     }
 
     private void update(float delta) {

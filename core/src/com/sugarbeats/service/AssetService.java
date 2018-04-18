@@ -27,13 +27,12 @@ public class AssetService {
     public static Texture settingBtn;
     public static Texture helpBtn;
     public static Texture hsBtn;
+    public static Texture acBtn;
+    public static Texture mBtn;
+
     //TODO: Add logic for music/soundeffects on/off? Good for usability
     //TODO: Add a 'back'-button?
 
-    public static Rectangle playBounds;
-    public static Rectangle settingBounds;
-    public static Rectangle helpBounds;
-    public static Rectangle hsBounds;
 
     //Backgrounds within the game
     public static TextureRegion background1;
@@ -79,6 +78,8 @@ public class AssetService {
     public static Animation getHitAnim;
     public static Animation deathAnim;
 
+
+
     public static Texture loadTexture (String file) { //For loading multiple textures for text regions
         return new Texture(Gdx.files.internal(file));
     }
@@ -94,11 +95,8 @@ public class AssetService {
         settingBtn = new Texture("button_settings.png");
         helpBtn = new Texture("button_help.png");
         hsBtn = new Texture("button_highscore.png");
-
-        playBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 2, playBtn.getWidth() / 3, playBtn.getHeight() / 3);
-        settingBounds = new Rectangle(WIDTH / 2 + settingBtn.getWidth()/3 / 2 + 20, HEIGHT / 4, settingBtn.getWidth() / 3, settingBtn.getHeight() / 3);
-        helpBounds = new Rectangle(WIDTH / 2 - helpBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
-        hsBounds = new Rectangle(WIDTH / 2 - playBtn.getWidth()/3 / 2, HEIGHT / 4, helpBtn.getWidth() / 3, helpBtn.getHeight() / 3);
+        acBtn = new Texture("button_achievements.png");
+        mBtn = new Texture("button_multiplayer.png");
 
         map1 = new TextureRegion(loadTexture("ground1.png"));
         background1 = new TextureRegion(loadTexture("map1.png"));
@@ -110,7 +108,7 @@ public class AssetService {
         character2 = new TextureRegion(heliLoad, 0, 224, 300, 110);
 
         //TODO: add graphics and bounds for gameplay buttons
-
+        fireBtn = new Texture("button_shoot.png");
 
         //Animation logic
         //TODO: use the link below on how to make animations

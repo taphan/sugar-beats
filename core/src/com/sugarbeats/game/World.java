@@ -27,7 +27,7 @@ public class World {
     public static final int WORLD_STATE_RUNNING = 0;
     public static final int WORLD_STATE_GAME_OVER = 1;
 
-    public static final Vector2 gravity = new Vector2(0, -12);
+    public static final Vector2 gravity = new Vector2(0, -9.81f);
     private PooledEngine engine;
     public int state;
 
@@ -72,7 +72,8 @@ public class World {
         }
 
         // TODO: Give player positions (randomized)
-        position.position.add(225.0f,300.0f,0.0f);
+        position.position.add(225.0f,200.0f,0.0f);
+        position.scale.add(-0.7f, -0.7f);
 
         entity.add(animation);
         entity.add(player);
