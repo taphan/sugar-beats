@@ -5,6 +5,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
@@ -34,10 +35,10 @@ public class AnimationSystem extends IteratingSystem {
         AnimationComponent anim = am.get(entity);
         StateComponent state = sm.get(entity);
 
-        Animation animation = anim.animations.get(state.get());
+        Animation<TextureRegion>  animation = anim.animations.get(state.get());
 
         if (animation != null) {
-            //tex.region = animation.getKeyFrame(state.time);
+            tex.region = animation.getKeyFrame(state.time);
         }
 
         state.time += deltaTime;

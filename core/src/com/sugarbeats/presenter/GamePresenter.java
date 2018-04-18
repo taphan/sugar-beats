@@ -9,6 +9,11 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.system.AnimationSystem;
+import com.sugarbeats.game.entity.system.CollisionSystem;
+import com.sugarbeats.game.entity.system.CollisionSystem.CollisionListener;
+import com.sugarbeats.game.entity.system.GravitySystem;
+import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.view.GameView;
@@ -25,6 +30,8 @@ public class GamePresenter extends ScreenAdapter{
     World world;
     GameView view;
 
+    CollisionListener collisionListener;
+
 
     public GamePresenter(SugarBeats game, Screen parent) {
         this.game = game;
@@ -32,20 +39,43 @@ public class GamePresenter extends ScreenAdapter{
         engine = new PooledEngine();
         world = new World(engine);
         view = new GameView(game);
+        collisionListener = new CollisionListener() {
+            @Override
+            public void powerup () {
+                System.out.println("Power up sound");
+            }
+
+            @Override
+            public void ground () {
+                System.out.println("Touched the ground!!!");
+            }
+
+            @Override
+            public void hit () {
+                System.out.println("Ouchie got hit..");
+            }
+
+        };
         setupEngine(engine, game.getBatch());
+        world.create();
 
     }
 
     private void setupEngine(PooledEngine engine, SpriteBatch batch) {
-        RenderSystem renderSystem = new RenderSystem(batch);
-        PlayerSystem playerSystem = new PlayerSystem(world);
-        engine.addSystem(renderSystem);
-        engine.addSystem(playerSystem);
+        engine.addSystem(new RenderSystem(batch));
+        engine.addSystem(new PlayerSystem(world));
+        engine.addSystem(new MovementSystem());
+        engine.addSystem(new GravitySystem());
+        engine.addSystem(new AnimationSystem());
+        engine.addSystem(new CollisionSystem(world, collisionListener));
     }
 
     @Override
     public final void render(float delta) {
         update(delta);
+        view.update(delta);
+        view.draw();
+        view.show();
     }
 
     private void update(float delta) {
@@ -65,8 +95,8 @@ public class GamePresenter extends ScreenAdapter{
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = 5f;
             if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = -5f;
         }
-
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+
     }
 
 }

@@ -12,8 +12,8 @@ import com.sugarbeats.service.IPlayService;
 
 public class SugarBeats extends Game {
 
-	public static final int VIRTUAL_WIDTH = 1920;
-	public static final int VIRTUAL_HEIGHT = 1080;
+	public static final int VIRTUAL_WIDTH = 960;
+	public static final int VIRTUAL_HEIGHT = 540;
 	public static final int WIDTH = 640;
 	public static final int HEIGHT = 360;
   	public static final String TITLE = "Sugar Beats";
@@ -44,7 +44,8 @@ public class SugarBeats extends Game {
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		// White default background
+		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		super.render();
