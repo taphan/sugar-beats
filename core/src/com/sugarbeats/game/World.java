@@ -53,7 +53,7 @@ public class World {
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         PlayerComponent player = engine.createComponent(PlayerComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
-        //GravityComponent gravity = engine.createComponent(GravityComponent.class);
+        GravityComponent gravity = engine.createComponent(GravityComponent.class);
         StateComponent state = engine.createComponent(StateComponent.class);
         MovementComponent movement = engine.createComponent(MovementComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
@@ -78,7 +78,7 @@ public class World {
         entity.add(animation);
         entity.add(player);
         entity.add(bounds);
-        //entity.add(gravity);
+        entity.add(gravity);
         entity.add(state);
         entity.add(movement);
         entity.add(position);
