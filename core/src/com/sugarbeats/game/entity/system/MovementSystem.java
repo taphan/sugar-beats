@@ -13,7 +13,7 @@ import com.sugarbeats.game.entity.component.TransformComponent;
  */
 
 public class MovementSystem extends IteratingSystem{
-    private Vector2 temp = new Vector2();
+    private Vector2 velo = new Vector2();
 
     private ComponentMapper<TransformComponent> tm = ComponentMapper.getFor(TransformComponent.class);
     private ComponentMapper<MovementComponent> mm = ComponentMapper.getFor(MovementComponent.class);
@@ -30,11 +30,16 @@ public class MovementSystem extends IteratingSystem{
         TransformComponent position = tm.get(entity);
         MovementComponent movement = mm.get(entity);;
 
-        temp.set(movement.acceleration).scl(deltaTime);
-        movement.velocity.add(temp);
-
-        temp.set(movement.velocity).scl(deltaTime);
-        position.position.add(temp.x, temp.y, 0.0f);
+        velo.set(movement.velocity).scl(deltaTime);
+        movement.velocity.set(velo);
+        //velo.set(movement.velocity).scl(deltaTime);
+        position.position.add(velo.x, velo.y, 0.0f);
+        velo.set(movement.velocity).scl(1/deltaTime);
+        /**
+         * velocity.scl(dt);
+         position.add(velocity.x, velocity.y);  // Updating the heli's position continuously
+         velocity.scl(1/dt);
+         */
     }
 
 

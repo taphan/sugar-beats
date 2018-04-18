@@ -48,8 +48,6 @@ public class GamePresenter extends ScreenAdapter{
         engine.addSystem(new MovementSystem());
         engine.addSystem(new GravitySystem());
         engine.addSystem(new AnimationSystem());
-
-
     }
 
     @Override
@@ -59,21 +57,28 @@ public class GamePresenter extends ScreenAdapter{
 
     private void update(float delta) {
         if (delta > 0.1f) delta = 0.1f;
+        updateInput();
         world.update(delta);
         engine.update(delta);
-        updateInput();
     }
 
     private void updateInput() {
-        Application.ApplicationType appType = Gdx.app.getType();
+        /*Application.ApplicationType appType = Gdx.app.getType();
         float veloX = 0.0f;
 
         if (appType == Application.ApplicationType.Android || appType == Application.ApplicationType.iOS) {
             veloX = Gdx.input.getAccelerometerX();
         } else {
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = 5f;
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = -5f;
+            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = 250f;
+            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = -250f;
+        }*/
+        float veloX = 0.0f;
+
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            veloX = 250f;
+            System.out.println("LEFT");
         }
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = -250f;
 
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }

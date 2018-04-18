@@ -25,5 +25,6 @@ public class GravitySystem extends IteratingSystem {
     public void processEntity(Entity entity, float deltaTime) {
         MovementComponent mov = mm.get(entity);
         mov.velocity.add(World.gravity.x * deltaTime, World.gravity.y * deltaTime);
+        System.out.println("Gravity added!");
     }
 }

@@ -66,6 +66,8 @@ public class PlayerSystem extends IteratingSystem {
         }
 
         mov.velocity.x = velocityX;
+        System.out.println("Set velocity to: "+ mov.velocity.x);
+
     }
 
     //TODO: powerup logic

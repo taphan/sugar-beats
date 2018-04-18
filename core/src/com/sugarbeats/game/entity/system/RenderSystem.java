@@ -36,9 +36,10 @@ public class RenderSystem extends IteratingSystem {
         batch.end();
 
     }
-    
+
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
+        // TODO: skriv alt dette her på en annen måte
         TransformComponent transform = transformMapper.get(entity);
         TextureComponent texture = textureMapper.get(entity);
         TextureRegion region = texture.region;
