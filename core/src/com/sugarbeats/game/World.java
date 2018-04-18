@@ -61,7 +61,8 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
         //animation.animations.put(AnimationComponent.STATE_NORMAL, AssetService.character2);
-        animation.animations.put(PlayerComponent.STATE_NORMAL, AssetService.character2);
+        System.out.println(texture.region);
+        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
         //texture.region = AssetService.character2;
 
 
@@ -72,7 +73,7 @@ public class World {
         if (playerNr == 1) {
             state.set(PlayerComponent.STATE_PLAY);
         } else if (playerNr == 2) {
-            state.set(PlayerComponent.STATE_STANDBY);
+            state.set(PlayerComponent.STATE_PLAY);
         }
 
         // TODO: Give player position (randomized)
@@ -89,7 +90,7 @@ public class World {
         entity.add(texture);
 
         engine.addEntity(entity);
-        state.set(PlayerComponent.STATE_NORMAL);
+
         return entity;
     }
 
