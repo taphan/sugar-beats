@@ -51,11 +51,13 @@ public class PlayerSystem extends IteratingSystem {
 
     // TODO: Finish all player logics (change states)
     @Override
-    protected void processEntity(Entity entity, float deltaTime) {
+    public void processEntity(Entity entity, float deltaTime) {
+        System.out.println("processing");
         TransformComponent t = tm.get(entity);
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
         PlayerComponent player = pm.get(entity);
+        System.out.println("processing entity: " + mov.velocity);
 
         if (t.position.x < 0) {
             t.position.x = World.WORLD_WIDTH;
@@ -65,7 +67,8 @@ public class PlayerSystem extends IteratingSystem {
             t.position.x = 0;
         }
 
-        mov.velocity.x = velocityX;
+        //mov.velocity.x = velocityX;
+        mov.velocity.add(velocityX,0);
     }
 
     public void hitGround(Entity entity) {
@@ -86,6 +89,7 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     public void setVelocity(float velocity) {
+        //System.out.println("set new velocity: " + this.velocityX);
         this.velocityX = velocity;
     }
 }

@@ -62,10 +62,8 @@ public class GamePresenter extends ScreenAdapter{
     }
 
     private void setupEngine(PooledEngine engine, SpriteBatch batch) {
-        RenderSystem renderSystem = new RenderSystem(batch);
-        PlayerSystem playerSystem = new PlayerSystem(world);
-        engine.addSystem(renderSystem);
-        engine.addSystem(playerSystem);
+        engine.addSystem(new RenderSystem(batch));
+        engine.addSystem(new PlayerSystem(world));
         engine.addSystem(new MovementSystem());
         engine.addSystem(new GravitySystem());
         engine.addSystem(new AnimationSystem());
@@ -97,8 +95,8 @@ public class GamePresenter extends ScreenAdapter{
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = 5f;
             if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = -5f;
         }
-
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+
     }
 
 }
