@@ -30,16 +30,11 @@ public class MovementSystem extends IteratingSystem{
         TransformComponent position = tm.get(entity);
         MovementComponent movement = mm.get(entity);;
 
+        velo.set(movement.acceleration).scl(deltaTime);
+        movement.velocity.add(velo);
+
         velo.set(movement.velocity).scl(deltaTime);
-        movement.velocity.set(velo);
-        //velo.set(movement.velocity).scl(deltaTime);
-        position.position.add(velo.x, velo.y, 0.0f);
-        velo.set(movement.velocity).scl(1/deltaTime);
-        /**
-         * velocity.scl(dt);
-         position.add(velocity.x, velocity.y);  // Updating the heli's position continuously
-         velocity.scl(1/dt);
-         */
+        position.position.add(velo.x, velo.y);
     }
 
 

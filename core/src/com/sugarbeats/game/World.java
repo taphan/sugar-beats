@@ -54,7 +54,7 @@ public class World {
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         PlayerComponent player = engine.createComponent(PlayerComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
-        //GravityComponent gravity = engine.createComponent(GravityComponent.class);
+        GravityComponent gravity = engine.createComponent(GravityComponent.class);
         StateComponent state = engine.createComponent(StateComponent.class);
         MovementComponent movement = engine.createComponent(MovementComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
@@ -75,14 +75,14 @@ public class World {
             state.set(PlayerComponent.STATE_STANDBY);
         }
 
-        // TODO: Give player positions (randomized)
-        position.position.add(225.0f,200.0f,0.0f);
+        // TODO: Give player position (randomized)
+        position.position.add(225.0f,300.0f);
         position.scale.add(-0.7f, -0.7f);
 
         entity.add(animation);
         entity.add(player);
         entity.add(bounds);
-        //entity.add(gravity);
+        entity.add(gravity);
         entity.add(state);
         entity.add(movement);
         entity.add(position);
@@ -104,7 +104,7 @@ public class World {
         texture.region = AssetService.map1;
         bounds.bounds.width = GroundComponent.WIDTH;
         bounds.bounds.height = GroundComponent.HEIGHT;
-        position.position.add(4.0f,0.0f,0.0f);
+        position.position.add(4.0f,0.0f);
 
         entity.add(ground);
         entity.add(bounds);
