@@ -103,7 +103,7 @@ public class AssetService {
         background2 = new TextureRegion(loadTexture("map2.png"));
 
         //character2 = new TextureRegion(new Texture("heliregion.png"),0,0,162,65);
-        Texture heliLoad = loadTexture("character1.png");
+        Texture heliLoad = loadTexture("sprite1.png");
         character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(heliLoad,0,65),new TextureRegion(heliLoad,162,65));
         character2 = new TextureRegion(heliLoad, 0, 224, 300, 110);
 
