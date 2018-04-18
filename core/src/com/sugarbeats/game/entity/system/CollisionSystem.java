@@ -73,12 +73,17 @@ public class CollisionSystem extends EntitySystem {
             BoundsComponent groundBounds = bm.get(currentGround);
 
             // TODO: Adjust the if-sentence to not hardcode the coordinate
-            if (playerPosition.position.y - (groundPosition.position.y + groundBounds.bounds.height) <= 160) {
-                if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
-                    // If the player is standing on a ground, stop falling
-                    playerSystem.hitGround(player);
-                }
+            //if (playerPosition.position.y - (groundPosition.position.y + groundBounds.bounds.height) <= 160) {
+            //if (playerPosition.position.y > groundPosition.position.y){
+            if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
+                // If the player is standing on a ground, stop falling
+                playerSystem.hitGround(player);
+                System.out.println("Player touched ground!");
             }
+
+            System.out.println("player bounds: " + playerBounds.bounds);
+            System.out.println("ground bounds: "+ groundBounds.bounds);
+
 
             // Check if player touched powerup
             for (int j = 0; j < powerups.size(); j++) {
