@@ -47,6 +47,7 @@ public class AssetService {
     //Characters
     public static TextureRegion character2;
     public static Animation<TextureRegion> character1;
+    public static Animation<TextureRegion> bullet;
 
     //Buttons within the game, with hitboxes
     public static Texture rightBtn;
@@ -106,6 +107,8 @@ public class AssetService {
         Texture heliLoad = loadTexture("character1.png");
         character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(heliLoad,0,65),new TextureRegion(heliLoad,162,65));
         character2 = new TextureRegion(heliLoad, 0, 224, 300, 110);
+
+        Texture bullet = loadTexture("bullet.png");
 
         //TODO: add graphics and bounds for gameplay buttons
         fireBtn = new Texture("button_shoot.png");
