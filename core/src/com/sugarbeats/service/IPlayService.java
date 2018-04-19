@@ -41,13 +41,11 @@ public interface IPlayService {
         public void startSelectOpponents(boolean autoMatch);
 
 
-
-
-
         interface IGameListener {
 
                 void onMultiplayerGameStarting();
         }
+        void setNetworkListener(INetworkListener networkListener);
 
         interface INetworkListener {
 
