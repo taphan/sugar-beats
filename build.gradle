@@ -78,6 +78,9 @@ project(":desktop") {
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.ashley:ashley:1.7.0"
+        // https://mvnrepository.com/artifact/com.badlogicgames.gdx/gdx-tools
+        compile group: 'com.badlogicgames.gdx', name: 'gdx-tools', version: '1.9.8'
+
     }
 }
 
