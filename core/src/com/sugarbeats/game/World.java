@@ -23,7 +23,7 @@ import com.sugarbeats.service.AssetService;
  */
 
 public class World {
-    public static final float WORLD_WIDTH = 10;
+    public static final float WORLD_WIDTH = 1280;
     public static final float WORLD_HEIGHT = 15 * 20;
     public static final int WORLD_STATE_RUNNING = 0;
     public static final int WORLD_STATE_GAME_OVER = 1;
@@ -43,7 +43,7 @@ public class World {
         Entity player2 = createPlayer(2);
 
         //createCamera(player1);
-        //createBackground();
+        createBackground();
 
         this.state = WORLD_STATE_RUNNING;
     }
@@ -63,8 +63,8 @@ public class World {
         animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character1);
         texture.region = AssetService.character2;
         //bounds.bounds.width = PlayerComponent.WIDTH;
-        bounds.bounds.width = texture.region.getRegionWidth();
-        bounds.bounds.height = texture.region.getRegionHeight()*0.3f;
+        bounds.bounds.width = player.WIDTH;
+        bounds.bounds.height = player.HEIGHT;
 
         // state.set(
         if (playerNr == 1) {
@@ -108,6 +108,7 @@ public class World {
         entity.add(bounds);
         entity.add(position);
         entity.add(texture);
+
         engine.addEntity(entity);
     }
 
@@ -118,12 +119,17 @@ public class World {
         BackgroundComponent background = engine.createComponent(BackgroundComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
+        BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
 
-        texture.region = AssetService.background1;
+        texture.region = AssetService.map1;
+
+        bounds.bounds.width = texture.region.getRegionWidth();
+        bounds.bounds.height = texture.region.getRegionHeight();
 
         entity.add(background);
         entity.add(position);
         entity.add(texture);
+        entity.add(bounds);
 
         engine.addEntity(entity);
     }
