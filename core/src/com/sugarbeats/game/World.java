@@ -43,6 +43,7 @@ public class World {
         Entity player2 = createPlayer(2);
         //createwalking();
 
+
         //createCamera(player1);
         createBackground();
 
@@ -88,6 +89,9 @@ public class World {
 
         return entity;
     }
+
+
+
 
     // If it is possible to choose between several maps, send in an int as a parameter
     private void createGround() {
