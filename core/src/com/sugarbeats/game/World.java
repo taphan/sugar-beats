@@ -41,6 +41,7 @@ public class World {
         createGround();
         createPlayer(1);
         Entity player2 = createPlayer(2);
+        //createwalking();
 
         //createCamera(player1);
         createBackground();
@@ -60,21 +61,18 @@ public class World {
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
-        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character1);
-        texture.region = AssetService.character2;
-        //bounds.bounds.width = PlayerComponent.WIDTH;
-        bounds.bounds.width = player.WIDTH;
-        bounds.bounds.height = player.HEIGHT;
+        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
 
-        // state.set(
+        bounds.bounds.width = PlayerComponent.WIDTH;
+        bounds.bounds.height = PlayerComponent.HEIGHT;
+
         if (playerNr == 1) {
             state.set(PlayerComponent.STATE_PLAY);
         } else if (playerNr == 2) {
-            state.set(PlayerComponent.STATE_STANDBY);
+            state.set(PlayerComponent.STATE_PLAY);
         }
 
-        // TODO: Give player position (randomized)
-        position.position.add(225.0f,300.0f);
+        position.position.add(225.0f,200.0f);
         position.scale.add(-0.7f, -0.7f);
 
         entity.add(animation);

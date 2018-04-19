@@ -86,13 +86,12 @@ public class PlayerSystem extends IteratingSystem {
     // Prevent player from going outside of the world's width
     public void hitMapEdge(Entity entity) {
         TransformComponent t = tm.get(entity);
-        PlayerComponent player = pm.get(entity);
 
         if (t.position.x < 0) {
             t.position.x = 0;
         }
-        if (t.position.x > SugarBeats.WIDTH- player.WIDTH) {
-            t.position.x = SugarBeats.WIDTH-player.WIDTH;
+        if (t.position.x > SugarBeats.WIDTH- PlayerComponent.WIDTH) {
+            t.position.x = SugarBeats.WIDTH-PlayerComponent.WIDTH;
         }
     }
 }
