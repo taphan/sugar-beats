@@ -8,7 +8,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Rectangle;
 import com.sugarbeats.SugarBeats;
 
 public class AssetService {
@@ -61,16 +60,6 @@ public class AssetService {
     public static Texture fireBtn;
     public static Texture pauseBtn;
 
-    public static Rectangle rightBounds;
-    public static Rectangle leftBounds;
-    public static Rectangle upBounds;
-    public static Rectangle downBounds;
-    public static Rectangle powerUp1Bounds;
-    public static Rectangle powerUp2Bounds;
-    public static Rectangle powerBarBounds;
-    public static Rectangle fireBounds;
-    public static Rectangle pauseBounds;
-
     //Animations
 
     public static Animation walkAnim1;
@@ -101,16 +90,17 @@ public class AssetService {
     public static void load () {
         //Graphics logic
         mainMenu = new Texture("main_menu1.png");
+
         settingsMenu = new Texture("main_menu1.png"); //TODO: make more menus?
         pauseMenu = new Texture("main_menu1.png");
         helpMenu = new Texture("main_menu1.png");
 
-        playBtn = new Texture("button_play.png");
-        settingBtn = new Texture("button_settings.png");
-        helpBtn = new Texture("button_help.png");
-        hsBtn = new Texture("button_highscore.png");
-        acBtn = new Texture("button_achievements.png");
-        mBtn = new Texture("button_multiplayer.png");
+        playBtn = new Texture("button_play1.png");
+        settingBtn = new Texture("button_settings1.png");
+        helpBtn = new Texture("button_help1.png");
+        hsBtn = new Texture("button_highscore1.png");
+        acBtn = new Texture("button_achievements1.png");
+        mBtn = new Texture("button_multiplayer1.png");
 
         map1 = new TextureRegion(loadTexture("ground1.png"));
         background1 = new TextureRegion(loadTexture("map1.png"));
@@ -142,6 +132,9 @@ public class AssetService {
 
         //TODO: add graphics and bounds for gameplay buttons
         fireBtn = new Texture("button_shoot.png");
+
+        leftBtn = new Texture("back_button.png");
+        rightBtn = new Texture("forward_button.png");
 
         //Animation logic
         //TODO: use the link below on how to make animations

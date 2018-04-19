@@ -79,7 +79,6 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     public void setVelocity(float velocity) {
-        //System.out.println("set new velocity: " + this.velocityX);
         this.velocityX = velocity;
     }
 

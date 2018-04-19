@@ -1,7 +1,6 @@
 package com.sugarbeats.presenter;
 
 import com.badlogic.ashley.core.PooledEngine;
-import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -39,7 +38,7 @@ public class GamePresenter extends ScreenAdapter{
         this.parent = parent;
         engine = new PooledEngine();
         world = new World(engine);
-        view = new GameView(game);
+        view = new GameView(game, this);
         collisionListener = new CollisionListener() {
             @Override
             public void powerup () {
@@ -76,7 +75,6 @@ public class GamePresenter extends ScreenAdapter{
     @Override
     public final void render(float delta) {
         update(delta);
-        view.update(delta);
         view.draw();
         view.show();
     }
@@ -84,6 +82,7 @@ public class GamePresenter extends ScreenAdapter{
     private void update(float delta) {
         if (delta > 0.1f) delta = 0.1f;
         updateInput();
+        view.update(delta);
         world.update(delta);
         engine.update(delta);
     }
@@ -94,6 +93,22 @@ public class GamePresenter extends ScreenAdapter{
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 250f;
 
+        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+    }
+
+    public void updateKeyPress(int key) {
+        float veloX = 0.0f;
+
+        switch (key) {
+        case 0:
+            // Left button pressed
+            veloX = -250f;
+            break;
+        case 1:
+            // Right button pressed
+            veloX = 250f;
+            break;
+        }
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
 
