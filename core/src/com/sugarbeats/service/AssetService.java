@@ -71,12 +71,24 @@ public class AssetService {
     public static Rectangle pauseBounds;
 
     //Animations
-    public static Animation walkAnim;
-    public static Animation shootAnim;
-    public static Animation projectimeAnim;
-    public static Animation explosionAnim;
-    public static Animation getHitAnim;
-    public static Animation deathAnim;
+    public static Animation walkAnim1;
+    public static Animation shootAnim1;
+    public static Animation projectileAnim1;
+    //public static Animation explosionAnim1;
+    public static Animation getHitAnim1;
+    public static Animation deathAnim1;
+
+    public static Animation walkAnim2;
+    public static Animation shootAnim2;
+    public static Animation projectileAnim2;
+    public static Animation getHitAnim2;
+    public static Animation deathAnim2;
+
+    public static Animation walkAnim3;
+    public static Animation shootAnim3;
+    public static Animation projectileAnim3;
+    public static Animation getHitAnim3;
+    public static Animation deathAnim3;
 
 
 
@@ -86,10 +98,10 @@ public class AssetService {
 
     public static void load () {
         //Graphics logic
-        mainMenu = new Texture("main_menu.png");
-        settingsMenu = new Texture("main_menu.png"); //TODO: make more menus?
-        pauseMenu = new Texture("main_menu.png");
-        helpMenu = new Texture("main_menu.png");
+        mainMenu = new Texture("main_menu1.png");
+        settingsMenu = new Texture("main_menu1.png"); //TODO: make more menus?
+        pauseMenu = new Texture("main_menu1.png");
+        helpMenu = new Texture("main_menu1.png");
 
         playBtn = new Texture("button_play.png");
         settingBtn = new Texture("button_settings.png");
