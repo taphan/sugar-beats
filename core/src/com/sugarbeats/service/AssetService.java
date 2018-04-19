@@ -8,7 +8,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Rectangle;
 import com.sugarbeats.SugarBeats;
 
 public class AssetService {
@@ -60,16 +59,6 @@ public class AssetService {
     public static Texture powerBarBtn;
     public static Texture fireBtn;
     public static Texture pauseBtn;
-
-    public static Rectangle rightBounds;
-    public static Rectangle leftBounds;
-    public static Rectangle upBounds;
-    public static Rectangle downBounds;
-    public static Rectangle powerUp1Bounds;
-    public static Rectangle powerUp2Bounds;
-    public static Rectangle powerBarBounds;
-    public static Rectangle fireBounds;
-    public static Rectangle pauseBounds;
 
     //Animations
 
@@ -143,6 +132,9 @@ public class AssetService {
 
         //TODO: add graphics and bounds for gameplay buttons
         fireBtn = new Texture("button_shoot.png");
+
+        leftBtn = new Texture("back_button.png");
+        rightBtn = new Texture("forward_button.png");
 
         //Animation logic
         //TODO: use the link below on how to make animations
