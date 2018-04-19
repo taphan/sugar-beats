@@ -75,7 +75,6 @@ public class GamePresenter extends ScreenAdapter{
     @Override
     public final void render(float delta) {
         update(delta);
-        view.update(delta);
         view.draw();
         view.show();
     }
@@ -83,6 +82,7 @@ public class GamePresenter extends ScreenAdapter{
     private void update(float delta) {
         if (delta > 0.1f) delta = 0.1f;
         updateInput();
+        view.update(delta);
         world.update(delta);
         engine.update(delta);
     }
@@ -102,12 +102,10 @@ public class GamePresenter extends ScreenAdapter{
         switch (key) {
         case 0:
             // Left button pressed
-            System.out.println("left pressed");
             veloX = -250f;
             break;
         case 1:
             // Right button pressed
-            System.out.println("right pressed");
             veloX = 250f;
             break;
         }

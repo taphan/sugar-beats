@@ -78,7 +78,7 @@ public class CollisionSystem extends EntitySystem {
                 // If the player is standing on a ground, stop falling
                 playerSystem.hitGround(player);
             }
-            
+
             // Check if player is going out of the map
             Entity currentBackground = background.get(0);
             BoundsComponent backgroundBounds = bm.get(currentBackground);

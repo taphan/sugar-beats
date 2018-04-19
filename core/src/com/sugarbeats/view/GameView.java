@@ -48,7 +48,6 @@ public class GameView extends BaseView {
         for(int i = 0; i < 5; i++) {
             if(touches.get(i).touched) {
                 cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
-                System.out.println(touchPoint.x + " ," + touchPoint.y);
                 if (leftBound.contains(touchPoint.x, touchPoint.y)) {
                     presenter.updateKeyPress(0);
                 }
