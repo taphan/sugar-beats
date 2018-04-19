@@ -63,18 +63,12 @@ public class World {
 
 
         //animation.animations.put(AnimationComponent.STATE_NORMAL, AssetService.character2);
-        System.out.println(texture.region);
+        //System.out.println(texture.region);
         animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
         //texture.region = AssetService.character2;
 
-        /*
         bounds.bounds.width = PlayerComponent.WIDTH;
-        bounds.bounds.height = PlayerComponent.HEIGHT;*/
-
-        //bounds.bounds.width = PlayerComponent.WIDTH;
-        bounds.bounds.width = texture.region.getRegionWidth();
-        bounds.bounds.height = texture.region.getRegionHeight()*0.3f;
-
+        bounds.bounds.height = PlayerComponent.HEIGHT;
 
         // state.set(
         if (playerNr == 1) {

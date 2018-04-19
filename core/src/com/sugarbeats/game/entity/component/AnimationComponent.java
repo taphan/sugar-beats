@@ -9,6 +9,4 @@ import com.badlogic.gdx.utils.IntMap;
 
 public class AnimationComponent implements Component {
     public IntMap<Animation> animations = new IntMap<Animation>();
-
-    public static final int STATE_NORMAL = 1;
 }

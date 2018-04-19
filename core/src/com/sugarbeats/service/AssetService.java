@@ -45,7 +45,7 @@ public class AssetService {
     public static TextureRegion map3;
 
     //Characters
-    //public static TextureRegion character2;
+    //public static TextureRegion character1;
     public static Animation<TextureRegion> character2;
     public static Animation<TextureRegion> character1;
 
