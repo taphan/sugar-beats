@@ -16,7 +16,7 @@ import com.sugarbeats.service.AudioService;
 public class MainMenuView extends BaseView{
     SugarBeats game;
 
-    Rectangle playBounds;
+    Rectangle playBounds; //TODO: Move these to assetservice?
     Rectangle helpBounds;
     Rectangle settingBounds;
     Rectangle hsBounds;
