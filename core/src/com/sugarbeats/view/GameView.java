@@ -45,15 +45,16 @@ public class GameView extends BaseView {
 
     @Override
     public void update (float delta) {
-        if (Gdx.input.justTouched()) {
-            // Set touch point to check for whether a menu button has been pressed
-            cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
-            System.out.println(touchPoint.x + " ," + touchPoint.y);
-            if (leftBound.contains(touchPoint.x, touchPoint.y)) {
-                presenter.updateKeyPress(0);
-            }
-            if (rightBound.contains(touchPoint.x, touchPoint.y)) {
-                presenter.updateKeyPress(1);
+        for(int i = 0; i < 5; i++) {
+            if(touches.get(i).touched) {
+                cam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+                System.out.println(touchPoint.x + " ," + touchPoint.y);
+                if (leftBound.contains(touchPoint.x, touchPoint.y)) {
+                    presenter.updateKeyPress(0);
+                }
+                if (rightBound.contains(touchPoint.x, touchPoint.y)) {
+                    presenter.updateKeyPress(1);
+                }
             }
         }
     }
@@ -71,5 +72,4 @@ public class GameView extends BaseView {
     public void show() {
 
     }
-
 }

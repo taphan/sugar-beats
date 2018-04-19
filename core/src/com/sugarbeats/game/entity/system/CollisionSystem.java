@@ -78,12 +78,7 @@ public class CollisionSystem extends EntitySystem {
             if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
                 // If the player is standing on a ground, stop falling
                 playerSystem.hitGround(player);
-                System.out.println("Player touched ground!");
             }
-
-            System.out.println("player bounds: " + playerBounds.bounds);
-            System.out.println("ground bounds: "+ groundBounds.bounds);
-
 
             // Check if player touched powerup
             for (int j = 0; j < powerups.size(); j++) {
