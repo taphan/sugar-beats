@@ -27,10 +27,10 @@ public class AudioService {
 
     public static void load () {
         //Sound logic
-        menuMusic = Gdx.audio.newMusic(Gdx.files.internal("testSong.mp3"));
-        gameMusic = Gdx.audio.newMusic(Gdx.files.internal("testSong.mp3"));
-        victoryMusic = Gdx.audio.newMusic(Gdx.files.internal("testSong.mp3"));
-        defeatMusic = Gdx.audio.newMusic(Gdx.files.internal("testSong.mp3"));
+        menuMusic = Gdx.audio.newMusic(Gdx.files.internal("menuSong.mp3"));
+        gameMusic = Gdx.audio.newMusic(Gdx.files.internal("gameSong.mp3"));
+        victoryMusic = Gdx.audio.newMusic(Gdx.files.internal("victorySong.mp3"));
+        defeatMusic = Gdx.audio.newMusic(Gdx.files.internal("defeatSong.mp3"));
         menuMusic.setLooping(true);
         menuMusic.setVolume(0.5f);
         menuMusic.play(); //TODO: make better music logic

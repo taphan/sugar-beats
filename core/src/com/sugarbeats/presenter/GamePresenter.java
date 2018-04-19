@@ -1,7 +1,6 @@
 package com.sugarbeats.presenter;
 
 import com.badlogic.ashley.core.PooledEngine;
-import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -10,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.system.AnimationSystem;
+import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem.CollisionListener;
 import com.sugarbeats.game.entity.system.GravitySystem;
@@ -38,7 +38,7 @@ public class GamePresenter extends ScreenAdapter{
         this.parent = parent;
         engine = new PooledEngine();
         world = new World(engine);
-        view = new GameView(game);
+        view = new GameView(game, this);
         collisionListener = new CollisionListener() {
             @Override
             public void powerup () {
@@ -62,18 +62,19 @@ public class GamePresenter extends ScreenAdapter{
     }
 
     private void setupEngine(PooledEngine engine, SpriteBatch batch) {
+        engine.addSystem(new AnimationSystem());
         engine.addSystem(new RenderSystem(batch));
         engine.addSystem(new PlayerSystem(world));
         engine.addSystem(new MovementSystem());
+        engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
-        engine.addSystem(new AnimationSystem());
+
         engine.addSystem(new CollisionSystem(world, collisionListener));
     }
 
     @Override
     public final void render(float delta) {
         update(delta);
-        view.update(delta);
         view.draw();
         view.show();
     }
@@ -81,6 +82,7 @@ public class GamePresenter extends ScreenAdapter{
     private void update(float delta) {
         if (delta > 0.1f) delta = 0.1f;
         updateInput();
+        view.update(delta);
         world.update(delta);
         engine.update(delta);
     }
@@ -97,6 +99,22 @@ public class GamePresenter extends ScreenAdapter{
 
         }
 
+        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+    }
+
+    public void updateKeyPress(int key) {
+        float veloX = 0.0f;
+
+        switch (key) {
+        case 0:
+            // Left button pressed
+            veloX = -250f;
+            break;
+        case 1:
+            // Right button pressed
+            veloX = 250f;
+            break;
+        }
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
 
