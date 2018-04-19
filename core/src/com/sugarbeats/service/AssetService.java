@@ -47,7 +47,7 @@ public class AssetService {
     //Characters
     //public static TextureRegion character1;
     public static Animation<TextureRegion> character2;
-    public static Animation<TextureRegion> character1;
+    public static Animation<TextureRegion> candyAnim;
 
     //Buttons within the game, with hitboxes
     public static Texture rightBtn;
@@ -73,11 +73,12 @@ public class AssetService {
 
     //Animations
     public static Texture walk;
+    public static Texture candy;
 
     public static Animation walkAnim;
     public static Animation shootAnim;
     public static Animation projectimeAnim;
-    public static Animation explosionAnim;
+    //public static Animation explosionAnim;
     public static Animation getHitAnim;
     public static Animation deathAnim;
 
@@ -108,33 +109,34 @@ public class AssetService {
         //character2 = new TextureRegion(new Texture("heliregion.png"),0,0,162,65);
         //character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(wl,0,65),new TextureRegion(heliLoad,162,65));
         //character2 = new TextureRegion(walk, 1500, 0, 500, 500);
-        /*
+        //Animation logic
+        //TODO: use the link below on how to make animations
+        // https://github.com/saltares/ashley-superjumper/blob/master/core/src/com/siondream/superjumper/Assets.java
+        //We might have to do it differently from them though, I suspect these animations run as an infinite loop regardless of user input
+
+
         walk = loadTexture("char1ani.png");
+        candy = loadTexture("candyani.png");
+        
         character2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk, 0, 0, 500, 500),
                 new TextureRegion(walk, 500, 0, 500, 500),
                 new TextureRegion(walk, 1000, 0, 500, 500),
                 new TextureRegion(walk, 1500, 0, 500, 500));
-                */
 
-        walk = loadTexture("candyani.png");
-        character2 = new Animation<TextureRegion>(0.2f,
-                new TextureRegion(walk, 0, 0, 200, 200),
-                new TextureRegion(walk, 200, 0, 200, 200),
-                new TextureRegion(walk, 400, 0, 200, 200),
-                new TextureRegion(walk, 600, 0, 200, 200),
-                new TextureRegion(walk, 800, 0, 200, 200),
-                new TextureRegion(walk, 1000, 0, 200, 200),
-                new TextureRegion(walk, 1200, 0, 200, 200),
-                new TextureRegion(walk, 1400, 0, 200, 200));
+        candyAnim = new Animation<TextureRegion>(0.2f,
+                new TextureRegion(candy, 0, 0, 200, 200),
+                new TextureRegion(candy, 200, 0, 200, 200),
+                new TextureRegion(candy, 400, 0, 200, 200),
+                new TextureRegion(candy, 600, 0, 200, 200),
+                new TextureRegion(candy, 800, 0, 200, 200),
+                new TextureRegion(candy, 1000, 0, 200, 200),
+                new TextureRegion(candy, 1200, 0, 200, 200),
+                new TextureRegion(candy, 1400, 0, 200, 200));
 
         //TODO: add graphics and bounds for gameplay buttons
         fireBtn = new Texture("button_shoot.png");
 
-        //Animation logic
-        //TODO: use the link below on how to make animations
-        // https://github.com/saltares/ashley-superjumper/blob/master/core/src/com/siondream/superjumper/Assets.java
-        //We might have to do it differently from them though, I suspect these animations run as an infinite loop regardless of user input
 
        character2.setPlayMode(Animation.PlayMode.LOOP);
     }
