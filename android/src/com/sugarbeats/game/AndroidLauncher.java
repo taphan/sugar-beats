@@ -51,7 +51,7 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService,
         RoomStatusUpdateListener, RoomUpdateListener, OnInvitationReceivedListener {
 
 
-	final static String TAG = "Sugar Beats";
+	final static String TAG = "SUGAR BEATS";
 	private GameHelper gameHelper;
 	private final static int requestCode = 1;
 	public static final int RC_ACHIEVEMENTS = 1;
@@ -71,7 +71,7 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		gameHelper = new GameHelper(this, GameHelper.CLIENT_GAMES);
-		gameHelper.enableDebugLog(false);
+		gameHelper.enableDebugLog(true);
 		GameHelper.GameHelperListener gameHelperListener = new GameHelper.GameHelperListener() {
 			@Override
 			public void onSignInFailed() {
@@ -217,7 +217,11 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService,
 	private void handleInvitationInboxResult(int resultCode, Intent data) {
 		Log.d(TAG, "handleInvitationInboxResult: ");
 	}
-
+	@Override
+	public void onSignInFailed() {
+		Log.d(TAG, "onSignInFailed: ");
+//        playService.getGameHelper().beginUserInitiatedSignIn();
+	}
 	@Override
 	public void onSignInSucceeded() {
 		Log.d(TAG, "onSignInSucceeded: ");
@@ -490,6 +494,12 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService,
 				.setRoomStatusUpdateListener(this);
 		keepScreenOn();
 		Games.RealTimeMultiplayer.join(gameHelper.getApiClient(), roomConfigBuilder.build());
+	}
+
+	@Override
+	public void setGameListener(IGameListener gameListener) {
+		Log.d("ANDROIDLAUNCHER", "SETGAMERLISTENER BLE KALT");
+		this.gameListener = gameListener;
 	}
 
 

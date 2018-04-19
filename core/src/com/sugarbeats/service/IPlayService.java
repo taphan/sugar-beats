@@ -30,6 +30,10 @@ public interface IPlayService {
         public void showAchievement();
 
         public void showScore();
+        public void onSignInFailed();
+
+
+        void setGameListener(IGameListener gameListener);
 
 
         public boolean isSignedIn();
