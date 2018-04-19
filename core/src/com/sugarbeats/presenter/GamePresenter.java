@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.system.AnimationSystem;
+import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem.CollisionListener;
 import com.sugarbeats.game.entity.system.GravitySystem;
@@ -62,11 +63,13 @@ public class GamePresenter extends ScreenAdapter{
     }
 
     private void setupEngine(PooledEngine engine, SpriteBatch batch) {
+        engine.addSystem(new AnimationSystem());
         engine.addSystem(new RenderSystem(batch));
         engine.addSystem(new PlayerSystem(world));
         engine.addSystem(new MovementSystem());
+        engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
-        engine.addSystem(new AnimationSystem());
+
         engine.addSystem(new CollisionSystem(world, collisionListener));
     }
 
@@ -80,23 +83,18 @@ public class GamePresenter extends ScreenAdapter{
 
     private void update(float delta) {
         if (delta > 0.1f) delta = 0.1f;
+        updateInput();
         world.update(delta);
         engine.update(delta);
-        updateInput();
     }
 
     private void updateInput() {
-        Application.ApplicationType appType = Gdx.app.getType();
         float veloX = 0.0f;
 
-        if (appType == Application.ApplicationType.Android || appType == Application.ApplicationType.iOS) {
-            veloX = Gdx.input.getAccelerometerX();
-        } else {
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = 5f;
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = -5f;
-        }
-        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 250f;
 
+        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
 
 }

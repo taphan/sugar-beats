@@ -7,4 +7,6 @@ import com.badlogic.ashley.core.Component;
  */
 
 public class BackgroundComponent implements Component {
+    public static final float WIDTH = 1280f;
+    public static final float HEIGHT = 800f;
 }

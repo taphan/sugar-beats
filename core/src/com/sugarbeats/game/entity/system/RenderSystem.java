@@ -36,7 +36,7 @@ public class RenderSystem extends IteratingSystem {
         batch.end();
 
     }
-    
+
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         TransformComponent transform = transformMapper.get(entity);

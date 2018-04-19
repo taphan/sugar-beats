@@ -7,6 +7,7 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
@@ -39,6 +40,7 @@ public class CollisionSystem extends EntitySystem {
     private ImmutableArray<Entity> players;
     private ImmutableArray<Entity> ground;
     private ImmutableArray<Entity> powerups;
+    private ImmutableArray<Entity> background;
 
     public CollisionSystem(World world, CollisionListener listener) {
         this.world = world;
@@ -57,6 +59,7 @@ public class CollisionSystem extends EntitySystem {
         players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
         ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
         powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
+        background = engine.getEntitiesFor(Family.all(BackgroundComponent.class,BoundsComponent.class,TransformComponent.class ).get());
     }
 
     @Override
@@ -69,15 +72,20 @@ public class CollisionSystem extends EntitySystem {
 
             // Check if player has been dropped to the ground
             Entity currentGround = ground.get(0);
-            TransformComponent groundPosition = tm.get(currentGround);
             BoundsComponent groundBounds = bm.get(currentGround);
 
-            // TODO: Adjust the if-sentence to not hardcode the coordinate
-            if (playerPosition.position.y - (groundPosition.position.y + groundBounds.bounds.height) <= 160) {
-                if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
-                    // If the player is standing on a ground, stop falling
-                    playerSystem.hitGround(player);
-                }
+            if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
+                // If the player is standing on a ground, stop falling
+                playerSystem.hitGround(player);
+            }
+
+            // Check if player is going out of the map
+            Entity currentBackground = background.get(0);
+            BoundsComponent backgroundBounds = bm.get(currentBackground);
+
+            if (playerBounds.bounds.overlaps(backgroundBounds.bounds)) {
+                // If the player is standing on a ground, stop falling
+                playerSystem.hitMapEdge(player);
             }
 
             // Check if player touched powerup
