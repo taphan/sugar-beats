@@ -35,14 +35,14 @@ public class AudioService {
         menuMusic.setVolume(0.5f);
         menuMusic.play(); //TODO: make better music logic
 
-        buttonPressSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
-        sliderSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
-        walkSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
-        shootSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
-        projectileSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
-        impactSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
-        damageSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
-        deathSound = Gdx.audio.newSound(Gdx.files.internal("testSound.mp3"));
+        buttonPressSound = Gdx.audio.newSound(Gdx.files.internal("btnSound.mp3"));
+        sliderSound = Gdx.audio.newSound(Gdx.files.internal("sliderSound.mp3"));
+        walkSound = Gdx.audio.newSound(Gdx.files.internal("walkSound.mp3"));
+        shootSound = Gdx.audio.newSound(Gdx.files.internal("throwSound.mp3"));
+        projectileSound = Gdx.audio.newSound(Gdx.files.internal("projectileSound.mp3"));
+        impactSound = Gdx.audio.newSound(Gdx.files.internal("impactSound.mp3"));
+        damageSound = Gdx.audio.newSound(Gdx.files.internal("damageSound.mp3"));
+        deathSound = Gdx.audio.newSound(Gdx.files.internal("deathSound.mp3"));
     }
 
     public static void playSound (Sound sound) {
