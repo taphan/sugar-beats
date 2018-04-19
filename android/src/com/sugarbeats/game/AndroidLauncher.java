@@ -219,6 +219,15 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService,
 	}
 
 	@Override
+	public void onSignInSucceeded() {
+		Log.d(TAG, "onSignInSucceeded: ");
+		if (gameHelper.hasInvitation()) {
+			acceptInviteToRoom(gameHelper.getInvitationId());
+		}
+	}
+
+
+	@Override
 	public void signIn() {
 		try {
 			runOnUiThread(new Runnable() {
@@ -473,19 +482,19 @@ public class AndroidLauncher extends AndroidApplication implements IPlayService,
         BaseGameUtils.makeSimpleDialog(this, "ERROR");
     }
 
-
-
-
-
-/*	@Override
-	public void onSignInFailed() {
-
+	public void acceptInviteToRoom(String invId) {
+		Log.d(TAG, "Accepting invitation: " + invId);
+		RoomConfig.Builder roomConfigBuilder = RoomConfig.builder(this);
+		roomConfigBuilder.setInvitationIdToAccept(invId)
+				.setMessageReceivedListener(this)
+				.setRoomStatusUpdateListener(this);
+		keepScreenOn();
+		Games.RealTimeMultiplayer.join(gameHelper.getApiClient(), roomConfigBuilder.build());
 	}
 
-	@Override
-	public void onSignInSucceeded() {
 
-	}*/
+
+
 
 
 

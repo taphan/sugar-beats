@@ -14,6 +14,9 @@ import java.util.List;
 public interface IPlayService {
 
 
+        public void  onSignInSucceeded();
+
+
         public void signIn();
 
         public void signOut();
@@ -28,9 +31,12 @@ public interface IPlayService {
 
         public void showScore();
 
+
         public boolean isSignedIn();
 
         public void startSelectOpponents(boolean autoMatch);
+
+
 
 
 
