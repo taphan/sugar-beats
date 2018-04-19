@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
@@ -56,16 +57,7 @@ public class PlayerSystem extends IteratingSystem {
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
         PlayerComponent player = pm.get(entity);
-/*
-        if (t.position.x < 0) {
-            t.position.x = World.WORLD_WIDTH;
-        }
-        // Prevent player from going outside of the world's width
-        if (t.position.x > World.WORLD_WIDTH) {
-            t.position.x = 0;
-        }*/
 
-        //mov.velocity.x = velocityX;
         mov.velocity.x = this.velocityX;
     }
 
@@ -89,5 +81,17 @@ public class PlayerSystem extends IteratingSystem {
     public void setVelocity(float velocity) {
         //System.out.println("set new velocity: " + this.velocityX);
         this.velocityX = velocity;
+    }
+
+    // Prevent player from going outside of the world's width
+    public void hitMapEdge(Entity entity) {
+        TransformComponent t = tm.get(entity);
+
+        if (t.position.x < 0) {
+            t.position.x = 0;
+        }
+        if (t.position.x > SugarBeats.WIDTH- PlayerComponent.WIDTH) {
+            t.position.x = SugarBeats.WIDTH-PlayerComponent.WIDTH;
+        }
     }
 }

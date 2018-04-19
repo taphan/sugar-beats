@@ -62,12 +62,13 @@ public class GamePresenter extends ScreenAdapter{
     }
 
     private void setupEngine(PooledEngine engine, SpriteBatch batch) {
+        engine.addSystem(new AnimationSystem());
         engine.addSystem(new RenderSystem(batch));
         engine.addSystem(new PlayerSystem(world));
         engine.addSystem(new MovementSystem());
         engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
-        engine.addSystem(new AnimationSystem());
+
         engine.addSystem(new CollisionSystem(world, collisionListener));
     }
 

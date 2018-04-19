@@ -23,7 +23,7 @@ import com.sugarbeats.service.AssetService;
  */
 
 public class World {
-    public static final float WORLD_WIDTH = 10;
+    public static final float WORLD_WIDTH = 1280;
     public static final float WORLD_HEIGHT = 15 * 20;
     public static final int WORLD_STATE_RUNNING = 0;
     public static final int WORLD_STATE_GAME_OVER = 1;
@@ -41,9 +41,10 @@ public class World {
         createGround();
         createPlayer(1);
         Entity player2 = createPlayer(2);
+        //createwalking();
 
         //createCamera(player1);
-        //createBackground();
+        createBackground();
 
         this.state = WORLD_STATE_RUNNING;
     }
@@ -60,21 +61,18 @@ public class World {
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
-        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character1);
-        texture.region = AssetService.character2;
-        //bounds.bounds.width = PlayerComponent.WIDTH;
-        bounds.bounds.width = texture.region.getRegionWidth();
-        bounds.bounds.height = texture.region.getRegionHeight()*0.3f;
+        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
 
-        // state.set(
+        bounds.bounds.width = PlayerComponent.WIDTH;
+        bounds.bounds.height = PlayerComponent.HEIGHT;
+
         if (playerNr == 1) {
             state.set(PlayerComponent.STATE_PLAY);
         } else if (playerNr == 2) {
-            state.set(PlayerComponent.STATE_STANDBY);
+            state.set(PlayerComponent.STATE_PLAY);
         }
 
-        // TODO: Give player position (randomized)
-        position.position.add(225.0f,300.0f);
+        position.position.add(225.0f,200.0f);
         position.scale.add(-0.7f, -0.7f);
 
         entity.add(animation);
@@ -108,6 +106,7 @@ public class World {
         entity.add(bounds);
         entity.add(position);
         entity.add(texture);
+
         engine.addEntity(entity);
     }
 
@@ -118,12 +117,17 @@ public class World {
         BackgroundComponent background = engine.createComponent(BackgroundComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
+        BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
 
-        texture.region = AssetService.background1;
+        texture.region = AssetService.map1;
+
+        bounds.bounds.width = texture.region.getRegionWidth();
+        bounds.bounds.height = texture.region.getRegionHeight();
 
         entity.add(background);
         entity.add(position);
         entity.add(texture);
+        entity.add(bounds);
 
         engine.addEntity(entity);
     }
