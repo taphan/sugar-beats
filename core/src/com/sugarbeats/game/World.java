@@ -13,6 +13,7 @@ import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.service.AssetService;
 
 /**
@@ -60,14 +61,20 @@ public class World {
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
+
         //animation.animations.put(AnimationComponent.STATE_NORMAL, AssetService.character2);
         System.out.println(texture.region);
         animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
         //texture.region = AssetService.character2;
 
-
+        /*
         bounds.bounds.width = PlayerComponent.WIDTH;
-        bounds.bounds.height = PlayerComponent.HEIGHT;
+        bounds.bounds.height = PlayerComponent.HEIGHT;*/
+
+        //bounds.bounds.width = PlayerComponent.WIDTH;
+        bounds.bounds.width = texture.region.getRegionWidth();
+        bounds.bounds.height = texture.region.getRegionHeight()*0.3f;
+
 
         // state.set(
         if (playerNr == 1) {
@@ -103,8 +110,8 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
         texture.region = AssetService.map1;
-        bounds.bounds.width = GroundComponent.WIDTH;
-        bounds.bounds.height = GroundComponent.HEIGHT;
+        bounds.bounds.width = texture.region.getRegionWidth();
+        bounds.bounds.height = texture.region.getRegionHeight();
         position.position.add(4.0f,0.0f);
 
         entity.add(ground);
