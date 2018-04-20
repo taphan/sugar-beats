@@ -64,7 +64,7 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
         animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
-        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.walkAnim1);
+        animation.animations.put(PlayerComponent.STATE_WALK, AssetService.walkAnim1);
         animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim1);
         animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
         animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
@@ -72,61 +72,14 @@ public class World {
 
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
-
-        if (playerNr == 1) {
-            state.set(PlayerComponent.STATE_STANDBY);
-        } else if (playerNr == 2) {
-            state.set(PlayerComponent.STATE_STANDBY);
-        }
-
-        //state.set(PlayerComponent.STATE_SHOOT);
-
-        position.position.add(225.0f,200.0f);
-        position.scale.add(-0.7f, -0.7f);
-
-        entity.add(animation);
-        entity.add(player);
-        entity.add(bounds);
-        entity.add(gravity);
-        entity.add(state);
-        entity.add(movement);
-        entity.add(position);
-        entity.add(texture);
-
-        engine.addEntity(entity);
-
-        return entity;
-    }
-
-    private Entity createPlayer2(int playerNr){
-        Entity entity = engine.createEntity();
-
-        AnimationComponent animation = engine.createComponent(AnimationComponent.class);
-        PlayerComponent player = engine.createComponent(PlayerComponent.class);
-        BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
-        GravityComponent gravity = engine.createComponent(GravityComponent.class);
-        StateComponent state = engine.createComponent(StateComponent.class);
-        MovementComponent movement = engine.createComponent(MovementComponent.class);
-        TransformComponent position = engine.createComponent(TransformComponent.class);
-        TextureComponent texture = engine.createComponent(TextureComponent.class);
-
-        animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character2);
-        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.walkAnim2);
-        animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim2);
-        animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim2);
-        animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim2);
-
-
-        bounds.bounds.width = PlayerComponent.WIDTH;
-        bounds.bounds.height = PlayerComponent.HEIGHT;
         /*
         if (playerNr == 1) {
-            state.set(PlayerComponent.STATE_PLAY);
+            state.set(PlayerComponent.STATE_DEATH);
         } else if (playerNr == 2) {
             state.set(PlayerComponent.STATE_DEATH);
         }*/
 
-        state.set(PlayerComponent.STATE_DEATH);
+        state.set(PlayerComponent.STATE_STANDBY);
 
         position.position.add(225.0f,200.0f);
         position.scale.add(-0.7f, -0.7f);
@@ -144,9 +97,6 @@ public class World {
 
         return entity;
     }
-
-
-
 
     // If it is possible to choose between several maps, send in an int as a parameter
     private void createGround() {
