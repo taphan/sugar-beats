@@ -34,14 +34,12 @@ public interface IPlayService {
 
 
         void setGameListener(IGameListener gameListener);
+        void setNetworkListener(INetworkListener networkListener);
 
 
         public boolean isSignedIn();
 
         public void startSelectOpponents(boolean autoMatch);
-
-
-
 
 
         interface IGameListener {

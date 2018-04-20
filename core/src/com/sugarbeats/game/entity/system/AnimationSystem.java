@@ -35,7 +35,7 @@ public class AnimationSystem extends IteratingSystem {
         AnimationComponent anim = am.get(entity);
         StateComponent state = sm.get(entity);
 
-        Animation<TextureRegion>  animation = anim.animations.get(state.get());
+        Animation<TextureRegion> animation = anim.animations.get(state.get());
 
         if (animation != null) {
             tex.region = animation.getKeyFrame(state.time);

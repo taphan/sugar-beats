@@ -87,6 +87,15 @@ public class CollisionSystem extends EntitySystem {
                 // If the player is standing on a ground, stop falling
                 playerSystem.hitMapEdge(player);
             }
+            /*
+            TODO: Må ha projectilecomponent for at man skal kunne bruke denne
+            BoundsComponent projectileBounds = bm.get(projectile)
+
+            if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
+                playerSystem.getHit(player);
+                listener.hit();
+            }
+            */
 
             // Check if player touched powerup
             for (int j = 0; j < powerups.size(); j++) {

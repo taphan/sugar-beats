@@ -7,5 +7,5 @@ import com.badlogic.ashley.core.Component;
  */
 
 public class HealthComponent implements Component{
-    public static final int HEALTH = 100;
+    public static int HEALTH = 3;
 }

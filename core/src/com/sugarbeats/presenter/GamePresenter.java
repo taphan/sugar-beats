@@ -16,13 +16,30 @@ import com.sugarbeats.game.entity.system.GravitySystem;
 import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
+import com.sugarbeats.model.PlayerData;
+import com.sugarbeats.service.IPlayService;
+
+import com.sugarbeats.service.ServiceLocator;
 import com.sugarbeats.view.GameView;
+
+
+import java.util.List;
+
+//import sun.rmi.runtime.Log;
+
+
+import com.sugarbeats.view.GameView;
+
+import java.util.List;
+
 
 /**
  * Created by taphan on 11.04.2018.
  */
 
-public class GamePresenter extends ScreenAdapter{
+
+public class GamePresenter extends ScreenAdapter implements IPlayService.INetworkListener {
+
 
     SugarBeats game;
     private Screen parent;
@@ -30,32 +47,48 @@ public class GamePresenter extends ScreenAdapter{
     World world;
     GameView view;
 
+
+
     CollisionListener collisionListener;
 
 
+    private final IPlayService playService;
+
+
     public GamePresenter(SugarBeats game, Screen parent) {
+        Gdx.app.debug("GAMEPRESENTER FRA ANDROIDNETWORK", "oneMultiplayerGameStarting!!!!!!!!!!!!!!");
+        //Koden stopper her (Rekker ikke å printe ting som blir påkalt tidligere
+        //Må få playservice = Androidnetwork,
+        playService = ServiceLocator.getAppComponent().getNetworkService();
+
+        playService.setNetworkListener(this);
+
+
         this.game = game;
         this.parent = parent;
         engine = new PooledEngine();
         world = new World(engine);
         view = new GameView(game, this);
+//        playService.setNetworkListener(this);
+
         collisionListener = new CollisionListener() {
             @Override
-            public void powerup () {
+            public void powerup() {
                 System.out.println("Power up sound");
             }
 
             @Override
-            public void ground () {
+            public void ground() {
                 System.out.println("Touched the ground!!!");
             }
 
             @Override
-            public void hit () {
+            public void hit() {
                 System.out.println("Ouchie got hit..");
             }
 
         };
+
         setupEngine(engine, game.getBatch());
         world.create();
 
@@ -93,7 +126,7 @@ public class GamePresenter extends ScreenAdapter{
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
-        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             veloY = 250f;
 
 
@@ -106,16 +139,32 @@ public class GamePresenter extends ScreenAdapter{
         float veloX = 0.0f;
 
         switch (key) {
-        case 0:
-            // Left button pressed
-            veloX = -250f;
-            break;
-        case 1:
-            // Right button pressed
-            veloX = 250f;
-            break;
+            case 0:
+                // Left button pressed
+                veloX = -250f;
+                break;
+            case 1:
+                // Right button pressed
+                veloX = 250f;
+                break;
         }
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
+
+    @Override
+    public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
+
+    }
+
+    @Override
+    public void onUnreliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
+    }
+
+        @Override
+        public void onRoomReady (List < PlayerData > players) {
+            Gdx.app.debug("SUGAR BEATS", "onRoomReady: ");
+//        addPlayers(players, true);
+//        world.initialize();
+        }
 
 }

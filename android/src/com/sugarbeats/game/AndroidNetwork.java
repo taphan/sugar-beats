@@ -220,7 +220,9 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
                     if (Objects.equals(currentPlayerId, playerId)) {
                         playerData.isSelf = true;
                     }
+                    Log.d(TAG,playerData.displayName);
                     playerList.add(playerData);
+
                 }
                 networkListener.onRoomReady(playerList);
                 break;
@@ -282,8 +284,15 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
     @Override
     public void setGameListener(IGameListener gameListener) {
 
+        Log.d("AndroidNetworkService", "SETGAMELISTENER BLE KALT");
+        this.gameListener = gameListener;
     }
+    @Override
+    public void setNetworkListener(INetworkListener networkListener) {
+        Log.d("AndroidNetworkService", "SETNETWORKKLISTENER BLE KALT");
+        this.networkListener = networkListener;
 
+    }
 
     @Override
     public void startSelectOpponents(boolean autoMatch) {
@@ -291,6 +300,8 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
         activity.startActivityForResult(intent, RC_SELECT_PLAYERS);
         Log.d(TAG, "StartSelectOpponents finished");
     }
+
+
 
     @Override
     public void onInvitationReceived(Invitation invitation) {
