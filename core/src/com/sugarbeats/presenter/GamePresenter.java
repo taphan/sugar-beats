@@ -16,19 +16,24 @@ import com.sugarbeats.game.entity.system.GravitySystem;
 import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
+import com.sugarbeats.model.PlayerData;
+import com.sugarbeats.service.IPlayService;
 import com.sugarbeats.view.GameView;
+
+import java.util.List;
 
 /**
  * Created by taphan on 11.04.2018.
  */
 
-public class GamePresenter extends ScreenAdapter{
+public class GamePresenter extends ScreenAdapter implements IPlayService.INetworkListener {
 
     SugarBeats game;
     private Screen parent;
     protected final PooledEngine engine;
     World world;
     GameView view;
+    IPlayService playService;
 
     CollisionListener collisionListener;
 
@@ -39,6 +44,8 @@ public class GamePresenter extends ScreenAdapter{
         engine = new PooledEngine();
         world = new World(engine);
         view = new GameView(game, this);
+//        playService.setNetworkListener(this);
+
         collisionListener = new CollisionListener() {
             @Override
             public void powerup () {
@@ -89,9 +96,15 @@ public class GamePresenter extends ScreenAdapter{
 
     private void updateInput() {
         float veloX = 0.0f;
+        float veloY = 0.0f;
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 250f;
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
+        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+            veloY = 250f;
+
+
+        }
 
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
@@ -110,6 +123,23 @@ public class GamePresenter extends ScreenAdapter{
             break;
         }
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+    }
+
+    @Override
+    public void onRoomReady(List<PlayerData> players) {
+        Gdx.app.debug("SUGAR BEATS", "onRoomReady: ");
+//        addPlayers(players, true);
+//        world.initialize();
+    }
+
+    @Override
+    public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
+
+    }
+
+    @Override
+    public void onUnreliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
+
     }
 
 }

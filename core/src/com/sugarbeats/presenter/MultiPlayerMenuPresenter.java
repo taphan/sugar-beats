@@ -30,7 +30,7 @@ public class MultiPlayerMenuPresenter  extends BasePresenter {
         }
 
         public void onInvite(){
-            SugarBeats.playServices.invitePlayers(false);
+            SugarBeats.playServices.startSelectOpponents(false);
         }
 
 
