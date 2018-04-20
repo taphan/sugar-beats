@@ -1,60 +1,58 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:1:1-29:12
-
+ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:1:1-29:12
 	package
-		ADDED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml:2:5-36
-		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:2:5-36
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Quynh Phan\Documents\NTNU\ProgArk\prosjekt\sugar-beats\manifests\src\main\AndroidManifest.xml:1:11-69
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:1:11-69
 	android:versionCode
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
 uses-sdk
-ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:4:5-74
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\qpb96\.android\build-cache\0fc43dd8b8bb9965b6987848797d5c51d1440e88\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\qpb96\.android\build-cache\d5278c5069aff12475f6e9385f6ed5b0c810e8b4\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\qpb96\.android\build-cache\b1d6fd116041637f1e1ad409759667d652bead5a\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\qpb96\.android\build-cache\682df6c6a0a33c20ec45693e40b7b1b6edc47c70\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\qpb96\.android\build-cache\367cf99a73a912ff354d16201d3beefc8995af45\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\qpb96\.android\build-cache\209065e061fb9aa1b7aa8a7327c328d054ae0143\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\qpb96\.android\build-cache\086ef29f7b9e2e874065e55526134fb4297712c6\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\qpb96\.android\build-cache\c95342e2e43dedc2ce81b340bbf76eaac76ea235\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\qpb96\.android\build-cache\fdddd86303934c9c6a22cb53324ff226d956dbcb\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\qpb96\.android\build-cache\56c30f99141b5a4d8d8104b11dc43c0816c165dc\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\qpb96\.android\build-cache\190fdeaaacded61b34604eb86e8fced6b98bcd7e\output\AndroidManifest.xml:20:5-44
+ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:4:5-74
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\KieuV\.android\build-cache\8b33fca24c7bc6193d1af5201389ba253de32572\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\KieuV\.android\build-cache\96f0ebef57d8a837b0efbad08ba6d47b6ad5f072\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\KieuV\.android\build-cache\5a207db1633c15fd02342f9b2e2fbf5d27db718e\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\KieuV\.android\build-cache\0a1a03e4c5ce5b2c228709228679111e78e4ed99\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\KieuV\.android\build-cache\cf29b64c0fe154b2e11b9b016cc1127df8ac4803\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\KieuV\.android\build-cache\17d2b157cc2ca8b4b5762c4ae997e57e04aae86b\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\KieuV\.android\build-cache\30bd3c05df1daaa358cea17de1a8a24f9afe4d2c\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\KieuV\.android\build-cache\f6b157f372db32e24df0d4c6f9c8a186ce16f530\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\KieuV\.android\build-cache\e1a5ccfd1d79858488b3f47560a122c32a1bc7fe\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\KieuV\.android\build-cache\4f71fdfc8f4176296c767a1285732a7e14ab18f6\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\KieuV\.android\build-cache\a4f4073dabc49615ecdfa6124a52bdc1d47aa293\output\AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:4:42-71
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:4:42-71
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:4:15-41
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:4:15-41
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:5:22-64
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:6:5-79
+ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:6:22-76
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:8:5-26:19
+ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:8:5-26:19
 meta-data#com.google.android.gms.games.APP_ID
-ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:18:9-20:44
+ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:18:9-20:44
 	android:value
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:20:13-41
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:20:13-41
 	android:name
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:19:13-63
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:19:13-63
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:21:9-23:40
+ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:21:9-23:40
 	android:value
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:23:13-37
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:23:13-37
 	android:name
-		ADDED from C:\Users\qpb96\Documents\NTNU\sugar-beats\manifests\src\main\AndroidManifest.xml:22:13-58
-
+		ADDED from C:\Users\KieuV\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:22:13-58

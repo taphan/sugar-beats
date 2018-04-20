@@ -10,9 +10,13 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.sugarbeats.SugarBeats;
 
+
 import org.w3c.dom.css.Rect;
 
 import java.awt.Rectangle;
+
+import javax.xml.soap.Text;
+
 
 public class AssetService {
     //Size of the screen (Should these be public or private?)
@@ -25,6 +29,10 @@ public class AssetService {
     public static Texture pauseMenu;
     public static Texture helpMenu;
 
+    //Title for setting and helo
+    public static Texture title_Setting;
+    public static Texture title_Help;
+
     //Buttons for menu, with hitboxes
     public static Texture playBtn;
     public static Texture settingBtn;
@@ -35,6 +43,8 @@ public class AssetService {
 
     //TODO: Add logic for music/soundeffects on/off? Good for usability
     //TODO: Add a 'back'-button?
+    public static Texture unmute_btn;
+    public static Texture mute_btn;
 
 
     //Backgrounds within the game
@@ -115,16 +125,24 @@ public class AssetService {
     public static void load () {
         //Graphics logic
         mainMenu = new Texture("main_menu1.png");
-        settingsMenu = new Texture("main_menu1.png");
+        settingsMenu = new Texture("settingsMenu.png"); //TODO: make more menus?
+
         pauseMenu = new Texture("main_menu1.png");
         helpMenu = new Texture("help_menu1.png");
 
-        playBtn = new Texture("button_play.png");
-        settingBtn = new Texture("button_settings.png");
-        helpBtn = new Texture("button_help.png");
-        hsBtn = new Texture("button_highscore.png");
-        acBtn = new Texture("button_achievements.png");
-        mBtn = new Texture("button_multiplayer.png");
+        title_Setting = new Texture("title_Setting.png");
+        title_Help = new Texture("title_help.png");
+
+        unmute_btn = new Texture("unmute.png");
+        mute_btn = new Texture("mute.png");
+
+
+        playBtn = new Texture("button_play1.png");
+        settingBtn = new Texture("button_settings1.png");
+        helpBtn = new Texture("button_help1.png");
+        hsBtn = new Texture("button_highscore1.png");
+        acBtn = new Texture("button_achievements1.png");
+        mBtn = new Texture("button_multiplayer1.png");
 
         map1 = new TextureRegion(loadTexture("ground2.png")); //Chocolate
         map2 = new TextureRegion(loadTexture("ground3.png")); //Cotton candy
