@@ -1,6 +1,5 @@
 package com.sugarbeats.presenter;
 
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -10,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
-import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.system.AnimationSystem;
 import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
@@ -118,14 +116,15 @@ public class GamePresenter extends ScreenAdapter{
     public void updateFireButton() {
         Vector2 velocity = new Vector2();
         velocity.x = -250f;
-        Entity projectile = world.createProjectile(100, 100, velocity.x, velocity.y);
-        while(! projectile.getComponent(ProjectileComponent.class).isDead) {
-            velocity = updateProjectileVelocity();
-            engine.getSystem(ProjectileSystem.class).setVelocity(velocity);
-        }
+        // Note: Cannot draw projectile on screen
+        world.createProjectile(100, 100, velocity.x, velocity.y);
+        //while(! projectile.getComponent(ProjectileComponent.class).isDead)
+        velocity = updateProjectileVelocity();
+        engine.getSystem(ProjectileSystem.class).setVelocity(velocity);
     }
 
     private Vector2 updateProjectileVelocity() {
+        // TODO: Update the velocity of projectile to be able to move after time frame
         return new Vector2();
     }
 

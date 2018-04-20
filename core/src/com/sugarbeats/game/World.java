@@ -101,7 +101,6 @@ public class World {
         MovementComponent movement = engine.createComponent(MovementComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
         ProjectileComponent projectile = engine.createComponent(ProjectileComponent.class);
-        // Maybe a CollisionComponent, but currently not very useful
 
         animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
 
@@ -109,7 +108,7 @@ public class World {
         bounds.bounds.height = ProjectileComponent.HEIGHT;
 
         position.position.add(x,y);
-        position.scale.add(-0.7f, -0.7f);
+        position.scale.add(-0.5f, -0.5f);
 
         projectile.xVel = xVel;
         projectile.yVel = yVel;

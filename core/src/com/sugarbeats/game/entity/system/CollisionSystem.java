@@ -115,7 +115,7 @@ public class CollisionSystem extends EntitySystem {
                             projectileBounds.bounds.overlaps(playerBounds.bounds)) {
                         if (projectileBounds.bounds.overlaps(playerBounds.bounds))
                             playerSystem.hitByProjectile(player); // Powerup give a state to player
-
+                        projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
                         engine.removeEntity(projectile);  // Player eats powerup & remove it from map
                         listener.hit();
