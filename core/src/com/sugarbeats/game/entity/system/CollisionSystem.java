@@ -114,16 +114,14 @@ public class CollisionSystem extends EntitySystem {
                     if(projectileBounds.bounds.overlaps(backgroundBounds.bounds) ||
                             projectileBounds.bounds.overlaps(playerBounds.bounds)) {
                         if (projectileBounds.bounds.overlaps(playerBounds.bounds))
-                            playerSystem.hitByProjectile(player); // Powerup give a state to player
+                            playerSystem.hitByProjectile(player);
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
-                        engine.removeEntity(projectile);  // Player eats powerup & remove it from map
+                        engine.removeEntity(projectile);
                         listener.hit();
                     }
                 }
             }
-
-            // TODO: Check if player collided with another player
         }
     }
 }

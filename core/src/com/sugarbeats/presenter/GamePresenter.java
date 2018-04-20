@@ -130,7 +130,8 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         Vector2 velocity = new Vector2();
         velocity.x = -250f;
         // Note: Cannot draw projectile on screen
-        world.createProjectile(100, 100, velocity.x, velocity.y);
+        world.createProjectile(230, 215, velocity.x, velocity.y);
+        //world.createPlayer(1);
         //while(! projectile.getComponent(ProjectileComponent.class).isDead)
         velocity = updateProjectileVelocity();
         engine.getSystem(ProjectileSystem.class).setVelocity(velocity);

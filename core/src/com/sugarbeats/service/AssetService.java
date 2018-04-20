@@ -157,8 +157,16 @@ public class AssetService {
                 new TextureRegion(walk, 1200, 0, 200, 200),
                 new TextureRegion(walk, 1400, 0, 200, 200));
 
-
-        Texture bullet = loadTexture("bullet.png");
+        Texture bulletTexture= loadTexture("projectile2_anim.png");
+        bullet = new Animation<TextureRegion>(0.2f,
+                new TextureRegion(bulletTexture, 0, 0, 200, 200),
+                new TextureRegion(bulletTexture, 200, 0, 200, 200),
+                new TextureRegion(bulletTexture, 400, 0, 200, 200),
+                new TextureRegion(bulletTexture, 600, 0, 200, 200),
+                new TextureRegion(bulletTexture, 800, 0, 200, 200),
+                new TextureRegion(bulletTexture, 1000, 0, 200, 200),
+                new TextureRegion(bulletTexture, 1200, 0, 200, 200),
+                new TextureRegion(bulletTexture, 1400, 0, 200, 200));
 
         //Animation logic
         //TODO: use the link below on how to make animations

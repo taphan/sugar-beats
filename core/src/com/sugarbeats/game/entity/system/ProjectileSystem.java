@@ -41,12 +41,15 @@ public class ProjectileSystem extends IteratingSystem {
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        MovementComponent mov = mm.get(entity);
+        TransformComponent position = tm.get(entity);
+        MovementComponent movement = mm.get(entity);
         ProjectileComponent projectileComponent = pm.get(entity);
         StateComponent stateComponent = sm.get(entity);
 
-        mov.velocity.x = velocity.x;
-        mov.velocity.y = velocity.y;
+        movement.velocity.x += 20*deltaTime*Math.cos(80*Math.PI / 180 ); // v0*t*cos(rad)
+        // v0*t*sin(rad) - 1/2*gt
+        movement.velocity.y += 20*deltaTime*Math.sin(80*Math.PI / 180 ) - 9.81*deltaTime;
+        position.position.add(movement.velocity);
 
         if(projectileComponent.isDead) {
             stateComponent.set(ProjectileComponent.STATE_HIT);

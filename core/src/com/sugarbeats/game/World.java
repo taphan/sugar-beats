@@ -41,17 +41,14 @@ public class World {
     public void create() {
         createGround();
         createPlayer(1);
-        Entity player2 = createPlayer(2);
         //createwalking();
 
-
-        //createCamera(player1);
         createBackground();
 
         this.state = WORLD_STATE_RUNNING;
     }
 
-    private Entity createPlayer(int playerNr){
+    public void createPlayer(int playerNr){
         Entity entity = engine.createEntity();
 
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
@@ -90,10 +87,9 @@ public class World {
 
         engine.addEntity(entity);
 
-        return entity;
     }
 
-    public Entity createProjectile(float x, float y, float xVel, float yVel) {
+    public void createProjectile(float x, float y, float xVel, float yVel) {
         Entity entity = engine.createEntity();
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
@@ -102,14 +98,15 @@ public class World {
         MovementComponent movement = engine.createComponent(MovementComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
         ProjectileComponent projectile = engine.createComponent(ProjectileComponent.class);
+        TextureComponent texture = engine.createComponent(TextureComponent.class);
 
-        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
+        animation.animations.put(ProjectileComponent.STATE_START, AssetService.bullet);
 
         bounds.bounds.width = ProjectileComponent.WIDTH;
         bounds.bounds.height = ProjectileComponent.HEIGHT;
 
         position.position.add(x,y);
-        position.scale.add(-0.5f, -0.5f);
+        position.scale.add(-0.9f, -0.9f);
 
         projectile.xVel = xVel;
         projectile.yVel = yVel;
@@ -123,10 +120,9 @@ public class World {
         entity.add(movement);
         entity.add(position);
         entity.add(projectile);
+        entity.add(texture);
 
         engine.addEntity(entity);
-
-        return entity;
     }
 
 

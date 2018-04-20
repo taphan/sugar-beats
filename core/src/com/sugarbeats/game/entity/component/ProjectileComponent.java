@@ -12,8 +12,8 @@ public class ProjectileComponent implements Component, Pool.Poolable {
     public static final int STATE_MIDAIR = 1;
     public static final int STATE_HIT = 2;
 
-    public static final float WIDTH = 200f*0.1f;
-    public static final float HEIGHT = 200f*0.3f;
+    public static final float WIDTH = 100f*0.1f;
+    public static final float HEIGHT = 100f*0.3f;
 
     public float xVel = 0;
     public float yVel = 0;
