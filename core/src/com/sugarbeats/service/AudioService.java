@@ -25,6 +25,8 @@ public class AudioService {
     public static Sound damageSound;
     public static Sound deathSound;
 
+    private boolean muted = false;
+
     public static void load () {
         //Sound logic
         menuMusic = Gdx.audio.newMusic(Gdx.files.internal("menuSong.mp3"));
@@ -49,4 +51,6 @@ public class AudioService {
         //if (Settings.soundEnabled)
         sound.play(1);
     }
+
+
 }

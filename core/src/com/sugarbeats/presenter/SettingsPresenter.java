@@ -3,6 +3,7 @@ package com.sugarbeats.presenter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.sugarbeats.SugarBeats;
+import com.sugarbeats.service.AudioService;
 import com.sugarbeats.view.BaseView;
 import com.sugarbeats.view.HelpView;
 import com.sugarbeats.view.IView;
@@ -16,6 +17,7 @@ public class SettingsPresenter extends BasePresenter {
     SugarBeats game;
     IView view;
     Screen parent;
+    private AudioService audioService; //TESTER
 
 
     public SettingsPresenter(SugarBeats game, Screen parent) {
@@ -27,6 +29,13 @@ public class SettingsPresenter extends BasePresenter {
     @Override
     public IView getView() {
         return view;
+    }
+
+    //TESTER
+    public void onMuteSoundClick(boolean muted){
+        if(muted){
+           // audioService.setSoundVolume(0);
+        }
     }
 
     public class ViewController {
