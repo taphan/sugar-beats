@@ -38,9 +38,6 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 	@Override
 	public void create () {
 
-	    //listener
-
-
 		batch = new SpriteBatch();
 		//Load graphics and animations
 		AssetService.load();
