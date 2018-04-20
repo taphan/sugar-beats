@@ -92,9 +92,8 @@ public class World {
         return entity;
     }
 
-    public Entity createBullet(float x, float y, float xVel, float yVel) {
+    public Entity createProjectile(float x, float y, float xVel, float yVel) {
         Entity entity = engine.createEntity();
-
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
         GravityComponent gravity = engine.createComponent(GravityComponent.class);

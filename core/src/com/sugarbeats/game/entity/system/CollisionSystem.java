@@ -28,7 +28,7 @@ public class CollisionSystem extends EntitySystem {
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<StateComponent> sm;
     private ComponentMapper<TransformComponent> tm;
-    private ComponentMapper<ProjectileComponent> bulletMapper;
+    private ComponentMapper<ProjectileComponent> pm;
 
     public static interface CollisionListener {   // Listens to collisions
         public void powerup();  // Player got powerup
@@ -43,7 +43,7 @@ public class CollisionSystem extends EntitySystem {
     private ImmutableArray<Entity> ground;
     private ImmutableArray<Entity> powerups;
     private ImmutableArray<Entity> background;
-    private ImmutableArray<Entity> bullets;
+    private ImmutableArray<Entity> projectiles;
 
     public CollisionSystem(World world, CollisionListener listener) {
         this.world = world;
@@ -53,7 +53,7 @@ public class CollisionSystem extends EntitySystem {
         mm = ComponentMapper.getFor(MovementComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
-        bulletMapper = ComponentMapper.getFor(ProjectileComponent.class);
+        pm = ComponentMapper.getFor(ProjectileComponent.class);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class CollisionSystem extends EntitySystem {
         ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
         powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
         background = engine.getEntitiesFor(Family.all(BackgroundComponent.class,BoundsComponent.class,TransformComponent.class ).get());
-        bullets = engine.getEntitiesFor(Family.all(BoundsComponent.class, TransformComponent.class, ProjectileComponent.class).get());
+        projectiles = engine.getEntitiesFor(Family.all(ProjectileComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
     }
 
     @Override
@@ -80,6 +80,7 @@ public class CollisionSystem extends EntitySystem {
             BoundsComponent groundBounds = bm.get(currentGround);
 
             if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
+                listener.ground();
                 playerSystem.hitGround(player);
             }
 
@@ -103,13 +104,26 @@ public class CollisionSystem extends EntitySystem {
                 }
             }
 
+            // Check if player has been hit by a projectile
+            for (int j = 0; j < projectiles.size(); j++) {
+                Entity projectile = projectiles.get(j);
+                BoundsComponent projectileBounds = bm.get(projectile);
+                StateComponent projectileState = sm.get(projectile);
+
+                if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
+                    if(projectileBounds.bounds.overlaps(backgroundBounds.bounds) ||
+                            projectileBounds.bounds.overlaps(playerBounds.bounds)) {
+                        if (projectileBounds.bounds.overlaps(playerBounds.bounds))
+                            playerSystem.hitByProjectile(player); // Powerup give a state to player
+
+                        projectileState.set(ProjectileComponent.STATE_HIT);
+                        engine.removeEntity(projectile);  // Player eats powerup & remove it from map
+                        listener.hit();
+                    }
+                }
+            }
+
             // TODO: Check if player collided with another player
-
         }
-
-        // TODO: Check if bullet hit opponent or a player
-        // STATE_START -> STATE_MIDAIR =/= real collision
-        // Projectile hit a player (in for players loop!) when projectile is in STATE_MIDAIR, then set to STATE_HIT
-        // Call playerSystem.hitByProjectile(player)
     }
 }

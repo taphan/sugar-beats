@@ -1,13 +1,16 @@
 package com.sugarbeats.presenter;
 
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.system.AnimationSystem;
 import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
@@ -47,9 +50,7 @@ public class GamePresenter extends ScreenAdapter{
             }
 
             @Override
-            public void ground () {
-                System.out.println("Touched the ground!!!");
-            }
+            public void ground () { }
 
             @Override
             public void hit () {
@@ -102,16 +103,30 @@ public class GamePresenter extends ScreenAdapter{
         float veloX = 0.0f;
 
         switch (key) {
-        case 0:
-            // Left button pressed
-            veloX = -250f;
-            break;
-        case 1:
-            // Right button pressed
-            veloX = 250f;
-            break;
+            case 0:
+                // Left button pressed
+                veloX = -250f;
+                break;
+            case 1:
+                // Right button pressed
+                veloX = 250f;
+                break;
         }
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+    }
+
+    public void updateFireButton() {
+        Vector2 velocity = new Vector2();
+        velocity.x = -250f;
+        Entity projectile = world.createProjectile(100, 100, velocity.x, velocity.y);
+        while(! projectile.getComponent(ProjectileComponent.class).isDead) {
+            velocity = updateProjectileVelocity();
+            engine.getSystem(ProjectileSystem.class).setVelocity(velocity);
+        }
+    }
+
+    private Vector2 updateProjectileVelocity() {
+        return new Vector2();
     }
 
 }
