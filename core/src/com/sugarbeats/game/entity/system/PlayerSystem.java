@@ -4,6 +4,8 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.MovementComponent;
@@ -11,6 +13,7 @@ import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.presenter.GamePresenter;
 
 /**
  * Created by Quynh on 4/12/2018.
@@ -59,6 +62,12 @@ public class PlayerSystem extends IteratingSystem {
         PlayerComponent player = pm.get(entity);
 
         mov.velocity.x = this.velocityX;
+
+        /*
+        if (state.get() != PlayerComponent.STATE_HIT && Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            walking(entity);
+        }*/
+
     }
 
     public void hitGround(Entity entity) {
@@ -92,5 +101,20 @@ public class PlayerSystem extends IteratingSystem {
         if (t.position.x > SugarBeats.WIDTH- PlayerComponent.WIDTH) {
             t.position.x = SugarBeats.WIDTH-PlayerComponent.WIDTH;
         }
+    }
+
+    public void getHit(Entity entity){
+        if (!family.matches(entity)) return;
+
+        StateComponent state = sm.get(entity);
+        state.set(PlayerComponent.STATE_HIT);
+    }
+
+    public void walking(Entity entity){
+        if (!family.matches(entity)) return;
+
+        StateComponent state = sm.get(entity);
+
+        state.set(PlayerComponent.STATE_PLAY);
     }
 }
