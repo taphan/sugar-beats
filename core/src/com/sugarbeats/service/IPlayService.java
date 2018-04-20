@@ -7,15 +7,52 @@ core project and implement this interface inside the Android Project. Makes sens
 
 So inside the core Project, create a new interface and call it PlayServices. */
 
+import com.sugarbeats.model.PlayerData;
+
+import java.util.List;
+
 public interface IPlayService {
 
+
+        public void  onSignInSucceeded();
+
+
         public void signIn();
+
         public void signOut();
+
         public void rateGame();
+
         public void unlockAchievement();
+
         public void submitScore(int highScore);
+
         public void showAchievement();
+
         public void showScore();
+        public void onSignInFailed();
+
+
+        void setGameListener(IGameListener gameListener);
+
+
         public boolean isSignedIn();
-        public void invitePlayers(boolean autoMatch);
-    }
+
+        public void startSelectOpponents(boolean autoMatch);
+
+
+        interface IGameListener {
+
+                void onMultiplayerGameStarting();
+        }
+        void setNetworkListener(INetworkListener networkListener);
+
+        interface INetworkListener {
+
+                void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData);
+
+                void onUnreliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData);
+
+                void onRoomReady(List<PlayerData> players);
+        }
+}

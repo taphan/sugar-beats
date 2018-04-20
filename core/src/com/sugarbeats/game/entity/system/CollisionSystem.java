@@ -9,6 +9,7 @@ import com.badlogic.ashley.utils.ImmutableArray;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
@@ -27,6 +28,7 @@ public class CollisionSystem extends EntitySystem {
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<StateComponent> sm;
     private ComponentMapper<TransformComponent> tm;
+    private ComponentMapper<ProjectileComponent> pm;
 
     public static interface CollisionListener {   // Listens to collisions
         public void powerup();  // Player got powerup
@@ -41,6 +43,7 @@ public class CollisionSystem extends EntitySystem {
     private ImmutableArray<Entity> ground;
     private ImmutableArray<Entity> powerups;
     private ImmutableArray<Entity> background;
+    private ImmutableArray<Entity> projectiles;
 
     public CollisionSystem(World world, CollisionListener listener) {
         this.world = world;
@@ -50,6 +53,7 @@ public class CollisionSystem extends EntitySystem {
         mm = ComponentMapper.getFor(MovementComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
+        pm = ComponentMapper.getFor(ProjectileComponent.class);
     }
 
     @Override
@@ -60,6 +64,7 @@ public class CollisionSystem extends EntitySystem {
         ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
         powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
         background = engine.getEntitiesFor(Family.all(BackgroundComponent.class,BoundsComponent.class,TransformComponent.class ).get());
+        projectiles = engine.getEntitiesFor(Family.all(ProjectileComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
     }
 
     @Override
@@ -75,7 +80,7 @@ public class CollisionSystem extends EntitySystem {
             BoundsComponent groundBounds = bm.get(currentGround);
 
             if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
-                // If the player is standing on a ground, stop falling
+                listener.ground();
                 playerSystem.hitGround(player);
             }
 
@@ -84,7 +89,6 @@ public class CollisionSystem extends EntitySystem {
             BoundsComponent backgroundBounds = bm.get(currentBackground);
 
             if (playerBounds.bounds.overlaps(backgroundBounds.bounds)) {
-                // If the player is standing on a ground, stop falling
                 playerSystem.hitMapEdge(player);
             }
 
@@ -100,11 +104,26 @@ public class CollisionSystem extends EntitySystem {
                 }
             }
 
+            // Check if player has been hit by a projectile
+            for (int j = 0; j < projectiles.size(); j++) {
+                Entity projectile = projectiles.get(j);
+                BoundsComponent projectileBounds = bm.get(projectile);
+                StateComponent projectileState = sm.get(projectile);
+
+                if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
+                    if(projectileBounds.bounds.overlaps(backgroundBounds.bounds) ||
+                            projectileBounds.bounds.overlaps(playerBounds.bounds)) {
+                        if (projectileBounds.bounds.overlaps(playerBounds.bounds))
+                            playerSystem.hitByProjectile(player); // Powerup give a state to player
+                        projectile.getComponent(ProjectileComponent.class).isDead = true;
+                        projectileState.set(ProjectileComponent.STATE_HIT);
+                        engine.removeEntity(projectile);  // Player eats powerup & remove it from map
+                        listener.hit();
+                    }
+                }
+            }
+
             // TODO: Check if player collided with another player
-
         }
-
-        // TODO: Check if bullet hit opponent
-
     }
 }

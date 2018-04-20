@@ -54,6 +54,10 @@ public class GameView extends BaseView {
                 if (rightBound.contains(touchPoint.x, touchPoint.y)) {
                     presenter.updateKeyPress(1);
                 }
+                if(fireBound.contains(touchPoint.x, touchPoint.y)) {
+                    // TODO: Make another method to handle this and send in necessary information (start position/velocity, angle)
+                    presenter.updateFireButton();
+                }
             }
         }
     }
