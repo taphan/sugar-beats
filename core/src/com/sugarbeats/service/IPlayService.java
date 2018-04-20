@@ -42,9 +42,6 @@ public interface IPlayService {
         public void startSelectOpponents(boolean autoMatch);
 
 
-
-
-
         interface IGameListener {
 
                 void onMultiplayerGameStarting();
