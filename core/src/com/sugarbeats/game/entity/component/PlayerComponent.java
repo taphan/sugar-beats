@@ -20,4 +20,5 @@ public class PlayerComponent implements Component{
 
     public static final float WIDTH = 200f*0.1f;
     public static final float HEIGHT = 200f;
+
 }
