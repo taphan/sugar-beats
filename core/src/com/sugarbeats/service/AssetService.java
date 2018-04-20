@@ -10,6 +10,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.sugarbeats.SugarBeats;
 
+import javax.xml.soap.Text;
+
 public class AssetService {
     //Size of the screen (Should these be public or private?)
     public static final int WIDTH = SugarBeats.WIDTH;
@@ -21,6 +23,10 @@ public class AssetService {
     public static Texture pauseMenu;
     public static Texture helpMenu;
 
+    //Title for setting and helo
+    public static Texture title_Setting;
+    public static Texture title_Help;
+
     //Buttons for menu, with hitboxes
     public static Texture playBtn;
     public static Texture settingBtn;
@@ -31,6 +37,8 @@ public class AssetService {
 
     //TODO: Add logic for music/soundeffects on/off? Good for usability
     //TODO: Add a 'back'-button?
+    public static Texture unmute_btn;
+    public static Texture mute_btn;
 
 
     //Backgrounds within the game
@@ -92,9 +100,16 @@ public class AssetService {
         //Graphics logic
         mainMenu = new Texture("main_menu1.png");
 
-        settingsMenu = new Texture("main_menu1.png"); //TODO: make more menus?
+        settingsMenu = new Texture("settingsMenu.png"); //TODO: make more menus?
         pauseMenu = new Texture("main_menu1.png");
         helpMenu = new Texture("main_menu1.png");
+
+        title_Setting = new Texture("title_Setting.png");
+        title_Help = new Texture("title_help.png");
+
+        unmute_btn = new Texture("unmute.png");
+        mute_btn = new Texture("mute.png");
+
 
         playBtn = new Texture("button_play1.png");
         settingBtn = new Texture("button_settings1.png");
