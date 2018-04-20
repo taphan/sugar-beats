@@ -1,183 +1,121 @@
 package com.sugarbeats.game;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
+import com.google.android.gms.games.multiplayer.Invitation;
+import com.google.android.gms.games.multiplayer.Multiplayer;
+import com.google.android.gms.games.multiplayer.OnInvitationReceivedListener;
+import com.google.android.gms.games.multiplayer.Participant;
+import com.google.android.gms.games.multiplayer.realtime.RealTimeMessage;
+import com.google.android.gms.games.multiplayer.realtime.RealTimeMessageReceivedListener;
+import com.google.android.gms.games.multiplayer.realtime.RealTimeMultiplayer;
+import com.google.android.gms.games.multiplayer.realtime.Room;
+import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
+import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListener;
+import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
+import com.google.example.games.basegameutils.BaseGameActivity;
+import com.google.example.games.basegameutils.BaseGameUtils;
 import com.google.example.games.basegameutils.GameHelper;
 import com.sugarbeats.SugarBeats;
+import com.sugarbeats.model.PlayerData;
 import com.sugarbeats.service.IPlayService;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-public class AndroidLauncher extends AndroidApplication implements IPlayService{
+import static android.content.ContentValues.TAG;
+import static com.google.android.gms.games.GamesActivityResultCodes.RESULT_INVALID_ROOM;
+import static com.google.android.gms.games.GamesActivityResultCodes.RESULT_LEFT_ROOM;
+import static com.google.android.gms.games.GamesStatusCodes.STATUS_CLIENT_RECONNECT_REQUIRED;
+import static com.google.android.gms.games.GamesStatusCodes.STATUS_OK;
 
+
+public class AndroidLauncher extends AndroidApplication  {
+
+	final static String TAG = "SUGAR BEATS";
 	private GameHelper gameHelper;
-	private final static int requestCode = 1;
-	public static final int RC_ACHIEVEMENTS = 1;
-	private static final int RC_SELECT_PLAYERS = 100;
-	private static final int MIN_PLAYERS = 1;
-	private static final int MAX_PLAYERS = 7;
+	private AndroidNetwork playService;
+
+
+
+
 
 
 	@Override
-	protected void onCreate (Bundle savedInstanceState) {
-		gameHelper = new GameHelper(this, GameHelper.CLIENT_GAMES);
-		gameHelper.enableDebugLog(false);
-		GameHelper.GameHelperListener gameHelperListener = new GameHelper.GameHelperListener()
-		{
-			@Override
-			public void onSignInFailed(){ }
-
-			@Override
-			public void onSignInSucceeded(){ }
-		};
-
-		gameHelper.setup(gameHelperListener);
-
-
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		initialize(new SugarBeats(this), config);
+		playService = new AndroidNetwork(this); AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+		config.useCompass = false;
+		config.useAccelerometer = false;
+		config.useImmersiveMode = true;
+		config.useWakelock = true;
+		initialize(new SugarBeats(playService), config);
+		playService.setup();
+
 
 
 	}
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+	@Override
+	protected void onResume() {
+		super.onResume();
 
 
-    }
+	}
 
 	@Override
-	protected void onStart()
-	{
+	protected void onStart() {
 		super.onStart();
-		gameHelper.onStart(this);
+		playService.onStart(this);
 	}
 
 	@Override
-	protected void onStop()
-	{
+	protected void onStop() {
 		super.onStop();
-		gameHelper.onStop();
+		playService.onStop();
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data)
-	{
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		gameHelper.onActivityResult(requestCode, resultCode, data);
+		playService.onActivityResult(requestCode, resultCode, data);
+
 	}
 
-	@Override
-	public void signIn()
-	{
-		try
-		{
-			runOnUiThread(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					gameHelper.beginUserInitiatedSignIn();
-				}
-			});
-		}
-		catch (Exception e)
-		{
-			Gdx.app.log("MainActivity", "Log in failed: " + e.getMessage() + ".");
-		}
-	}
 
-	@Override
-	public void signOut()
-	{
-		try
-		{
-			runOnUiThread(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					gameHelper.signOut();
-				}
-			});
-		}
-		catch (Exception e)
-		{
-			Gdx.app.log("MainActivity", "Log out failed: " + e.getMessage() + ".");
-		}
-	}
 
-	@Override
-	public void rateGame()
-	{
-		String str = "Your PlayStore Link";
-		startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(str)));
-	}
 
-	@Override
-	public void unlockAchievement()
-	{
-		Games.Achievements.unlock(gameHelper.getApiClient(),
-				getString(R.string.achievement_welcome));
-	}
 
-	@Override
-	public void submitScore(int highScore)
-	{
-		if (isSignedIn() == true)
-		{
-			Games.Leaderboards.submitScore(gameHelper.getApiClient(),
-					getString(R.string.leaderboard_leaderboard), highScore);
-		}
-	}
 
-	@Override
-	public void showAchievement()
-	{
-		if (isSignedIn() == true)
-		{
-			startActivityForResult(Games.Achievements.getAchievementsIntent(gameHelper.getApiClient()),RC_ACHIEVEMENTS);
 
-		}
-		else
-		{
-			signIn();
-		}
-	}
 
-	@Override
-	public void showScore()
-	{
-		if (isSignedIn() == true)
-		{
-			startActivityForResult(Games.Leaderboards.getLeaderboardIntent(gameHelper.getApiClient(),
-					getString(R.string.leaderboard_leaderboard)), requestCode);
-		}
-		else
-		{
-			signIn();
-		}
-	}
 
-	@Override
-	public boolean isSignedIn()
-	{
-		return gameHelper.isSignedIn();
-	}
 
-	@Override
-	public void invitePlayers(boolean autoMatch) {
-		Intent intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(gameHelper.getApiClient(),MIN_PLAYERS,MAX_PLAYERS, autoMatch);
-		startActivityForResult(intent, RC_SELECT_PLAYERS);
-	}
+
+
+
+
+
+
+
+
 
 
 }
