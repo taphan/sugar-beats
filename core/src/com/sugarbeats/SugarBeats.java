@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.presenter.GamePresenter;
 import com.sugarbeats.presenter.MainMenuPresenter;
-import com.sugarbeats.presenter.MultiPlayerGamePresenter;
 import com.sugarbeats.service.AssetService;
 import com.sugarbeats.service.AudioService;
 import com.sugarbeats.service.IPlayService;
@@ -26,20 +25,15 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 
 	public SugarBeats(IPlayService playServices){
 		this.playServices = playServices;
+		//listener
+		playServices.setGameListener(this);
 	}
 
 	// For Desktop to work
 	public SugarBeats() {}
 
-
-
-
 	@Override
 	public void create () {
-
-	    //listener
-		playServices.setGameListener(this);
-
 		batch = new SpriteBatch();
 		//Load graphics and animations
 		AssetService.load();

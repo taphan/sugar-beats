@@ -10,8 +10,6 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.sugarbeats.SugarBeats;
 
-import org.w3c.dom.css.Rect;
-
 import java.awt.Rectangle;
 
 public class AssetService {
@@ -127,8 +125,8 @@ public class AssetService {
         //TODO: add graphics and bounds for gameplay buttons
         upBtn = new Texture("button_up.png");
         downBtn = new Texture("button_up.png");
-        leftBtn = new Texture("button_up.png");
-        rightBtn = new Texture("button_up.png");
+        leftBtn = new Texture("button_left.png");
+        rightBtn = new Texture("button_right.png");
         //These can be rotated when drawn: https://stackoverflow.com/questions/24748350/libgdx-rotate-a-texture-when-drawing-it-with-spritebatch
         fireBtn = new Texture("button_shoot.png");
         powerBar = new Texture("slider.png");
