@@ -6,6 +6,7 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.PowerupComponent;
@@ -23,7 +24,8 @@ public class PlayerSystem extends IteratingSystem {
     private static final Family family = Family.all(PlayerComponent.class,
             StateComponent.class,
             TransformComponent.class,
-            MovementComponent.class).get();
+            MovementComponent.class,
+            HealthComponent.class).get();
     // Deleting HealthComponent.class from the family makes it possible to process this system!!
 
     private World world;
@@ -32,6 +34,7 @@ public class PlayerSystem extends IteratingSystem {
     private ComponentMapper<StateComponent> sm;
     private ComponentMapper<TransformComponent> tm;
     private ComponentMapper<MovementComponent> mm;
+    private ComponentMapper<HealthComponent> hm;
     private ComponentMapper<PowerupComponent> pwrm;
 
     private float velocityX;
@@ -45,6 +48,7 @@ public class PlayerSystem extends IteratingSystem {
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
+        hm = ComponentMapper.getFor(HealthComponent.class);
 
         velocityX = 0.0f;
     }
@@ -89,8 +93,13 @@ public class PlayerSystem extends IteratingSystem {
         if (t.position.x < 0) {
             t.position.x = 0;
         }
-        if (t.position.x > SugarBeats.WIDTH- PlayerComponent.WIDTH) {
-            t.position.x = SugarBeats.WIDTH-PlayerComponent.WIDTH;
+        if (t.position.x > SugarBeats.WIDTH - PlayerComponent.WIDTH) {
+            t.position.x = SugarBeats.WIDTH - PlayerComponent.WIDTH;
         }
+    }
+
+    public void hitByProjectile(Entity entity) {
+        HealthComponent h = hm.get(entity);
+        // TODO: Decrease player's health and notify GamePresenter
     }
 }

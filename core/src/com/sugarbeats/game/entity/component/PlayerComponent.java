@@ -14,7 +14,10 @@ public class PlayerComponent implements Component{
     public static final int STATE_NORMAL = 4;
     public static final int STATE_BOOSTED = 5;  // Ate power up
 
-
     public static final float WIDTH = 200f*0.1f;
     public static final float HEIGHT = 200f*0.3f;
+
+    public boolean isDead = false;
+    public float shootDelay = 0.5f;
+    public float timeSinceLastShot = 0f;
 }

@@ -15,6 +15,7 @@ import com.sugarbeats.game.entity.system.CollisionSystem.CollisionListener;
 import com.sugarbeats.game.entity.system.GravitySystem;
 import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
+import com.sugarbeats.game.entity.system.ProjectileSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.view.GameView;
 
@@ -68,6 +69,7 @@ public class GamePresenter extends ScreenAdapter{
         engine.addSystem(new MovementSystem());
         engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
+        engine.addSystem(new ProjectileSystem());
 
         engine.addSystem(new CollisionSystem(world, collisionListener));
     }

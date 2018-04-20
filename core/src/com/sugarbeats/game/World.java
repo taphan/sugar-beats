@@ -6,14 +6,15 @@ import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GravityComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
+import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
-import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.service.AssetService;
 
 /**
@@ -60,6 +61,7 @@ public class World {
         MovementComponent movement = engine.createComponent(MovementComponent.class);
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
+        HealthComponent health = engine.createComponent(HealthComponent.class);
 
         animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
 
@@ -83,6 +85,45 @@ public class World {
         entity.add(movement);
         entity.add(position);
         entity.add(texture);
+        entity.add(health);
+
+        engine.addEntity(entity);
+
+        return entity;
+    }
+
+    public Entity createBullet(float x, float y, float xVel, float yVel) {
+        Entity entity = engine.createEntity();
+
+        AnimationComponent animation = engine.createComponent(AnimationComponent.class);
+        BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
+        GravityComponent gravity = engine.createComponent(GravityComponent.class);
+        StateComponent state = engine.createComponent(StateComponent.class);
+        MovementComponent movement = engine.createComponent(MovementComponent.class);
+        TransformComponent position = engine.createComponent(TransformComponent.class);
+        ProjectileComponent projectile = engine.createComponent(ProjectileComponent.class);
+        // Maybe a CollisionComponent, but currently not very useful
+
+        animation.animations.put(PlayerComponent.STATE_PLAY, AssetService.character2);
+
+        bounds.bounds.width = ProjectileComponent.WIDTH;
+        bounds.bounds.height = ProjectileComponent.HEIGHT;
+
+        position.position.add(x,y);
+        position.scale.add(-0.7f, -0.7f);
+
+        projectile.xVel = xVel;
+        projectile.yVel = yVel;
+
+        state.set(ProjectileComponent.STATE_START);
+
+        entity.add(animation);
+        entity.add(bounds);
+        entity.add(gravity);
+        entity.add(state);
+        entity.add(movement);
+        entity.add(position);
+        entity.add(projectile);
 
         engine.addEntity(entity);
 

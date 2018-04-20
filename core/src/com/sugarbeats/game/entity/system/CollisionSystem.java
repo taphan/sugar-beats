@@ -9,6 +9,7 @@ import com.badlogic.ashley.utils.ImmutableArray;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
@@ -27,6 +28,7 @@ public class CollisionSystem extends EntitySystem {
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<StateComponent> sm;
     private ComponentMapper<TransformComponent> tm;
+    private ComponentMapper<ProjectileComponent> bulletMapper;
 
     public static interface CollisionListener {   // Listens to collisions
         public void powerup();  // Player got powerup
@@ -41,6 +43,7 @@ public class CollisionSystem extends EntitySystem {
     private ImmutableArray<Entity> ground;
     private ImmutableArray<Entity> powerups;
     private ImmutableArray<Entity> background;
+    private ImmutableArray<Entity> bullets;
 
     public CollisionSystem(World world, CollisionListener listener) {
         this.world = world;
@@ -50,6 +53,7 @@ public class CollisionSystem extends EntitySystem {
         mm = ComponentMapper.getFor(MovementComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
+        bulletMapper = ComponentMapper.getFor(ProjectileComponent.class);
     }
 
     @Override
@@ -60,6 +64,7 @@ public class CollisionSystem extends EntitySystem {
         ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
         powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
         background = engine.getEntitiesFor(Family.all(BackgroundComponent.class,BoundsComponent.class,TransformComponent.class ).get());
+        bullets = engine.getEntitiesFor(Family.all(BoundsComponent.class, TransformComponent.class, ProjectileComponent.class).get());
     }
 
     @Override
@@ -75,7 +80,6 @@ public class CollisionSystem extends EntitySystem {
             BoundsComponent groundBounds = bm.get(currentGround);
 
             if (playerBounds.bounds.overlaps(groundBounds.bounds)) {
-                // If the player is standing on a ground, stop falling
                 playerSystem.hitGround(player);
             }
 
@@ -84,7 +88,6 @@ public class CollisionSystem extends EntitySystem {
             BoundsComponent backgroundBounds = bm.get(currentBackground);
 
             if (playerBounds.bounds.overlaps(backgroundBounds.bounds)) {
-                // If the player is standing on a ground, stop falling
                 playerSystem.hitMapEdge(player);
             }
 
@@ -104,7 +107,9 @@ public class CollisionSystem extends EntitySystem {
 
         }
 
-        // TODO: Check if bullet hit opponent
-
+        // TODO: Check if bullet hit opponent or a player
+        // STATE_START -> STATE_MIDAIR =/= real collision
+        // Projectile hit a player (in for players loop!) when projectile is in STATE_MIDAIR, then set to STATE_HIT
+        // Call playerSystem.hitByProjectile(player)
     }
 }
