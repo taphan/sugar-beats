@@ -16,13 +16,21 @@ import com.sugarbeats.game.entity.system.GravitySystem;
 import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
+import com.sugarbeats.model.PlayerData;
+import com.sugarbeats.service.IPlayService;
+import com.sugarbeats.service.ServiceLocator;
 import com.sugarbeats.view.GameView;
+
+
+import java.util.List;
+
+//import sun.rmi.runtime.Log;
 
 /**
  * Created by taphan on 11.04.2018.
  */
 
-public class GamePresenter extends ScreenAdapter{
+public class GamePresenter extends ScreenAdapter implements IPlayService.INetworkListener{
 
     SugarBeats game;
     private Screen parent;
@@ -30,10 +38,23 @@ public class GamePresenter extends ScreenAdapter{
     World world;
     GameView view;
 
+
     CollisionListener collisionListener;
 
 
+     private  final IPlayService playService;
+
+
     public GamePresenter(SugarBeats game, Screen parent) {
+        Gdx.app.debug("GAMEPRESENTER FRA ANDROIDNETWORK", "oneMultiplayerGameStarting!!!!!!!!!!!!!!");
+        //Koden stopper her (Rekker ikke å printe ting som blir påkalt tidligere
+        //Må få playservice = Androidnetwork,
+        playService = ServiceLocator.getAppComponent().getNetworkService();
+
+        playService.setNetworkListener(this);
+
+
+
         this.game = game;
         this.parent = parent;
         engine = new PooledEngine();
@@ -56,6 +77,7 @@ public class GamePresenter extends ScreenAdapter{
             }
 
         };
+
         setupEngine(engine, game.getBatch());
         world.create();
 
@@ -118,4 +140,19 @@ public class GamePresenter extends ScreenAdapter{
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
 
+    @Override
+    public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
+
+    }
+
+    @Override
+    public void onUnreliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
+
+    }
+
+    @Override
+    public void onRoomReady(List<PlayerData> players) {
+        Gdx.app.debug("SUGAR BEATS", "onRoomREADY");
+
+    }
 }

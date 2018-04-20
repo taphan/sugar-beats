@@ -34,6 +34,7 @@ public interface IPlayService {
 
 
         void setGameListener(IGameListener gameListener);
+        void setNetworkListener(INetworkListener networkListener);
 
 
         public boolean isSignedIn();

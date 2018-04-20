@@ -4,13 +4,15 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sugarbeats.presenter.GamePresenter;
 import com.sugarbeats.presenter.MainMenuPresenter;
 import com.sugarbeats.service.AssetService;
 import com.sugarbeats.service.AudioService;
 import com.sugarbeats.service.IPlayService;
+import com.sugarbeats.service.ServiceLocator;
 
 
-public class SugarBeats extends Game {
+public class SugarBeats extends Game implements IPlayService.IGameListener {
 
 	public static final int VIRTUAL_WIDTH = 960;
 	public static final int VIRTUAL_HEIGHT = 540;
@@ -33,6 +35,11 @@ public class SugarBeats extends Game {
 
 	@Override
 	public void create () {
+		ServiceLocator.initializeAppComponent(playServices);
+		//playServices.setGameListener(this);
+		ServiceLocator.getAppComponent().getNetworkService().setGameListener(this);
+
+
 		batch = new SpriteBatch();
 		//Load graphics and animations
 		AssetService.load();
@@ -58,5 +65,12 @@ public class SugarBeats extends Game {
 
 	public SpriteBatch getBatch() {
 		return batch;
+	}
+
+	@Override
+	public void onMultiplayerGameStarting() {
+		Gdx.app.debug(TITLE, "oneMultiplayerGameStarting!!!!!!!!!!!!!!");
+		Gdx.app.debug(TITLE, "oneMultiplayerGameStarting!!!!!!!!!!!!!!");
+		setScreen(new GamePresenter(this, new MainMenuPresenter(this)));
 	}
 }

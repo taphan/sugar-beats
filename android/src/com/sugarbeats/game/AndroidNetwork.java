@@ -220,6 +220,7 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
                     if (Objects.equals(currentPlayerId, playerId)) {
                         playerData.isSelf = true;
                     }
+                    Log.d(TAG,playerData.displayName);
                     playerList.add(playerData);
                 }
                 networkListener.onRoomReady(playerList);
@@ -281,7 +282,13 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
 
     @Override
     public void setGameListener(IGameListener gameListener) {
-
+        Log.d("AndroidNetworkService", "SETGAMELISTENER BLE KALT");
+        this.gameListener = gameListener;
+    }
+    @Override
+    public void setNetworkListener(INetworkListener networkListener) {
+        Log.d("AndroidNetworkService", "SETNETWORKKLISTENER BLE KALT");
+        this.networkListener = networkListener;
     }
 
 
