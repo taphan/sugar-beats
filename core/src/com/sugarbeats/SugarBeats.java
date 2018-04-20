@@ -26,6 +26,7 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 
 	public SugarBeats(IPlayService playServices){
 		this.playServices = playServices;
+		playServices.setGameListener(this);
 	}
 
 	// For Desktop to work
@@ -37,8 +38,8 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 	@Override
 	public void create () {
 
-	    //listener
-		playServices.setGameListener(this);
+
+		//listener
 
 		batch = new SpriteBatch();
 		//Load graphics and animations
