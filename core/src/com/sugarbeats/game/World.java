@@ -3,6 +3,7 @@ package com.sugarbeats.game;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.math.Vector2;
+import com.sugarbeats.game.entity.component.AngleComponent;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
@@ -98,6 +99,7 @@ public class World {
 
         engine.addEntity(entity);
 
+        createAngle(position.position.x, position.position.y);
     }
 
     public void createProjectile(float x, float y) {
@@ -131,6 +133,28 @@ public class World {
         entity.add(movement);
         entity.add(position);
         entity.add(projectile);
+        entity.add(texture);
+
+        engine.addEntity(entity);
+    }
+
+    private void createAngle(float x, float y) {
+        Entity entity = engine.createEntity();
+        StateComponent state = engine.createComponent(StateComponent.class);
+        TransformComponent position = engine.createComponent(TransformComponent.class);
+        AngleComponent angle = engine.createComponent(AngleComponent.class);
+        TextureComponent texture = engine.createComponent(TextureComponent.class);
+
+        texture.region = AssetService.angle;
+
+        position.position.add(x,y);
+        position.scale.add(-0.8f, -0.8f);
+
+        state.set(AngleComponent.STATE_LEFT);
+
+        entity.add(position);
+        entity.add(state);
+        entity.add(angle);
         entity.add(texture);
 
         engine.addEntity(entity);

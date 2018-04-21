@@ -69,6 +69,7 @@ public class GameView extends BaseView {
                 if (powerBarBound.contains(touchPoint.x, touchPoint.y)) {
                     powerBarBtnX = touchPoint.x;
                 }
+                // TODO: Implement up/downBound to update angle
                 // Note: Can only shoot if there is one finger pressing the screen
                 if (!isTouching && touches.get(0).touched) {
                     isTouching = true;

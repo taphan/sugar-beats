@@ -108,6 +108,7 @@ public class AssetService {
 
     public static Texture healthBar;
     public static Texture health;
+    public static TextureRegion angle;
 
     //public static Animation walkAnim3;
     //public static Animation shootAnim3;
@@ -160,7 +161,7 @@ public class AssetService {
 
         healthBar = new Texture("health-bar.png");
         health = new Texture("health.png");
-
+        angle = new TextureRegion(loadTexture("angle.png"));
 
         //Animation logic
         //TODO: use the link below on how to make animations
