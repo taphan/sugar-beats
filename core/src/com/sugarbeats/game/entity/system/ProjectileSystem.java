@@ -27,7 +27,6 @@ public class ProjectileSystem extends IteratingSystem {
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<ProjectileComponent> pm;
     private ComponentMapper<StateComponent> sm;
-    private ComponentMapper<AnimationComponent> am;
 
     private Vector2 velocity;
 
@@ -38,7 +37,6 @@ public class ProjectileSystem extends IteratingSystem {
         mm = ComponentMapper.getFor(MovementComponent.class);
         pm = ComponentMapper.getFor(ProjectileComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
-        am = ComponentMapper.getFor(AnimationComponent.class);
 
         velocity = new Vector2();
     }
