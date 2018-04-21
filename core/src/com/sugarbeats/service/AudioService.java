@@ -58,10 +58,10 @@ public class AudioService {
 
     public static void playMusic (Music music) {
         //if (Settings.soundEnabled)
-        menuMusic.pause();
-        gameMusic.pause();
-        victoryMusic.pause();
-        defeatMusic.pause();
+        menuMusic.stop();
+        gameMusic.stop();
+        victoryMusic.stop();
+        defeatMusic.stop();
         music.play();
     }
 }
