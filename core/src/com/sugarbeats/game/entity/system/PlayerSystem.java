@@ -16,6 +16,8 @@ import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
+import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
+
 /**
  * Created by Quynh on 4/12/2018.
  *
@@ -79,7 +81,7 @@ public class PlayerSystem extends IteratingSystem {
             }
         } else {
             if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_DEATH
-                    && state.get() != PlayerComponent.STATE_SHOOT){
+                    && state.get() != STATE_SHOOT){
                 state.set(PlayerComponent.STATE_STANDBY);
             }
         }
@@ -131,26 +133,20 @@ public class PlayerSystem extends IteratingSystem {
             player.timeSinceLastShot = 0;
 
             if (!family.matches(entity)) return;
-            state.set(PlayerComponent.STATE_SHOOT);
+            state.set(STATE_SHOOT);
         }
     }
 
     public void hitByProjectile(Entity entity) {
-        HealthComponent h = hm.get(entity);
-        // TODO: Decrease player's health and notify GamePresenter
-        h.HEALTH -= 1;
-    }
-
-
-    public void getHit(Entity entity){
         if (!family.matches(entity)) return;
 
         StateComponent state = sm.get(entity);
-        if (state.get() != PlayerComponent.STATE_HIT){
-            System.out.println("Should NOT be 1 = " + state.get());
+        HealthComponent h = hm.get(entity);
+        // TODO: Decrease player's health and notify GamePresenter
+        if (state.get() != PlayerComponent.STATE_HIT && state.get() != STATE_SHOOT){
             state.set(PlayerComponent.STATE_HIT);
-            System.out.println("Should be 1 = " + state.get());
         }
+        h.HEALTH -= 1;
     }
 
     public void standby(Entity entity){

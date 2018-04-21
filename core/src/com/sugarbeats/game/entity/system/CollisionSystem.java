@@ -132,16 +132,13 @@ public class CollisionSystem extends EntitySystem {
                 StateComponent projectileState = sm.get(projectile);
                 StateComponent playerState = sm.get(player);
 
-                //TODO: Make sure the player can't get hit if they are in the middle of throwing
-                //TODO: Make sure player can't get hit if they already are hit
                 if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
                     if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
-                        if (projectileBounds.bounds.overlaps(playerBounds.bounds)
-                                && playerState.get() != STATE_HIT
-                                && playerState.get() != STATE_SHOOT)
-                            System.out.println(playerState.get());
+                        if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
+                            System.out.println("1:" + playerState.get());
                             playerSystem.hitByProjectile(player);
-                            System.out.println(playerState.get());
+                            System.out.println("2:" + playerState.get());
+                        }
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
                         listener.hit();
