@@ -5,6 +5,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.AnimationComponent;
@@ -40,6 +41,8 @@ public class PlayerSystem extends IteratingSystem {
     private ComponentMapper<AnimationComponent> am;
 
     private float velocityX;
+    private long startTime;
+    private long elapsedTime;
 
     public PlayerSystem(World world) {
         super(family);
@@ -113,7 +116,14 @@ public class PlayerSystem extends IteratingSystem {
 
     public void fireProjectile(Entity entity, Vector2 velocity) {
         TransformComponent position = tm.get(entity);
-        world.createProjectile(position.position.x, position.position.y, velocity.x, velocity.y );
+        PlayerComponent player = pm.get(entity);
+        // Limit the shot to 100 milliseconds interval
+        player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
+        if (player.timeSinceLastShot >= player.shootDelay) {
+            startTime = TimeUtils.millis();
+            world.createProjectile(position.position.x, position.position.y, velocity.x, velocity.y );
+            player.timeSinceLastShot = 0;
+        }
     }
 
     public void hitByProjectile(Entity entity) {

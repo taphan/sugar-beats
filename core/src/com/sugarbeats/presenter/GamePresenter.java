@@ -67,7 +67,6 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine = new PooledEngine();
         world = new World(engine);
         view = new GameView(game, this);
-//        playService.setNetworkListener(this);
 
         collisionListener = new CollisionListener() {
             @Override
@@ -78,7 +77,6 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
             @Override
 
             public void ground() {
-                System.out.println("Touched the ground!!!");
             }
 
             @Override

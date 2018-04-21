@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v16\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\863cf2f9d855ab707d2a85d0af1fae5437e86edf\\output\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v16\\notification_template_custom_big.xml",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\4f71fdfc8f4176296c767a1285732a7e14ab18f6\\output\\res\\layout-v16\\notification_template_custom_big.xml"
     }

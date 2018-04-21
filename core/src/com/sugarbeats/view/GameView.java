@@ -19,12 +19,13 @@ public class GameView extends BaseView {
     static final int GAME_RUNNING = 1;
     static final int GAME_OVER = 2;
 
-    private final OrthographicCamera cam;
+    final OrthographicCamera cam;
 
     Vector3 touchPoint;
     Rectangle fireBound;
     Rectangle leftBound;
     Rectangle rightBound;
+    boolean isTouching;
 
 
     public GameView(SugarBeats game, GamePresenter presenter) {
@@ -41,6 +42,7 @@ public class GameView extends BaseView {
         System.out.println(AssetService.leftBtn.getWidth()/5 + " " + AssetService.leftBtn.getWidth()/30+ " " +
                 AssetService.leftBtn.getWidth() / 6 + " " + AssetService.leftBtn.getHeight() / 6);
         touchPoint = new Vector3();
+        isTouching = false;
     }
 
     @Override
@@ -54,10 +56,15 @@ public class GameView extends BaseView {
                 if (rightBound.contains(touchPoint.x, touchPoint.y)) {
                     presenter.updateKeyPress(1);
                 }
-                if(fireBound.contains(touchPoint.x, touchPoint.y)) {
-                    // TODO: Make another method to handle this and send in necessary information (start position/velocity, angle)
-                    presenter.updateFireButton();
+                // Note: Can only shoot if there is one finger pressing the screen
+                if (!isTouching && touches.get(0).touched) {
+                    isTouching = true;
+                    if(fireBound.contains(touchPoint.x, touchPoint.y)) {
+                        presenter.updateFireButton();
+                    }
                 }
+            } else if (!touches.get(0).touched){
+                isTouching = false;
             }
         }
     }

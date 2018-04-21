@@ -21,7 +21,7 @@ public class PlayerComponent implements Component{
     public static final float HEIGHT = 200f*0.3f;
 
     public boolean isDead = false;
-    public float shootDelay = 0.5f;
-    public float timeSinceLastShot = 0f;
+    public long shootDelay = 100;
+    public long timeSinceLastShot = 0;
 
 }
