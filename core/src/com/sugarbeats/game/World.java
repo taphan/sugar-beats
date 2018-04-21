@@ -43,7 +43,7 @@ public class World {
         createPlayer(1);
 
         //createPlayer(2);
-        createPlayer(2);
+        //createPlayer(2);
         //createwalking();
 
         createBackground();
@@ -114,6 +114,7 @@ public class World {
         animation.animations.put(ProjectileComponent.STATE_START, AssetService.projectileAnim1);
         animation.animations.put(ProjectileComponent.STATE_MIDAIR, AssetService.projectileAnim1);
         animation.animations.put(ProjectileComponent.STATE_HIT, AssetService.projectileAnim1);
+
 
         bounds.bounds.width = ProjectileComponent.WIDTH;
         bounds.bounds.height = ProjectileComponent.HEIGHT;

@@ -136,6 +136,74 @@
         ]
     },
     {
+        "outputFile": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 209
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 4,
+                        "endColumn": 12,
+                        "endOffset": 209
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 214,
+                    "endLine": 7,
+                    "endColumn": 12,
+                    "endOffset": 380
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 214,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 380
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 385,
+                    "endLine": 10,
+                    "endColumn": 12,
+                    "endOffset": 553
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 385,
+                        "endLine": 10,
+                        "endColumn": 12,
+                        "endOffset": 553
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
         "map": [
             {
