@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
@@ -16,7 +15,6 @@ import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
-import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_DEATH;
 import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
 
 /**
@@ -127,12 +125,12 @@ public class PlayerSystem extends IteratingSystem {
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
-        world.createProjectile(position.position.x, position.position.y+30);
-
-            player.timeSinceLastShot = 0;
-
             if (!family.matches(entity)) return;
             state.set(STATE_SHOOT);
+
+            world.createProjectile(position.position.x, position.position.y+30);
+
+            player.timeSinceLastShot = 0;
         }
     }
 
@@ -147,6 +145,16 @@ public class PlayerSystem extends IteratingSystem {
             state.set(PlayerComponent.STATE_HIT);
         }
         h.HEALTH -= 1;
+        if (h.HEALTH < 0) {
+            die(entity); //TODO: is this ok?
+        }
+    }
+
+    public void die(Entity entity) {
+        StateComponent state = sm.get(entity);
+        state.set(PlayerComponent.STATE_DEATH);
+        //TODO: remove animationComponent from player entity, but also not make the game crash
+        //entity.remove(AnimationComponent.class); //This makes it crash when death occurs
     }
 
     public void standby(Entity entity){
