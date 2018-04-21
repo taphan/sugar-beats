@@ -69,11 +69,13 @@ public class PlayerSystem extends IteratingSystem {
 
         mov.velocity.x = this.velocityX;
         if(velocityX != 0) {
-            if (state.get() != PlayerComponent.STATE_WALK){
+            if (state.get() != PlayerComponent.STATE_WALK && state.get() != PlayerComponent.STATE_HIT
+                    && state.get() != PlayerComponent.STATE_DEATH && state.get() != PlayerComponent.STATE_SHOOT ){
                 state.set(PlayerComponent.STATE_WALK);
             }
         } else {
-            if (state.get() != PlayerComponent.STATE_STANDBY){
+            if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_HIT
+                    && state.get() != PlayerComponent.STATE_DEATH && state.get() != PlayerComponent.STATE_SHOOT){
                 state.set(PlayerComponent.STATE_STANDBY);
             }
         }
@@ -136,14 +138,5 @@ public class PlayerSystem extends IteratingSystem {
 
         StateComponent state = sm.get(entity);
         state.set(PlayerComponent.STATE_HIT);
-    }
-
-    public void walking(Entity entity){
-        if (!family.matches(entity)) return;
-
-        StateComponent state = sm.get(entity);
-        AnimationComponent animation = am.get(entity);
-
-        state.set(PlayerComponent.STATE_PLAY);
     }
 }

@@ -94,7 +94,15 @@ public class CollisionSystem extends EntitySystem {
             if (playerBounds.bounds.overlaps(backgroundBounds.bounds)) {
                 playerSystem.hitMapEdge(player);
             }
+            /*
+            for (int j = 0; j < projectiles.size(); ++j){
+                Entity projectile = projectiles.get(j);
 
+                BoundsComponent projectileBounds = bm.get(projectile);
+                if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
+                    playerSystem.getHit(player);
+                }
+            }*/
 
             // Check if player touched powerup
             for (int j = 0; j < powerups.size(); j++) {

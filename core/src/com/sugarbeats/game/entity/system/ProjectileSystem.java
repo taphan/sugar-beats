@@ -8,6 +8,7 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
+import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
@@ -28,6 +29,7 @@ public class ProjectileSystem extends IteratingSystem {
     private ComponentMapper<ProjectileComponent> pm;
     private ComponentMapper<StateComponent> sm;
     private ComponentMapper<AnimationComponent> am;
+    private ComponentMapper<PlayerComponent>plm;
 
     private Vector2 velocity;
 
@@ -39,6 +41,7 @@ public class ProjectileSystem extends IteratingSystem {
         pm = ComponentMapper.getFor(ProjectileComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
         am = ComponentMapper.getFor(AnimationComponent.class);
+        plm = ComponentMapper.getFor(PlayerComponent.class);
 
         velocity = new Vector2();
     }
@@ -49,6 +52,7 @@ public class ProjectileSystem extends IteratingSystem {
         MovementComponent movement = mm.get(entity);
         ProjectileComponent projectile = pm.get(entity);
         StateComponent state = sm.get(entity);
+        
 
         // Initialize function only runs once
         if (state.get() == ProjectileComponent.STATE_START) {

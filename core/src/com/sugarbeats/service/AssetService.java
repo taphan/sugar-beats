@@ -159,42 +159,6 @@ public class AssetService {
         powerBarBtn = new Texture("button_slider.png");
         pauseBtn = new Texture("bullet.png"); //TODO: are we sure we want a pause functionality?
 
-
-        //character2 = new TextureRegion(new Texture("heliregion.png"),0,0,162,65);
-        //character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(wl,0,65),new TextureRegion(heliLoad,162,65));
-        //character2 = new TextureRegion(walk, 1500, 0, 500, 500);
-        /*
-        walk = loadTexture("char1ani.png");
-        character2 = new Animation<TextureRegion>(0.2f,
-                new TextureRegion(walk, 0, 0, 500, 500),
-                new TextureRegion(walk, 500, 0, 500, 500),
-                new TextureRegion(walk, 1000, 0, 500, 500),
-                new TextureRegion(walk, 1500, 0, 500, 500));
-                */
-
-        Texture walk = loadTexture("projectile1_anim.png");
-        character2 = new Animation<TextureRegion>(0.2f,
-                new TextureRegion(walk, 0, 0, 200, 200),
-                new TextureRegion(walk, 200, 0, 200, 200),
-                new TextureRegion(walk, 400, 0, 200, 200),
-                new TextureRegion(walk, 600, 0, 200, 200),
-                new TextureRegion(walk, 800, 0, 200, 200),
-                new TextureRegion(walk, 1000, 0, 200, 200),
-                new TextureRegion(walk, 1200, 0, 200, 200),
-                new TextureRegion(walk, 1400, 0, 200, 200));
-
-        Texture bulletTexture= loadTexture("projectile2_anim.png");
-        bullet = new Animation<TextureRegion>(0.2f,
-                new TextureRegion(bulletTexture, 0, 0, 200, 200),
-                new TextureRegion(bulletTexture, 200, 0, 200, 200),
-                new TextureRegion(bulletTexture, 400, 0, 200, 200),
-                new TextureRegion(bulletTexture, 600, 0, 200, 200),
-                new TextureRegion(bulletTexture, 800, 0, 200, 200),
-                new TextureRegion(bulletTexture, 1000, 0, 200, 200),
-                new TextureRegion(bulletTexture, 1200, 0, 200, 200),
-                new TextureRegion(bulletTexture, 1400, 0, 200, 200));
-
-
         //Animation logic
         //TODO: use the link below on how to make animations
         // https://github.com/saltares/ashley-superjumper/blob/master/core/src/com/siondream/superjumper/Assets.java
@@ -212,8 +176,7 @@ public class AssetService {
         getHit2 = loadTexture("sprite2_hitanim.png");
         death2 = loadTexture("sprite2_deathanim.png");
 
-        // Animation for character 1
-        //TODO: make these into for loops
+        // Animation and projectile animation for character 1
         character1 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk1, 0, 0, 500, 500));
 
@@ -265,7 +228,7 @@ public class AssetService {
                 new TextureRegion(death1, 4000, 0, 500, 500),
                 new TextureRegion(death1, 4500, 0, 500, 500));
 
-        // Animation for character 2
+        // Animation and projectile animation for character 2
         walkAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk2, 0, 0, 500, 500),
                 new TextureRegion(walk2, 500, 0, 500, 500),
@@ -286,6 +249,7 @@ public class AssetService {
                 new TextureRegion(shoot2, 5000, 0, 500, 500),
                 new TextureRegion(shoot2, 5500, 0, 500, 500));
 
+        // Projectile animation for character 2.
         projectileAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(projectile2, 0, 0, 200, 200),
                 new TextureRegion(projectile2, 200, 0, 200, 200),
@@ -321,7 +285,7 @@ public class AssetService {
         rightBtn = new Texture("forward_button.png");
         Texture bullet = loadTexture("bullet.png");
 
-
+        // LOOP for walking characters and for projectile
         walkAnim1.setPlayMode(Animation.PlayMode.LOOP);
         projectileAnim1.setPlayMode(Animation.PlayMode.LOOP);
 
