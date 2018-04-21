@@ -83,7 +83,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
             @Override
             public void hit() {
                 AudioService.playSound(AudioService.damageSound);
-                System.out.println("Ouchie got hit..");
+                view.health -= 20;
             }
 
         };

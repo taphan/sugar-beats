@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.presenter.GamePresenter;
 import com.sugarbeats.service.AssetService;
+import com.sugarbeats.service.AudioService;
 
 /**
  * Created by taphan on 08.03.2018.
@@ -31,7 +32,7 @@ public class GameView extends BaseView {
     boolean isTouching;
     float powerBarBtnX;
     float angle;
-    float health;
+    public float health;
 
     public GameView(SugarBeats game, GamePresenter presenter) {
         super(game.getBatch());
@@ -52,7 +53,9 @@ public class GameView extends BaseView {
         isTouching = false;
         powerBarBtnX = SugarBeats.WIDTH / 2;
         angle = 70;
-        health = AssetService.health.getWidth() / 15;
+        health = AssetService.health.getWidth() / 10;
+
+        AudioService.playMusic(AudioService.gameMusic);
     }
 
     @Override

@@ -48,6 +48,7 @@ public class MainMenuView extends BaseView{
         multiplayerBounds= new Rectangle(WIDTH / 2 + AssetService.mBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2 - 25, AssetService.mBtn.getWidth() / 3, AssetService.mBtn.getHeight() / 3);
 
         touchPoint = new Vector3();
+        AudioService.playMusic(AudioService.menuMusic);
     }
 
     @Override
