@@ -1,6 +1,9 @@
 package com.sugarbeats.presenter;
 
+import com.badlogic.ashley.core.Entity;
+import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.core.PooledEngine;
+import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -9,6 +12,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.PlayerComponent;
+import com.sugarbeats.game.entity.component.StateComponent;
+import com.sugarbeats.game.entity.component.TransformComponent;
 import com.sugarbeats.game.entity.system.AnimationSystem;
 import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
@@ -129,9 +136,9 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
     public void updateFireButton() {
         Vector2 velocity = new Vector2();
         velocity.x = -250f;
-        // Note: Cannot draw projectile on screen
-        world.createProjectile(230, 215, velocity.x, velocity.y);
-        //world.createPlayer(1);
+        ImmutableArray<Entity> players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
+        // TODO: Find player index to current player
+        engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0), velocity);
         //while(! projectile.getComponent(ProjectileComponent.class).isDead)
         velocity = updateProjectileVelocity();
         engine.getSystem(ProjectileSystem.class).setVelocity(velocity);

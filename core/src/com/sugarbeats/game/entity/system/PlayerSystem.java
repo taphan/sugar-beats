@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.HealthComponent;
@@ -96,6 +97,11 @@ public class PlayerSystem extends IteratingSystem {
         if (t.position.x > SugarBeats.WIDTH - PlayerComponent.WIDTH) {
             t.position.x = SugarBeats.WIDTH - PlayerComponent.WIDTH;
         }
+    }
+
+    public void fireProjectile(Entity entity, Vector2 velocity) {
+        TransformComponent position = tm.get(entity);
+        world.createProjectile(position.position.x, position.position.y, velocity.x, velocity.y );
     }
 
     public void hitByProjectile(Entity entity) {
