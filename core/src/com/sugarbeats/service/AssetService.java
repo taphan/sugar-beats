@@ -122,7 +122,7 @@ public class AssetService {
         mainMenu = new Texture("main_menu1.png");
 
         //settingsMenu = new Texture("main_menu1.png");
-        settingsMenu = new Texture("settingsMenu.png"); //TODO: make more menus?
+        settingsMenu = new Texture("settingsMenu.png");
 
         pauseMenu = new Texture("main_menu1.png");
         helpMenu = new Texture("help_menu1.png");
@@ -213,6 +213,7 @@ public class AssetService {
         death2 = loadTexture("sprite2_deathanim.png");
 
         // Animation for character 1
+        //TODO: make these into for loops
         character1 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk1, 0, 0, 500, 500));
 

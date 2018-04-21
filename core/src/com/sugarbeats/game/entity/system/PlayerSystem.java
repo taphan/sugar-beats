@@ -128,6 +128,7 @@ public class PlayerSystem extends IteratingSystem {
     public void hitByProjectile(Entity entity) {
         HealthComponent h = hm.get(entity);
         // TODO: Decrease player's health and notify GamePresenter
+        h.HEALTH -= 1;
     }
 
     public void getHit(Entity entity){
