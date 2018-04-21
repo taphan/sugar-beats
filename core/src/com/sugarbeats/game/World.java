@@ -100,7 +100,7 @@ public class World {
 
     }
 
-    public void createProjectile(float x, float y, float xVel, float yVel) {
+    public void createProjectile(float x, float y) {
         Entity entity = engine.createEntity();
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
@@ -121,9 +121,6 @@ public class World {
 
         position.position.add(x,y);
         position.scale.add(-0.9f, -0.9f);
-
-        projectile.xVel = xVel;
-        projectile.yVel = yVel;
 
         state.set(ProjectileComponent.STATE_START);
 

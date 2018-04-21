@@ -10,7 +10,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BoundsComponent;
@@ -150,14 +149,10 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
 
-    public void updateFireButton() {
-        Vector2 velocity = new Vector2();
-        velocity.x = -250f;
+    public void updateFireButton(float v0, float angle) {
         ImmutableArray<Entity> players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
         // TODO: Find player index to current player
-        engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0), velocity);
-        float v0 = 90; // Send an initial velocity and angle
-        float angle = 120;
+        engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0));
         engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
     }
 

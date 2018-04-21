@@ -30,6 +30,7 @@ public class GameView extends BaseView {
     Rectangle powerBarBound;
     boolean isTouching;
     float powerBarBtnX;
+    float angle;
 
     public GameView(SugarBeats game, GamePresenter presenter) {
         super(game.getBatch());
@@ -49,6 +50,7 @@ public class GameView extends BaseView {
 
         isTouching = false;
         powerBarBtnX = SugarBeats.WIDTH / 2;
+        angle = 70;
     }
 
     @Override
@@ -69,7 +71,7 @@ public class GameView extends BaseView {
                 if (!isTouching && touches.get(0).touched) {
                     isTouching = true;
                     if(fireBound.contains(touchPoint.x, touchPoint.y)) {
-                        presenter.updateFireButton();
+                        presenter.updateFireButton(powerBarBtnX - powerBarBound.x + 20, angle);
                     }
                 }
             } else if (!touches.get(0).touched){

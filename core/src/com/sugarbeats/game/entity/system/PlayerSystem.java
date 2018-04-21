@@ -87,7 +87,6 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     public void hitGround(Entity entity) {
-        StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
         mov.velocity.y = 0.0f;
     }
@@ -119,17 +118,16 @@ public class PlayerSystem extends IteratingSystem {
         }
     }
 
-    public void fireProjectile(Entity entity, Vector2 velocity) {
+    public void fireProjectile(Entity entity) {
         TransformComponent position = tm.get(entity);
         PlayerComponent player = pm.get(entity);
         StateComponent state = sm.get(entity);
-        AnimationComponent animation = am.get(entity);
 
         // Player can only shoot another projectile after player.shootDelay milliseconds interval
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
-            world.createProjectile(position.position.x+30, position.position.y, velocity.x, velocity.y );
+            world.createProjectile(position.position.x+30, position.position.y);
             player.timeSinceLastShot = 0;
 
             if (!family.matches(entity)) return;
