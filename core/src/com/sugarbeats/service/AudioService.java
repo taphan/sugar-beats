@@ -32,8 +32,14 @@ public class AudioService {
         victoryMusic = Gdx.audio.newMusic(Gdx.files.internal("victorySong.mp3"));
         defeatMusic = Gdx.audio.newMusic(Gdx.files.internal("defeatSong.mp3"));
         menuMusic.setLooping(true);
+        gameMusic.setLooping(true);
+        victoryMusic.setLooping(true);
+        defeatMusic.setLooping(true);
         menuMusic.setVolume(0.5f);
-        menuMusic.play(); //TODO: make better music logic
+        gameMusic.setVolume(0.5f);
+        victoryMusic.setVolume(0.5f);
+        defeatMusic.setVolume(0.5f);
+        //TODO: make better music logic
 
         buttonPressSound = Gdx.audio.newSound(Gdx.files.internal("btnSound.mp3"));
         sliderSound = Gdx.audio.newSound(Gdx.files.internal("sliderSound.wav"));
@@ -48,5 +54,14 @@ public class AudioService {
     public static void playSound (Sound sound) {
         //if (Settings.soundEnabled)
         sound.play(1);
+    }
+
+    public static void playMusic (Music music) {
+        //if (Settings.soundEnabled)
+        menuMusic.stop();
+        gameMusic.stop();
+        victoryMusic.stop();
+        defeatMusic.stop();
+        music.play();
     }
 }

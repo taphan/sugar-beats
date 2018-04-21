@@ -17,6 +17,7 @@ import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
+
 /**
  * Created by Quynh on 4/11/2018.
  *
@@ -45,7 +46,6 @@ public class CollisionSystem extends EntitySystem {
     private ImmutableArray<Entity> background;
     private ImmutableArray<Entity> projectiles;
 
-    private int counter;
 
     public CollisionSystem(World world, CollisionListener listener) {
         this.world = world;
@@ -56,8 +56,6 @@ public class CollisionSystem extends EntitySystem {
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
         pm = ComponentMapper.getFor(ProjectileComponent.class);
-
-        counter = 0;
     }
 
     @Override
@@ -77,6 +75,8 @@ public class CollisionSystem extends EntitySystem {
             Entity player = players.get(i);
             BoundsComponent playerBounds = bm.get(player);
             TransformComponent playerPosition = tm.get(player);
+            StateComponent state = sm.get(player);
+
 
             // Check if player has been dropped to the ground
             Entity currentGround = ground.get(0);
@@ -95,8 +95,23 @@ public class CollisionSystem extends EntitySystem {
                 playerSystem.hitMapEdge(player);
             }
 
+            // Get hit by projectile
+
+            /*
+            for (int j = 0; j < projectiles.size(); j++){
+                Entity projectile = projectiles.get(j);
+                BoundsComponent projectileBounds = bm.get(projectile);
+
+                if (projectileBounds.bounds.overlaps(playerBounds.bounds)
+                        && state.get() != PlayerComponent.STATE_HIT ) {
+                    playerSystem.getHit(player);
+                    listener.hit();
+                }
+            }
+            */
 
             // Check if player touched powerup
+
             for (int j = 0; j < powerups.size(); j++) {
                 Entity powerup = powerups.get(j);
                 BoundsComponent powerupBounds = bm.get(powerup);
@@ -108,49 +123,24 @@ public class CollisionSystem extends EntitySystem {
                 }
             }
 
-            // Check if player has been hit by a projectile
+            // Check whether the projectile hit a player or the ground
             for (int j = 0; j < projectiles.size(); j++) {
                 Entity projectile = projectiles.get(j);
                 BoundsComponent projectileBounds = bm.get(projectile);
                 StateComponent projectileState = sm.get(projectile);
+                StateComponent playerState = sm.get(player);
 
                 if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
                     if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
-                        if (projectileBounds.bounds.overlaps(playerBounds.bounds))
+                        if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
                             playerSystem.hitByProjectile(player);
+                        }
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
-                        counter += 1;
-                        ProjectileSystem projectileSystem = engine.getSystem(ProjectileSystem.class);
-                        //engine.removeEntity(projectile);
-                        System.out.println("Counter: " + counter);
                         listener.hit();
                     }
                 }
-            }/*
-            int j = 0;
-            while (j < projectiles.size() {
-                Entity projectile = projectiles.get(j);
-                BoundsComponent projectileBounds = bm.get(projectile);
-                StateComponent projectileState = sm.get(projectile);
-
-                if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
-                    if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
-                        if (projectileBounds.bounds.overlaps(playerBounds.bounds))
-                            playerSystem.hitByProjectile(player);
-                        projectile.getComponent(ProjectileComponent.class).isDead = true;
-                        projectileState.set(ProjectileComponent.STATE_HIT);
-                        counter += 1;
-                        ProjectileSystem projectileSystem = engine.getSystem(ProjectileSystem.class);
-                        engine.removeEntity(projectile);
-                        listener.hit();
-                        System.out.println("Counter: " + counter);
-
-                        break;
-                    }
-                }
-                j++;
-            }*/
+            }
         }
     }
 }

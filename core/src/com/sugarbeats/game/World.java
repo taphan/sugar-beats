@@ -43,7 +43,7 @@ public class World {
         createPlayer(1);
 
         //createPlayer(2);
-        createPlayer(2);
+        //createPlayer(2);
         //createwalking();
 
         createBackground();
@@ -65,7 +65,8 @@ public class World {
         HealthComponent health = engine.createComponent(HealthComponent.class);
 
         animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
-        animation.animations.put(PlayerComponent.STATE_WALK, AssetService.walkAnim1);
+        animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim1);
+        animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim1);
         animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim1);
         animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
         animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
@@ -99,7 +100,7 @@ public class World {
 
     }
 
-    public void createProjectile(float x, float y, float xVel, float yVel) {
+    public void createProjectile(float x, float y) {
         Entity entity = engine.createEntity();
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
@@ -110,18 +111,16 @@ public class World {
         ProjectileComponent projectile = engine.createComponent(ProjectileComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
-        animation.animations.put(ProjectileComponent.STATE_START, AssetService.bullet);
-        animation.animations.put(ProjectileComponent.STATE_MIDAIR, AssetService.bullet);
-        animation.animations.put(ProjectileComponent.STATE_HIT, AssetService.character1);
+        animation.animations.put(ProjectileComponent.STATE_START, AssetService.projectileAnim1);
+        animation.animations.put(ProjectileComponent.STATE_MIDAIR, AssetService.projectileAnim1);
+        animation.animations.put(ProjectileComponent.STATE_HIT, AssetService.projectileAnim1);
+
 
         bounds.bounds.width = ProjectileComponent.WIDTH;
         bounds.bounds.height = ProjectileComponent.HEIGHT;
 
         position.position.add(x,y);
         position.scale.add(-0.9f, -0.9f);
-
-        projectile.xVel = xVel;
-        projectile.yVel = yVel;
 
         state.set(ProjectileComponent.STATE_START);
 

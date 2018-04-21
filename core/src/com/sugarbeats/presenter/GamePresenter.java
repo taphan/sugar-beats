@@ -10,7 +10,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BoundsComponent;
@@ -27,6 +26,7 @@ import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.ProjectileSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.model.PlayerData;
+import com.sugarbeats.service.AudioService;
 import com.sugarbeats.service.IPlayService;
 import com.sugarbeats.service.ServiceLocator;
 import com.sugarbeats.view.GameView;
@@ -71,6 +71,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         collisionListener = new CollisionListener() {
             @Override
             public void powerup() {
+                AudioService.playSound((AudioService.buttonPressSound));
                 System.out.println("Power up sound");
             }
 
@@ -81,6 +82,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
             @Override
             public void hit() {
+                AudioService.playSound(AudioService.damageSound);
                 System.out.println("Ouchie got hit..");
             }
 
@@ -147,21 +149,13 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
     }
 
-    public void updateFireButton() {
-        Vector2 velocity = new Vector2();
-        velocity.x = -250f;
+    public void updateFireButton(float v0, float angle) {
         ImmutableArray<Entity> players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
         // TODO: Find player index to current player
-        engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0), velocity);
-        //while(! projectile.getComponent(ProjectileComponent.class).isDead)
-        velocity = updateProjectileVelocity();
-        engine.getSystem(ProjectileSystem.class).setVelocity(velocity);
+        engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0));
+        engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
     }
 
-    private Vector2 updateProjectileVelocity() {
-        // TODO: Update the velocity of projectile to be able to move after time frame
-        return new Vector2();
-    }
 
     @Override
     public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
