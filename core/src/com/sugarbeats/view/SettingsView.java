@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.presenter.HelpPresenter;
 import com.sugarbeats.presenter.SettingsPresenter;
+import com.sugarbeats.service.AssetService;
 
 
 /**
@@ -26,8 +27,13 @@ public class SettingsView extends BaseView{
     private static final int HEIGHT = SugarBeats.HEIGHT;
 
     Texture backBtn;
+    Texture unmuteBtn;
+    Texture muteBtn;
 
+    Rectangle unmuteBounds;
+    Rectangle muteBounds;
     Rectangle backBounds;
+
     public SettingsView(SugarBeats game, SettingsPresenter.ViewController viewController) {
         super(game.getBatch());
         this.game = game;
@@ -36,9 +42,13 @@ public class SettingsView extends BaseView{
         cam = new OrthographicCamera();
         cam.setToOrtho(false, WIDTH, HEIGHT);
 
+        unmuteBtn = AssetService.unmute_btn;
+        muteBtn = AssetService.mute_btn;
         backBtn = new Texture("button_back.png");
+        unmuteBounds = new Rectangle(WIDTH/2 - unmuteBtn.getWidth()/15/2, HEIGHT/2 - 40, unmuteBtn.getWidth()/15,unmuteBtn.getHeight()/15);
+        muteBounds = new Rectangle(WIDTH/2 - muteBtn.getWidth()/15/2, HEIGHT/2 - 40, muteBtn.getWidth()/15,muteBtn.getHeight()/15);
 
-        backBounds = new Rectangle(WIDTH / 2 - backBtn.getWidth()/3 / 2, HEIGHT - 350, backBtn.getWidth() / 3, backBtn.getHeight() / 3);
+        backBounds = new Rectangle(WIDTH / 2 - backBtn.getWidth()/3 / 2, HEIGHT - 330, backBtn.getWidth() / 3, backBtn.getHeight() / 3 );
 
         touchPoint = new Vector3();
     }
@@ -64,7 +74,10 @@ public class SettingsView extends BaseView{
         // TODO: Discuss about whether its necessary to constantly call the draw() function from render, is it enough to call it once during creation of class?
         game.batch.setProjectionMatrix(cam.combined);
         game.batch.begin();
-        game.batch.draw(backBtn,WIDTH / 2 - backBtn.getWidth()/3 / 2, HEIGHT - 350, backBtn.getWidth() / 3, backBtn.getHeight() / 3 );
+        game.batch.draw(AssetService.settingsMenu, 0, 0, WIDTH, HEIGHT); //BAD!! Needs to be more dynamic
+        game.batch.draw(AssetService.title_Setting,WIDTH/2 - AssetService.title_Setting.getWidth()/3/2,HEIGHT/2 + 70,AssetService.title_Setting.getWidth()/3,AssetService.title_Setting.getHeight()/3);
+        game.batch.draw(unmuteBtn,WIDTH/2 - unmuteBtn.getWidth()/15/2, HEIGHT/2 - 40, unmuteBtn.getWidth()/15,unmuteBtn.getHeight()/15);
+        game.batch.draw(backBtn,WIDTH / 2 - backBtn.getWidth()/3 / 2, HEIGHT - 330, backBtn.getWidth() / 3, backBtn.getHeight() / 3 );
         game.batch.end();
 
 

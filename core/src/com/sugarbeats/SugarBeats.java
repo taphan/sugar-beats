@@ -1,5 +1,6 @@
 package com.sugarbeats;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -9,6 +10,7 @@ import com.sugarbeats.presenter.MainMenuPresenter;
 import com.sugarbeats.service.AssetService;
 import com.sugarbeats.service.AudioService;
 import com.sugarbeats.service.IPlayService;
+import com.sugarbeats.service.ServiceLocator;
 
 
 public class SugarBeats extends Game implements IPlayService.IGameListener {
@@ -25,8 +27,6 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 
 	public SugarBeats(IPlayService playServices){
 		this.playServices = playServices;
-		//listener
-		playServices.setGameListener(this);
 	}
 
 	// For Desktop to work
@@ -34,7 +34,13 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
+	    if(Gdx.app.getType() == Application.ApplicationType.Android) {
+            playServices.setGameListener(this);
+            ServiceLocator.initializeAppComponent(playServices);
+            ServiceLocator.getAppComponent().getNetworkService().setGameListener(this);
+        }
+
+        batch = new SpriteBatch();
 		//Load graphics and animations
 		AssetService.load();
 		//Load music and soundeffects
@@ -63,7 +69,12 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 
 	@Override
 	public void onMultiplayerGameStarting() {
+
+		Gdx.app.debug(TITLE, "oneMultiplayerGameStarting!!!!!!!!!!!!!!");
+		Gdx.app.debug(TITLE, "oneMultiplayerGameStarting!!!!!!!!!!!!!!");
+
 		Gdx.app.debug(TITLE, "onMultiplayerGameStarting:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ");
+
 		setScreen(new GamePresenter(this, new MainMenuPresenter(this)));
 	}
 }
