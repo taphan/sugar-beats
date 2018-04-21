@@ -45,7 +45,6 @@ public class CollisionSystem extends EntitySystem {
     private ImmutableArray<Entity> background;
     private ImmutableArray<Entity> projectiles;
 
-    private int counter;
 
     public CollisionSystem(World world, CollisionListener listener) {
         this.world = world;
@@ -56,8 +55,6 @@ public class CollisionSystem extends EntitySystem {
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
         pm = ComponentMapper.getFor(ProjectileComponent.class);
-
-        counter = 0;
     }
 
     @Override
@@ -132,10 +129,6 @@ public class CollisionSystem extends EntitySystem {
                             playerSystem.hitByProjectile(player);
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
-                        counter += 1;
-                        ProjectileSystem projectileSystem = engine.getSystem(ProjectileSystem.class);
-                        //engine.removeEntity(projectile);
-                        System.out.println("Counter: " + counter);
                         listener.hit();
                     }
                 }

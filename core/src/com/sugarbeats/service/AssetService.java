@@ -120,9 +120,7 @@ public class AssetService {
     public static void load () {
         //Graphics logic
         mainMenu = new Texture("main_menu1.png");
-
-        //settingsMenu = new Texture("main_menu1.png");
-        settingsMenu = new Texture("settingsMenu.png");
+        settingsMenu = new Texture("settingsMenu.png"); //TODO: make more menus?
 
         pauseMenu = new Texture("main_menu1.png");
         helpMenu = new Texture("help_menu1.png");
@@ -133,6 +131,12 @@ public class AssetService {
         unmute_btn = new Texture("unmute.png");
         mute_btn = new Texture("mute.png");
 
+        map1 = new TextureRegion(loadTexture("ground2.png")); //Chocolate
+        map2 = new TextureRegion(loadTexture("ground3.png")); //Cotton candy
+        map3 = new TextureRegion(loadTexture("ground4.png")); //Ice cream
+        background1 = new TextureRegion(loadTexture("map4.png")); //Chocolate
+        background2 = new TextureRegion(loadTexture("map5.png")); //Cotton candy
+        background3 = new TextureRegion(loadTexture("map2.png")); //Ice cream
 
         playBtn = new Texture("button_play1.png");
         settingBtn = new Texture("button_settings1.png");
@@ -141,16 +145,8 @@ public class AssetService {
         acBtn = new Texture("button_achievements1.png");
         mBtn = new Texture("button_multiplayer1.png");
 
-        map1 = new TextureRegion(loadTexture("ground2.png")); //Chocolate
-        map2 = new TextureRegion(loadTexture("ground3.png")); //Cotton candy
-        map3 = new TextureRegion(loadTexture("ground4.png")); //Ice cream
-        background1 = new TextureRegion(loadTexture("map4.png")); //Chocolate
-        background2 = new TextureRegion(loadTexture("map5.png")); //Cotton candy
-        background3 = new TextureRegion(loadTexture("map2.png")); //Ice cream
-
-        //TODO: add graphics and bounds for gameplay buttons
         upBtn = new Texture("button_up.png");
-        downBtn = new Texture("button_up.png");
+        downBtn = new Texture("button_down.png");
         leftBtn = new Texture("button_left.png");
         rightBtn = new Texture("button_right.png");
         //These can be rotated when drawn: https://stackoverflow.com/questions/24748350/libgdx-rotate-a-texture-when-drawing-it-with-spritebatch
@@ -158,7 +154,6 @@ public class AssetService {
         powerBar = new Texture("slider.png");
         powerBarBtn = new Texture("button_slider.png");
         pauseBtn = new Texture("bullet.png"); //TODO: are we sure we want a pause functionality?
-
         //Animation logic
         //TODO: use the link below on how to make animations
         // https://github.com/saltares/ashley-superjumper/blob/master/core/src/com/siondream/superjumper/Assets.java
@@ -288,6 +283,7 @@ public class AssetService {
         Texture bullet = loadTexture("bullet.png");
 
         // LOOP for walking characters and for projectile
+
         walkAnim1.setPlayMode(Animation.PlayMode.LOOP);
         projectileAnim1.setPlayMode(Animation.PlayMode.LOOP);
 

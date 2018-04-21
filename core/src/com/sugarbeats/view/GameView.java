@@ -25,6 +25,8 @@ public class GameView extends BaseView {
     Rectangle fireBound;
     Rectangle leftBound;
     Rectangle rightBound;
+    Rectangle upBound;
+    Rectangle downBound;
     boolean isTouching;
 
 
@@ -37,10 +39,11 @@ public class GameView extends BaseView {
         cam.setToOrtho(false, SugarBeats.WIDTH, SugarBeats.HEIGHT);
 
         fireBound = new Rectangle(SugarBeats.WIDTH - AssetService.fireBtn.getWidth()/5, AssetService.fireBtn.getWidth()/30, AssetService.fireBtn.getWidth() / 6, AssetService.fireBtn.getHeight() / 6);
-        leftBound = new Rectangle(AssetService.leftBtn.getWidth()/5, AssetService.leftBtn.getWidth()/30, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
-        rightBound = new Rectangle(AssetService.rightBtn.getWidth()/2, AssetService.leftBtn.getWidth()/30, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
-        System.out.println(AssetService.leftBtn.getWidth()/5 + " " + AssetService.leftBtn.getWidth()/30+ " " +
-                AssetService.leftBtn.getWidth() / 6 + " " + AssetService.leftBtn.getHeight() / 6);
+        leftBound = new Rectangle(AssetService.fireBtn.getWidth()/8 - 20, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        rightBound = new Rectangle(AssetService.fireBtn.getWidth()/4 + 5, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        upBound = new Rectangle(AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/6 - 5, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        downBound = new Rectangle(AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/16, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+
         touchPoint = new Vector3();
         isTouching = false;
     }
@@ -72,9 +75,11 @@ public class GameView extends BaseView {
     @Override
     public void draw() {
         game.batch.begin();
-        game.batch.draw(AssetService.fireBtn, SugarBeats.WIDTH - AssetService.fireBtn.getWidth()/5, AssetService.fireBtn.getWidth()/30, AssetService.fireBtn.getWidth() / 6, AssetService.fireBtn.getHeight() / 6);
-        game.batch.draw(AssetService.leftBtn, AssetService.leftBtn.getWidth()/5, AssetService.leftBtn.getWidth()/30, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
-        game.batch.draw(AssetService.rightBtn, AssetService.rightBtn.getWidth()/2, AssetService.leftBtn.getWidth()/30, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        game.batch.draw(AssetService.fireBtn, SugarBeats.WIDTH - AssetService.fireBtn.getWidth()/5, AssetService.fireBtn.getWidth()/17, AssetService.fireBtn.getWidth() / 6, AssetService.fireBtn.getHeight() / 6);
+        game.batch.draw(AssetService.leftBtn, AssetService.fireBtn.getWidth()/8 - 20, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        game.batch.draw(AssetService.rightBtn, AssetService.fireBtn.getWidth()/4 + 5, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        game.batch.draw(AssetService.upBtn, AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/6 - 5, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        game.batch.draw(AssetService.downBtn, AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/16, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
         game.batch.end();
     }
 

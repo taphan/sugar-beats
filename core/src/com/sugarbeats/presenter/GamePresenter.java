@@ -156,15 +156,11 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         ImmutableArray<Entity> players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
         // TODO: Find player index to current player
         engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0), velocity);
-        //while(! projectile.getComponent(ProjectileComponent.class).isDead)
-        velocity = updateProjectileVelocity();
-        engine.getSystem(ProjectileSystem.class).setVelocity(velocity);
+        float v0 = 90; // Send an initial velocity and angle
+        float angle = 120;
+        engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
     }
 
-    private Vector2 updateProjectileVelocity() {
-        // TODO: Update the velocity of projectile to be able to move after time frame
-        return new Vector2();
-    }
 
     @Override
     public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {

@@ -61,17 +61,21 @@ public class PlayerSystem extends IteratingSystem {
 
     @Override
     public void processEntity(Entity entity, float deltaTime) {
-        TransformComponent t = tm.get(entity);
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
-        PlayerComponent player = pm.get(entity);
-        AnimationComponent animaton = am.get(entity);
 
         mov.velocity.x = this.velocityX;
-        if(velocityX != 0) {
-            if (state.get() != PlayerComponent.STATE_WALK && state.get() != PlayerComponent.STATE_DEATH
+
+        if(velocityX < 0) {
+            if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH
                     && state.get() != PlayerComponent.STATE_HIT){
-                state.set(PlayerComponent.STATE_WALK);
+                state.set(PlayerComponent.STATE_LEFT);
+            }
+        } else if (velocityX > 0) {
+            if (state.get() != PlayerComponent.STATE_RIGHT && state.get() != PlayerComponent.STATE_DEATH
+                    && state.get() != PlayerComponent.STATE_HIT){
+                state.set(PlayerComponent.STATE_RIGHT);
+
             }
         } else {
             if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_DEATH
@@ -88,7 +92,6 @@ public class PlayerSystem extends IteratingSystem {
         mov.velocity.y = 0.0f;
     }
 
-    //TODO: powerup logic
     public void gainPowerup (Entity player, Entity powerup) {
         if (!family.matches(player)) return;
 
@@ -122,7 +125,7 @@ public class PlayerSystem extends IteratingSystem {
         StateComponent state = sm.get(entity);
         AnimationComponent animation = am.get(entity);
 
-        // Limit the shot to 100 milliseconds interval
+        // Player can only shoot another projectile after player.shootDelay milliseconds interval
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
@@ -139,6 +142,7 @@ public class PlayerSystem extends IteratingSystem {
         // TODO: Decrease player's health and notify GamePresenter
         h.HEALTH -= 1;
     }
+
 
     public void getHit(Entity entity){
         if (!family.matches(entity)) return;

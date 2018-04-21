@@ -65,7 +65,8 @@ public class World {
         HealthComponent health = engine.createComponent(HealthComponent.class);
 
         animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
-        animation.animations.put(PlayerComponent.STATE_WALK, AssetService.walkAnim1);
+        animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim1);
+        animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim1);
         animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim1);
         animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
         animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);

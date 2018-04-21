@@ -1,7 +1,6 @@
 package com.sugarbeats.game.entity.system;
 
 import com.badlogic.ashley.core.ComponentMapper;
-import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
@@ -72,18 +71,12 @@ public class ProjectileSystem extends IteratingSystem {
         }
 
     }
-
-    private Vector2 initializeVelocity(){
+    // TODO: Handle angle +90 for shooting to the left, send velocity and angle from GamePresenter
+    public void initializeVelocity(float v0, float angle){
         Vector2 velocityOut = new Vector2();
-        float v0 = 90;
-        float angle = 50;
         velocityOut.x += v0 * Math.cos(angle*Math.PI / 180 );
         velocityOut.y += v0 * Math.sin(angle*Math.PI / 180 );
-        return velocityOut;
-    }
-
-    public void setVelocity(Vector2 velocity) {
-        this.velocity = initializeVelocity();
+        this.velocity = velocityOut;
     }
 
 }
