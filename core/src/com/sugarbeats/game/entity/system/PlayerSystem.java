@@ -61,16 +61,18 @@ public class PlayerSystem extends IteratingSystem {
 
     @Override
     public void processEntity(Entity entity, float deltaTime) {
-        TransformComponent t = tm.get(entity);
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
-        PlayerComponent player = pm.get(entity);
-        AnimationComponent animaton = am.get(entity);
 
         mov.velocity.x = this.velocityX;
-        if(velocityX != 0) {
-            if (state.get() != PlayerComponent.STATE_WALK){
-                state.set(PlayerComponent.STATE_WALK);
+
+        if(velocityX < 0) {
+            if (state.get() != PlayerComponent.STATE_LEFT){
+                state.set(PlayerComponent.STATE_LEFT);
+            }
+        } else if (velocityX > 0) {
+            if (state.get() != PlayerComponent.STATE_RIGHT){
+                state.set(PlayerComponent.STATE_RIGHT);
             }
         } else {
             if (state.get() != PlayerComponent.STATE_STANDBY){
@@ -85,7 +87,6 @@ public class PlayerSystem extends IteratingSystem {
         mov.velocity.y = 0.0f;
     }
 
-    //TODO: powerup logic
     public void gainPowerup (Entity player, Entity powerup) {
         if (!family.matches(player)) return;
 
@@ -116,7 +117,7 @@ public class PlayerSystem extends IteratingSystem {
     public void fireProjectile(Entity entity, Vector2 velocity) {
         TransformComponent position = tm.get(entity);
         PlayerComponent player = pm.get(entity);
-        // Limit the shot to 100 milliseconds interval
+        // Player can only shoot another projectile after player.shootDelay milliseconds interval
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
@@ -130,19 +131,4 @@ public class PlayerSystem extends IteratingSystem {
         // TODO: Decrease player's health and notify GamePresenter
     }
 
-    public void getHit(Entity entity){
-        if (!family.matches(entity)) return;
-
-        StateComponent state = sm.get(entity);
-        state.set(PlayerComponent.STATE_HIT);
-    }
-
-    public void walking(Entity entity){
-        if (!family.matches(entity)) return;
-
-        StateComponent state = sm.get(entity);
-        AnimationComponent animation = am.get(entity);
-
-        state.set(PlayerComponent.STATE_PLAY);
-    }
 }

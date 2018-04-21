@@ -33,7 +33,7 @@ public class AudioService {
         defeatMusic = Gdx.audio.newMusic(Gdx.files.internal("defeatSong.mp3"));
         menuMusic.setLooping(true);
         menuMusic.setVolume(0.5f);
-        menuMusic.play(); //TODO: make better music logic
+        //menuMusic.play(); //TODO: make better music logic
 
         buttonPressSound = Gdx.audio.newSound(Gdx.files.internal("btnSound.mp3"));
         sliderSound = Gdx.audio.newSound(Gdx.files.internal("sliderSound.wav"));
