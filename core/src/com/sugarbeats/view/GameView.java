@@ -4,6 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.presenter.GamePresenter;
 import com.sugarbeats.service.AssetService;
@@ -27,7 +30,11 @@ public class GameView extends BaseView {
     Rectangle rightBound;
     Rectangle upBound;
     Rectangle downBound;
+    Rectangle powerBarBound;
     boolean isTouching;
+
+    protected ProgressBar.ProgressBarStyle progressBarStyle;
+    protected Slider.SliderStyle sliderStyle;
 
 
     public GameView(SugarBeats game, GamePresenter presenter) {
@@ -43,9 +50,12 @@ public class GameView extends BaseView {
         rightBound = new Rectangle(AssetService.fireBtn.getWidth()/4 + 5, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
         upBound = new Rectangle(AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/6 - 5, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
         downBound = new Rectangle(AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/16, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
-
+        powerBarBound = new Rectangle(SugarBeats.WIDTH / 2 - 37, AssetService.fireBtn.getWidth()/9, AssetService.powerBar.getWidth() / 5, AssetService.powerBar.getHeight() / 5);
         touchPoint = new Vector3();
         isTouching = false;
+
+        Skin skin = new Skin(Gdx.files.internal("skins/Flat_Earth_UI_Skin/flatearthui/flat-earth-ui.json"));
+        progressBarStyle = skin.get("fancy", ProgressBar.ProgressBarStyle.class);
     }
 
     @Override
@@ -74,12 +84,15 @@ public class GameView extends BaseView {
 
     @Override
     public void draw() {
+
         game.batch.begin();
         game.batch.draw(AssetService.fireBtn, SugarBeats.WIDTH - AssetService.fireBtn.getWidth()/5, AssetService.fireBtn.getWidth()/17, AssetService.fireBtn.getWidth() / 6, AssetService.fireBtn.getHeight() / 6);
         game.batch.draw(AssetService.leftBtn, AssetService.fireBtn.getWidth()/8 - 20, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
         game.batch.draw(AssetService.rightBtn, AssetService.fireBtn.getWidth()/4 + 5, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
         game.batch.draw(AssetService.upBtn, AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/6 - 5, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
         game.batch.draw(AssetService.downBtn, AssetService.fireBtn.getWidth()/6 + 5, AssetService.fireBtn.getWidth()/16, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
+        game.batch.draw(AssetService.powerBar, SugarBeats.WIDTH / 2 - 37, AssetService.fireBtn.getWidth()/9, AssetService.powerBar.getWidth() / 5, AssetService.powerBar.getHeight() / 5);
+        game.batch.draw(AssetService.powerBarBtn, SugarBeats.WIDTH / 2 - 37,AssetService.fireBtn.getWidth()/11, AssetService.powerBarBtn.getWidth() / 6, AssetService.powerBarBtn.getHeight() / 3);
         game.batch.end();
     }
 
