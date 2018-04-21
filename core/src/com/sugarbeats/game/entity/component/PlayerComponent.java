@@ -17,8 +17,8 @@ public class PlayerComponent implements Component{
     public static final int STATE_SHOOT = 7;
     public static final int STATE_WALK = 8;
 
-    public static final float WIDTH = 200f*0.1f;
-    public static final float HEIGHT = 200f*0.3f;
+    public static final float WIDTH = 100f*0.18f;
+    public static final float HEIGHT = 100f*0.38f;
 
     public boolean isDead = false;
     public long shootDelay = 100;

@@ -126,7 +126,7 @@ public class CollisionSystem extends EntitySystem {
                             playerSystem.hitByProjectile(player);
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
-                        engine.removeEntity(projectile);
+                        //engine.removeEntity(projectile);
                         listener.hit();
                     }
                 }

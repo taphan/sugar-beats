@@ -43,20 +43,37 @@ public class ProjectileSystem extends IteratingSystem {
     protected void processEntity(Entity entity, float deltaTime) {
         TransformComponent position = tm.get(entity);
         MovementComponent movement = mm.get(entity);
-        ProjectileComponent projectileComponent = pm.get(entity);
-        StateComponent stateComponent = sm.get(entity);
+        ProjectileComponent projectile = pm.get(entity);
+        StateComponent state = sm.get(entity);
 
-        movement.velocity.x += 20*deltaTime*Math.cos(80*Math.PI / 180 ); // v0*t*cos(rad)
-        // v0*t*sin(rad) - 1/2*gt
-        movement.velocity.y += 20*deltaTime*Math.sin(80*Math.PI / 180 ) - 9.81*deltaTime;
-        position.position.add(movement.velocity);
-
-        if(projectileComponent.isDead) {
-            stateComponent.set(ProjectileComponent.STATE_HIT);
+        // Initialize function only runs once
+        if (state.get() == ProjectileComponent.STATE_START) {
+            movement.velocity.x = this.velocity.x;
+            movement.velocity.y = this.velocity.y;
         }
+
+        movement.velocity.y += -9.81f * deltaTime;  // Set velocity.(x = 0)
+
+        if (state.get() != ProjectileComponent.STATE_MIDAIR) {
+            state.set(ProjectileComponent.STATE_MIDAIR);  // Shots get fired! Change state from START
+        }
+
+        if(projectile.isDead && state.get() == ProjectileComponent.STATE_MIDAIR) {
+            state.set(ProjectileComponent.STATE_HIT);
+        }
+
+    }
+
+    private Vector2 initializeVelocity(){
+        Vector2 velocityOut = new Vector2();
+        float v0 = 90;
+        float angle = 50;
+        velocityOut.x += v0 * Math.cos(angle*Math.PI / 180 );
+        velocityOut.y += v0 * Math.sin(angle*Math.PI / 180 );
+        return velocityOut;
     }
 
     public void setVelocity(Vector2 velocity) {
-        this.velocity = velocity;
+        this.velocity = initializeVelocity();
     }
 }

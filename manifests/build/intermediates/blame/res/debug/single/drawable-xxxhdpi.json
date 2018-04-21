@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_launcher_background.png",
+        "source": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_launcher_background.png",
         "source": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
