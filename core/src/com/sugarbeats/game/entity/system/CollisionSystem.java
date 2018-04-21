@@ -123,7 +123,7 @@ public class CollisionSystem extends EntitySystem {
                 }
             }
 
-            // Check if player has been hit by a projectile
+            // Check whether the projectile hit a player or the ground
             for (int j = 0; j < projectiles.size(); j++) {
                 Entity projectile = projectiles.get(j);
                 BoundsComponent projectileBounds = bm.get(projectile);
@@ -140,30 +140,7 @@ public class CollisionSystem extends EntitySystem {
                         listener.hit();
                     }
                 }
-            }/*
-            int j = 0;
-            while (j < projectiles.size() {
-                Entity projectile = projectiles.get(j);
-                BoundsComponent projectileBounds = bm.get(projectile);
-                StateComponent projectileState = sm.get(projectile);
-
-                if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
-                    if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
-                        if (projectileBounds.bounds.overlaps(playerBounds.bounds))
-                            playerSystem.hitByProjectile(player);
-                        projectile.getComponent(ProjectileComponent.class).isDead = true;
-                        projectileState.set(ProjectileComponent.STATE_HIT);
-                        counter += 1;
-                        ProjectileSystem projectileSystem = engine.getSystem(ProjectileSystem.class);
-                        engine.removeEntity(projectile);
-                        listener.hit();
-                        System.out.println("Counter: " + counter);
-
-                        break;
-                    }
-                }
-                j++;
-            }*/
+            }
         }
     }
 }

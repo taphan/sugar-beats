@@ -106,6 +106,9 @@ public class AssetService {
     public static Animation getHitAnim2;
     public static Animation deathAnim2;
 
+    public static Texture healthBar;
+    public static Texture health;
+
     //public static Animation walkAnim3;
     //public static Animation shootAnim3;
     //public static Animation projectileAnim3;
@@ -154,6 +157,11 @@ public class AssetService {
         powerBar = new Texture("slider.png");
         powerBarBtn = new Texture("button_slider.png");
         pauseBtn = new Texture("bullet.png"); //TODO: are we sure we want a pause functionality?
+
+        healthBar = new Texture("health-bar.png");
+        health = new Texture("health.png");
+
+
         //Animation logic
         //TODO: use the link below on how to make animations
         // https://github.com/saltares/ashley-superjumper/blob/master/core/src/com/siondream/superjumper/Assets.java
