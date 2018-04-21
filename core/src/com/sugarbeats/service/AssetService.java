@@ -275,13 +275,6 @@ public class AssetService {
                 new TextureRegion(death2, 4000, 0, 500, 500),
                 new TextureRegion(death2, 4500, 0, 500, 500));
 
-
-        //TODO: add graphics and bounds for gameplay buttons
-        fireBtn = new Texture("button_shoot.png");
-        leftBtn = new Texture("back_button.png");
-        rightBtn = new Texture("forward_button.png");
-        Texture bullet = loadTexture("bullet.png");
-
         // LOOP for walking characters and for projectile
 
         walkAnim1.setPlayMode(Animation.PlayMode.LOOP);
