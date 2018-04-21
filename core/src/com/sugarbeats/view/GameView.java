@@ -31,7 +31,7 @@ public class GameView extends BaseView {
     boolean isTouching;
     float powerBarBtnX;
     float angle;
-    float health;
+    public float health;
 
     public GameView(SugarBeats game, GamePresenter presenter) {
         super(game.getBatch());
@@ -52,7 +52,7 @@ public class GameView extends BaseView {
         isTouching = false;
         powerBarBtnX = SugarBeats.WIDTH / 2;
         angle = 70;
-        health = AssetService.health.getWidth() / 15;
+        health = AssetService.health.getWidth() / 10;
     }
 
     @Override
