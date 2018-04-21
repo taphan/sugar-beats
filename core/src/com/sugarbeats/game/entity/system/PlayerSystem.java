@@ -83,7 +83,6 @@ public class PlayerSystem extends IteratingSystem {
                 state.set(PlayerComponent.STATE_STANDBY);
             }
         }
-
     }
 
     public void hitGround(Entity entity) {
@@ -129,7 +128,7 @@ public class PlayerSystem extends IteratingSystem {
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
-            world.createProjectile(position.position.x+30, position.position.y, velocity.x, velocity.y );
+            world.createProjectile(position.position.x, position.position.y+30, velocity.x, velocity.y );
             player.timeSinceLastShot = 0;
 
             if (!family.matches(entity)) return;
@@ -148,7 +147,11 @@ public class PlayerSystem extends IteratingSystem {
         if (!family.matches(entity)) return;
 
         StateComponent state = sm.get(entity);
-        state.set(PlayerComponent.STATE_HIT);
+        if (state.get() != PlayerComponent.STATE_HIT){
+            System.out.println("Should NOT be 1 = " + state.get());
+            state.set(PlayerComponent.STATE_HIT);
+            System.out.println("Should be 1 = " + state.get());
+        }
     }
 
     public void standby(Entity entity){

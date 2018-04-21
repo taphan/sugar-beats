@@ -74,6 +74,8 @@ public class CollisionSystem extends EntitySystem {
             Entity player = players.get(i);
             BoundsComponent playerBounds = bm.get(player);
             TransformComponent playerPosition = tm.get(player);
+            StateComponent state = sm.get(player);
+
 
             // Check if player has been dropped to the ground
             Entity currentGround = ground.get(0);
@@ -94,14 +96,17 @@ public class CollisionSystem extends EntitySystem {
 
             // Get hit by projectile
 
-            for (int j = 0; j < projectiles.size(); ++j){
+            for (int j = 0; j < projectiles.size(); j++){
                 Entity projectile = projectiles.get(j);
 
                 BoundsComponent projectileBounds = bm.get(projectile);
-                if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
+
+                if (projectileBounds.bounds.overlaps(playerBounds.bounds)
+                        && state.get() != PlayerComponent.STATE_HIT ) {
                     playerSystem.getHit(player);
                     listener.hit();
                 }
+
             }
 
             // Check if player touched powerup
