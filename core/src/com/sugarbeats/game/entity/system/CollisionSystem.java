@@ -17,6 +17,9 @@ import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
+import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_HIT;
+import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
+
 /**
  * Created by Quynh on 4/11/2018.
  *
@@ -74,6 +77,8 @@ public class CollisionSystem extends EntitySystem {
             Entity player = players.get(i);
             BoundsComponent playerBounds = bm.get(player);
             TransformComponent playerPosition = tm.get(player);
+            StateComponent state = sm.get(player);
+
 
             // Check if player has been dropped to the ground
             Entity currentGround = ground.get(0);
@@ -94,15 +99,18 @@ public class CollisionSystem extends EntitySystem {
 
             // Get hit by projectile
 
-            for (int j = 0; j < projectiles.size(); ++j){
+            /*
+            for (int j = 0; j < projectiles.size(); j++){
                 Entity projectile = projectiles.get(j);
-
                 BoundsComponent projectileBounds = bm.get(projectile);
-                if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
+
+                if (projectileBounds.bounds.overlaps(playerBounds.bounds)
+                        && state.get() != PlayerComponent.STATE_HIT ) {
                     playerSystem.getHit(player);
                     listener.hit();
                 }
             }
+            */
 
             // Check if player touched powerup
 
@@ -122,11 +130,15 @@ public class CollisionSystem extends EntitySystem {
                 Entity projectile = projectiles.get(j);
                 BoundsComponent projectileBounds = bm.get(projectile);
                 StateComponent projectileState = sm.get(projectile);
+                StateComponent playerState = sm.get(player);
 
                 if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
                     if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
-                        if (projectileBounds.bounds.overlaps(playerBounds.bounds))
+                        if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
+                            System.out.println("1:" + playerState.get());
                             playerSystem.hitByProjectile(player);
+                            System.out.println("2:" + playerState.get());
+                        }
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
                         listener.hit();

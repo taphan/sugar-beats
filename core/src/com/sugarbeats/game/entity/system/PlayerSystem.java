@@ -16,6 +16,9 @@ import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
+import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_DEATH;
+import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
+
 /**
  * Created by Quynh on 4/12/2018.
  *
@@ -67,23 +70,20 @@ public class PlayerSystem extends IteratingSystem {
         mov.velocity.x = this.velocityX;
 
         if(velocityX < 0) {
-            if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH
-                    && state.get() != PlayerComponent.STATE_HIT){
+            if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH){
                 state.set(PlayerComponent.STATE_LEFT);
             }
         } else if (velocityX > 0) {
-            if (state.get() != PlayerComponent.STATE_RIGHT && state.get() != PlayerComponent.STATE_DEATH
-                    && state.get() != PlayerComponent.STATE_HIT){
+            if (state.get() != PlayerComponent.STATE_RIGHT && state.get() != PlayerComponent.STATE_DEATH){
                 state.set(PlayerComponent.STATE_RIGHT);
 
             }
         } else {
             if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_DEATH
-                    && state.get() != PlayerComponent.STATE_SHOOT){
+                    && state.get() != STATE_SHOOT && state.get() != PlayerComponent.STATE_HIT){
                 state.set(PlayerComponent.STATE_STANDBY);
             }
         }
-
     }
 
     public void hitGround(Entity entity) {
@@ -127,26 +127,26 @@ public class PlayerSystem extends IteratingSystem {
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
-            world.createProjectile(position.position.x+30, position.position.y);
+        world.createProjectile(position.position.x, position.position.y+30);
+
             player.timeSinceLastShot = 0;
 
             if (!family.matches(entity)) return;
-            state.set(PlayerComponent.STATE_SHOOT);
+            state.set(STATE_SHOOT);
         }
     }
 
     public void hitByProjectile(Entity entity) {
-        HealthComponent h = hm.get(entity);
-        // TODO: Decrease player's health and notify GamePresenter
-        h.HEALTH -= 1;
-    }
-
-
-    public void getHit(Entity entity){
         if (!family.matches(entity)) return;
 
         StateComponent state = sm.get(entity);
-        state.set(PlayerComponent.STATE_HIT);
+        HealthComponent h = hm.get(entity);
+        // TODO: Decrease player's health and notify GamePresenter
+        if (state.get() != PlayerComponent.STATE_HIT && state.get() != PlayerComponent.STATE_SHOOT
+                && state.get() != PlayerComponent.STATE_DEATH){
+            state.set(PlayerComponent.STATE_HIT);
+        }
+        h.HEALTH -= 1;
     }
 
     public void standby(Entity entity){

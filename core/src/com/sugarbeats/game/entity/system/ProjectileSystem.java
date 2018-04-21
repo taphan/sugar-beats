@@ -63,8 +63,8 @@ public class ProjectileSystem extends IteratingSystem {
 
         if(projectile.isDead && state.get() == ProjectileComponent.STATE_MIDAIR) {
             state.set(ProjectileComponent.STATE_HIT);
-            movement.velocity.x = 0;
-            movement.velocity.y = 0;
+            //movement.velocity.x = 0;
+            //movement.velocity.y = 0;
             // Hide projectiles from screen
             position.scale.x = 0;
             position.scale.y = 0;
