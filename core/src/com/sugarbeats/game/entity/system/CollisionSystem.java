@@ -17,8 +17,6 @@ import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
-import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_HIT;
-import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
 
 /**
  * Created by Quynh on 4/11/2018.
@@ -135,9 +133,7 @@ public class CollisionSystem extends EntitySystem {
                 if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
                     if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
                         if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
-                            System.out.println("1:" + playerState.get());
                             playerSystem.hitByProjectile(player);
-                            System.out.println("2:" + playerState.get());
                         }
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
