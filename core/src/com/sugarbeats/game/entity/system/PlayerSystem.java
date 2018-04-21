@@ -117,18 +117,27 @@ public class PlayerSystem extends IteratingSystem {
     public void fireProjectile(Entity entity, Vector2 velocity) {
         TransformComponent position = tm.get(entity);
         PlayerComponent player = pm.get(entity);
+        StateComponent state = sm.get(entity);
+        AnimationComponent animation = am.get(entity);
+
         // Player can only shoot another projectile after player.shootDelay milliseconds interval
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
             world.createProjectile(position.position.x, position.position.y, velocity.x, velocity.y );
             player.timeSinceLastShot = 0;
+
+            //TODO: make throwanimation work
+            if (!family.matches(entity)) return;
+            state.set(PlayerComponent.STATE_SHOOT);
+            //System.out.println(state? tror det er samme problem som sist, kun første frame vises);
         }
     }
 
     public void hitByProjectile(Entity entity) {
         HealthComponent h = hm.get(entity);
         // TODO: Decrease player's health and notify GamePresenter
+        h.HEALTH -= 1;
     }
 
 }

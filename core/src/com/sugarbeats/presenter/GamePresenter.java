@@ -27,6 +27,7 @@ import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.ProjectileSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.model.PlayerData;
+import com.sugarbeats.service.AudioService;
 import com.sugarbeats.service.IPlayService;
 import com.sugarbeats.service.ServiceLocator;
 import com.sugarbeats.view.GameView;
@@ -71,6 +72,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         collisionListener = new CollisionListener() {
             @Override
             public void powerup() {
+                AudioService.playSound((AudioService.buttonPressSound));
                 System.out.println("Power up sound");
             }
 
@@ -81,6 +83,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
             @Override
             public void hit() {
+                AudioService.playSound(AudioService.damageSound);
                 System.out.println("Ouchie got hit..");
             }
 
