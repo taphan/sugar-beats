@@ -69,16 +69,17 @@ public class PlayerSystem extends IteratingSystem {
 
         mov.velocity.x = this.velocityX;
         if(velocityX != 0) {
-            if (state.get() != PlayerComponent.STATE_WALK && state.get() != PlayerComponent.STATE_HIT
-                    && state.get() != PlayerComponent.STATE_DEATH && state.get() != PlayerComponent.STATE_SHOOT ){
+            if (state.get() != PlayerComponent.STATE_WALK && state.get() != PlayerComponent.STATE_DEATH
+                    && state.get() != PlayerComponent.STATE_HIT){
                 state.set(PlayerComponent.STATE_WALK);
             }
         } else {
-            if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_HIT
-                    && state.get() != PlayerComponent.STATE_DEATH && state.get() != PlayerComponent.STATE_SHOOT){
+            if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_DEATH
+                    && state.get() != PlayerComponent.STATE_SHOOT){
                 state.set(PlayerComponent.STATE_STANDBY);
             }
         }
+
     }
 
     public void hitGround(Entity entity) {
@@ -125,13 +126,11 @@ public class PlayerSystem extends IteratingSystem {
         player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
         if (player.timeSinceLastShot >= player.shootDelay) {
             startTime = TimeUtils.millis();
-            world.createProjectile(position.position.x, position.position.y, velocity.x, velocity.y );
+            world.createProjectile(position.position.x+30, position.position.y, velocity.x, velocity.y );
             player.timeSinceLastShot = 0;
 
-            //TODO: make throwanimation work
             if (!family.matches(entity)) return;
             state.set(PlayerComponent.STATE_SHOOT);
-            //System.out.println(state? tror det er samme problem som sist, kun første frame vises);
         }
     }
 
@@ -146,5 +145,12 @@ public class PlayerSystem extends IteratingSystem {
 
         StateComponent state = sm.get(entity);
         state.set(PlayerComponent.STATE_HIT);
+    }
+
+    public void standby(Entity entity){
+        if (!family.matches(entity)) return;
+
+        StateComponent state = sm.get(entity);
+        state.set(PlayerComponent.STATE_STANDBY);
     }
 }

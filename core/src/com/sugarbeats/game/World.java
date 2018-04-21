@@ -43,7 +43,7 @@ public class World {
         createPlayer(1);
 
         //createPlayer(2);
-        createPlayer(2);
+        //createPlayer(2);
         //createwalking();
 
         createBackground();

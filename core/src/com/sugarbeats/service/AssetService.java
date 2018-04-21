@@ -214,7 +214,8 @@ public class AssetService {
                 new TextureRegion(getHit1, 0, 0, 500, 500),
                 new TextureRegion(getHit1, 500, 0, 500, 500),
                 new TextureRegion(getHit1, 1000, 0, 500, 500),
-                new TextureRegion(getHit1, 1500, 0, 500, 500));
+                new TextureRegion(getHit1, 1500, 0, 500, 500),
+                new TextureRegion(getHit1, 0, 0, 500, 500));
 
         deathAnim1 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(death1, 0, 0, 500, 500),
@@ -264,7 +265,8 @@ public class AssetService {
                 new TextureRegion(getHit2, 0, 0, 500, 500),
                 new TextureRegion(getHit2, 500, 0, 500, 500),
                 new TextureRegion(getHit2, 1000, 0, 500, 500),
-                new TextureRegion(getHit2, 1500, 0, 500, 500));
+                new TextureRegion(getHit2, 1500, 0, 500, 500),
+                new TextureRegion(getHit2, 0, 0, 500, 500));
 
         deathAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(death2, 0, 0, 500, 500),
