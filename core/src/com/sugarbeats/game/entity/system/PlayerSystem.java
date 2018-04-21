@@ -70,7 +70,6 @@ public class PlayerSystem extends IteratingSystem {
         mov.velocity.x = this.velocityX;
         if(velocityX != 0) {
             if (state.get() != PlayerComponent.STATE_WALK){
-                //System.out.println(state.get());
                 state.set(PlayerComponent.STATE_WALK);
             }
         } else {

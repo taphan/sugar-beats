@@ -45,6 +45,8 @@ public class CollisionSystem extends EntitySystem {
     private ImmutableArray<Entity> background;
     private ImmutableArray<Entity> projectiles;
 
+    private int counter;
+
     public CollisionSystem(World world, CollisionListener listener) {
         this.world = world;
         this.listener = listener;
@@ -54,12 +56,13 @@ public class CollisionSystem extends EntitySystem {
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
         pm = ComponentMapper.getFor(ProjectileComponent.class);
+
+        counter = 0;
     }
 
     @Override
     public void addedToEngine(Engine engine) {
         this.engine = engine;
-
         players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
         ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
         powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
@@ -91,15 +94,7 @@ public class CollisionSystem extends EntitySystem {
             if (playerBounds.bounds.overlaps(backgroundBounds.bounds)) {
                 playerSystem.hitMapEdge(player);
             }
-            /*
-            TODO: Må ha projectilecomponent for at man skal kunne bruke denne
-            BoundsComponent projectileBounds = bm.get(projectile)
 
-            if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
-                playerSystem.getHit(player);
-                listener.hit();
-            }
-            */
 
             // Check if player touched powerup
             for (int j = 0; j < powerups.size(); j++) {
@@ -120,17 +115,42 @@ public class CollisionSystem extends EntitySystem {
                 StateComponent projectileState = sm.get(projectile);
 
                 if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
-                    if(projectileBounds.bounds.overlaps(backgroundBounds.bounds) ||
-                            projectileBounds.bounds.overlaps(playerBounds.bounds)) {
+                    if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
                         if (projectileBounds.bounds.overlaps(playerBounds.bounds))
                             playerSystem.hitByProjectile(player);
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
+                        counter += 1;
+                        ProjectileSystem projectileSystem = engine.getSystem(ProjectileSystem.class);
                         //engine.removeEntity(projectile);
+                        System.out.println("Counter: " + counter);
                         listener.hit();
                     }
                 }
-            }
+            }/*
+            int j = 0;
+            while (j < projectiles.size() {
+                Entity projectile = projectiles.get(j);
+                BoundsComponent projectileBounds = bm.get(projectile);
+                StateComponent projectileState = sm.get(projectile);
+
+                if (projectileState.get() == ProjectileComponent.STATE_MIDAIR) {
+                    if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
+                        if (projectileBounds.bounds.overlaps(playerBounds.bounds))
+                            playerSystem.hitByProjectile(player);
+                        projectile.getComponent(ProjectileComponent.class).isDead = true;
+                        projectileState.set(ProjectileComponent.STATE_HIT);
+                        counter += 1;
+                        ProjectileSystem projectileSystem = engine.getSystem(ProjectileSystem.class);
+                        engine.removeEntity(projectile);
+                        listener.hit();
+                        System.out.println("Counter: " + counter);
+
+                        break;
+                    }
+                }
+                j++;
+            }*/
         }
     }
 }

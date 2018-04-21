@@ -1,10 +1,12 @@
 package com.sugarbeats.game.entity.system;
 
 import com.badlogic.ashley.core.ComponentMapper;
+import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.math.Vector2;
+import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
@@ -25,6 +27,7 @@ public class ProjectileSystem extends IteratingSystem {
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<ProjectileComponent> pm;
     private ComponentMapper<StateComponent> sm;
+    private ComponentMapper<AnimationComponent> am;
 
     private Vector2 velocity;
 
@@ -35,6 +38,7 @@ public class ProjectileSystem extends IteratingSystem {
         mm = ComponentMapper.getFor(MovementComponent.class);
         pm = ComponentMapper.getFor(ProjectileComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
+        am = ComponentMapper.getFor(AnimationComponent.class);
 
         velocity = new Vector2();
     }
@@ -60,6 +64,11 @@ public class ProjectileSystem extends IteratingSystem {
 
         if(projectile.isDead && state.get() == ProjectileComponent.STATE_MIDAIR) {
             state.set(ProjectileComponent.STATE_HIT);
+            movement.velocity.x = 0;
+            movement.velocity.y = 0;
+            // Hide projectiles from screen
+            position.scale.x = 0;
+            position.scale.y = 0;
         }
 
     }
@@ -76,4 +85,5 @@ public class ProjectileSystem extends IteratingSystem {
     public void setVelocity(Vector2 velocity) {
         this.velocity = initializeVelocity();
     }
+
 }

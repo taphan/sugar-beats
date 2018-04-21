@@ -63,7 +63,6 @@ public class World {
         TransformComponent position = engine.createComponent(TransformComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
         HealthComponent health = engine.createComponent(HealthComponent.class);
-        ProjectileComponent projectile = engine.createComponent(ProjectileComponent.class);
 
         animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
         animation.animations.put(PlayerComponent.STATE_WALK, AssetService.walkAnim1);
@@ -95,7 +94,6 @@ public class World {
         entity.add(position);
         entity.add(texture);
         entity.add(health);
-        entity.add(projectile);
 
         engine.addEntity(entity);
 
@@ -114,7 +112,7 @@ public class World {
 
         animation.animations.put(ProjectileComponent.STATE_START, AssetService.bullet);
         animation.animations.put(ProjectileComponent.STATE_MIDAIR, AssetService.bullet);
-        animation.animations.put(ProjectileComponent.STATE_HIT, AssetService.bullet);
+        animation.animations.put(ProjectileComponent.STATE_HIT, AssetService.character1);
 
         bounds.bounds.width = ProjectileComponent.WIDTH;
         bounds.bounds.height = ProjectileComponent.HEIGHT;
