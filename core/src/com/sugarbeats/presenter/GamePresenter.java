@@ -84,6 +84,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
             @Override
 
             public void ground() {
+
             }
 
             @Override
@@ -139,7 +140,9 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
             veloX1 = -100f;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX1 = 100f;
-
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+            updateFireButton(1,50,150);
+        }
         //engine.getSystem(PlayerSystem.class).setVelocity(veloX);
         MovementComponent movement1 = ComponentMapper.getFor(MovementComponent.class).get(player1);
         movement1.velocity.x = veloX1;
@@ -148,11 +151,10 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
             veloX2 = -100f;
-            System.out.println("A pressed!");
         }
         if (Gdx.input.isKeyPressed(Input.Keys.D)) veloX2 = 100f;
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            updateFireButton(2,50,50);
+            updateFireButton(2,40,50);
         }
         MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(player2);
         movement.velocity.x = veloX2;

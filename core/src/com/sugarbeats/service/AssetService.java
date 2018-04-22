@@ -161,7 +161,7 @@ public class AssetService {
 
         healthBar = new Texture("health-bar.png");
         health = new Texture("health.png");
-        angle = new TextureRegion(loadTexture("angle.png"));
+        angle = new TextureRegion(loadTexture("angle2_edited.png"));
 
         //Animation logic
         //TODO: use the link below on how to make animations

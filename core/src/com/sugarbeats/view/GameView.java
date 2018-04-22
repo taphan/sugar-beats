@@ -54,7 +54,7 @@ public class GameView extends BaseView {
 
         isTouching = false;
         powerBarBtnX = SugarBeats.WIDTH / 2;
-        angle = 70;
+        angle = 10;
         health = AssetService.health.getWidth() / 10;
         font = new BitmapFont();
         AudioService.playMusic(AudioService.gameMusic);
@@ -75,12 +75,17 @@ public class GameView extends BaseView {
                     powerBarBtnX = touchPoint.x;
                 }
                 if (upBound.contains(touchPoint.x, touchPoint.y)) {
-                    presenter.updateKeyPress(2);
+                    if (angle + 10 < 180) {
+                        presenter.updateKeyPress(2);
+                        angle += 10;
+                    }
                 }
                 if (downBound.contains(touchPoint.x, touchPoint.y)) {
-                    presenter.updateKeyPress(3);
+                    if (angle - 10 > 0) {
+                        presenter.updateKeyPress(3);
+                        angle -= 10;
+                    }
                 }
-                // TODO: Implement up/downBound to update angle
                 // Note: Can only shoot if there is one finger pressing the screen
                 if (!isTouching && touches.get(0).touched) {
                     isTouching = true;
