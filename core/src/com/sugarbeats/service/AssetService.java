@@ -8,14 +8,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.sugarbeats.SugarBeats;
 
-
-import org.w3c.dom.css.Rect;
-
-import java.awt.Rectangle;
-
-import javax.xml.soap.Text;
 
 
 public class AssetService {
@@ -111,6 +106,11 @@ public class AssetService {
     public static Animation getHitAnim2;
     public static Animation deathAnim2;
 
+    public static Texture healthBar;
+    public static Texture health;
+    public static Texture enemyHealth;
+    public static TextureRegion angle;
+
     //public static Animation walkAnim3;
     //public static Animation shootAnim3;
     //public static Animation projectileAnim3;
@@ -136,6 +136,12 @@ public class AssetService {
         unmute_btn = new Texture("unmute.png");
         mute_btn = new Texture("mute.png");
 
+        map1 = new TextureRegion(loadTexture("ground2.png")); //Chocolate
+        map2 = new TextureRegion(loadTexture("ground3.png")); //Cotton candy
+        map3 = new TextureRegion(loadTexture("ground4.png")); //Ice cream
+        background1 = new TextureRegion(loadTexture("map4.png")); //Chocolate
+        background2 = new TextureRegion(loadTexture("map5.png")); //Cotton candy
+        background3 = new TextureRegion(loadTexture("map2.png")); //Ice cream
 
         playBtn = new Texture("button_play1.png");
         settingBtn = new Texture("button_settings1.png");
@@ -144,28 +150,20 @@ public class AssetService {
         acBtn = new Texture("button_achievements1.png");
         mBtn = new Texture("button_multiplayer1.png");
 
-        map1 = new TextureRegion(loadTexture("ground2.png")); //Chocolate
-        map2 = new TextureRegion(loadTexture("ground3.png")); //Cotton candy
-        map3 = new TextureRegion(loadTexture("ground4.png")); //Ice cream
-        background1 = new TextureRegion(loadTexture("map4.png")); //Chocolate
-        background2 = new TextureRegion(loadTexture("map5.png")); //Cotton candy
-        background3 = new TextureRegion(loadTexture("map2.png")); //Ice cream
-
-        //TODO: add graphics and bounds for gameplay buttons
         upBtn = new Texture("button_up.png");
-        downBtn = new Texture("button_up.png");
-        leftBtn = new Texture("button_up.png");
-        rightBtn = new Texture("button_up.png");
+        downBtn = new Texture("button_down.png");
+        leftBtn = new Texture("button_left.png");
+        rightBtn = new Texture("button_right.png");
         //These can be rotated when drawn: https://stackoverflow.com/questions/24748350/libgdx-rotate-a-texture-when-drawing-it-with-spritebatch
         fireBtn = new Texture("button_shoot.png");
         powerBar = new Texture("slider.png");
         powerBarBtn = new Texture("button_slider.png");
         pauseBtn = new Texture("bullet.png"); //TODO: are we sure we want a pause functionality?
 
-
-        //character2 = new TextureRegion(new Texture("heliregion.png"),0,0,162,65);
-        //character1 = new Animation<TextureRegion>(0.2f,new TextureRegion(wl,0,65),new TextureRegion(heliLoad,162,65));
-        //character2 = new TextureRegion(walk, 1500, 0, 500, 500);
+        healthBar = new Texture("health-bar.png");
+        health = new Texture("health.png");
+        enemyHealth = new Texture("health-bar-real.png");
+        angle = new TextureRegion(loadTexture("angle2_edited.png"));
 
         //Animation logic
         //TODO: use the link below on how to make animations
@@ -184,7 +182,7 @@ public class AssetService {
         getHit2 = loadTexture("sprite2_hitanim.png");
         death2 = loadTexture("sprite2_deathanim.png");
 
-        // Animation for character 1
+        // Animation and projectile animation for character 1
         character1 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk1, 0, 0, 500, 500));
 
@@ -222,7 +220,8 @@ public class AssetService {
                 new TextureRegion(getHit1, 0, 0, 500, 500),
                 new TextureRegion(getHit1, 500, 0, 500, 500),
                 new TextureRegion(getHit1, 1000, 0, 500, 500),
-                new TextureRegion(getHit1, 1500, 0, 500, 500));
+                new TextureRegion(getHit1, 1500, 0, 500, 500),
+                new TextureRegion(getHit1, 0, 0, 500, 500));
 
         deathAnim1 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(death1, 0, 0, 500, 500),
@@ -236,7 +235,10 @@ public class AssetService {
                 new TextureRegion(death1, 4000, 0, 500, 500),
                 new TextureRegion(death1, 4500, 0, 500, 500));
 
-        // Animation for character 2
+        // Animation and projectile animation for character 2
+        character2 = new Animation<TextureRegion>(0.2f,
+                new TextureRegion(walk2, 0, 0, 500, 500));
+
         walkAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk2, 0, 0, 500, 500),
                 new TextureRegion(walk2, 500, 0, 500, 500),
@@ -257,6 +259,7 @@ public class AssetService {
                 new TextureRegion(shoot2, 5000, 0, 500, 500),
                 new TextureRegion(shoot2, 5500, 0, 500, 500));
 
+        // Projectile animation for character 2.
         projectileAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(projectile2, 0, 0, 200, 200),
                 new TextureRegion(projectile2, 200, 0, 200, 200),
@@ -271,7 +274,8 @@ public class AssetService {
                 new TextureRegion(getHit2, 0, 0, 500, 500),
                 new TextureRegion(getHit2, 500, 0, 500, 500),
                 new TextureRegion(getHit2, 1000, 0, 500, 500),
-                new TextureRegion(getHit2, 1500, 0, 500, 500));
+                new TextureRegion(getHit2, 1500, 0, 500, 500),
+                new TextureRegion(getHit2, 0, 0, 500, 500));
 
         deathAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(death2, 0, 0, 500, 500),
@@ -285,13 +289,7 @@ public class AssetService {
                 new TextureRegion(death2, 4000, 0, 500, 500),
                 new TextureRegion(death2, 4500, 0, 500, 500));
 
-
-        //TODO: add graphics and bounds for gameplay buttons
-        fireBtn = new Texture("button_shoot.png");
-        leftBtn = new Texture("back_button.png");
-        rightBtn = new Texture("forward_button.png");
-        Texture bullet = loadTexture("bullet.png");
-
+        // LOOP for walking characters and for projectile
 
         walkAnim1.setPlayMode(Animation.PlayMode.LOOP);
         projectileAnim1.setPlayMode(Animation.PlayMode.LOOP);

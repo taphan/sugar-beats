@@ -1,10 +1,34 @@
 [
     {
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher_round.png",
+        "source": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher_round.png",
+        "source": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher_round.png",
+        "source": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
         "source": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher_round.png",
         "source": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     }
 ]

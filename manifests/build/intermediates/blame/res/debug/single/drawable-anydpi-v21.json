@@ -1,5 +1,17 @@
 [
     {
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml",
+        "source": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml",
+        "source": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml",
+        "source": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml",
         "source": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     }

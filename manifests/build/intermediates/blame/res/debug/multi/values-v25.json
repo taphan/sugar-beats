@@ -1,5 +1,260 @@
 [
     {
+        "outputFile": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 70,
+                    "endOffset": 121
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 70,
+                        "endOffset": 121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 126,
+                    "endColumn": 82,
+                    "endOffset": 204
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 126,
+                        "endColumn": 82,
+                        "endOffset": 204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 209,
+                    "endLine": 5,
+                    "endColumn": 12,
+                    "endOffset": 303
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 209,
+                        "endLine": 5,
+                        "endColumn": 12,
+                        "endOffset": 303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 308,
+                    "endLine": 7,
+                    "endColumn": 12,
+                    "endOffset": 414
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 308,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 414
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 70,
+                    "endOffset": 121
+                },
+                "from": {
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 70,
+                        "endOffset": 121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 126,
+                    "endColumn": 82,
+                    "endOffset": 204
+                },
+                "from": {
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 126,
+                        "endColumn": 82,
+                        "endOffset": 204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 209,
+                    "endLine": 5,
+                    "endColumn": 12,
+                    "endOffset": 303
+                },
+                "from": {
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 209,
+                        "endLine": 5,
+                        "endColumn": 12,
+                        "endOffset": 303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 308,
+                    "endLine": 7,
+                    "endColumn": 12,
+                    "endOffset": 414
+                },
+                "from": {
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 308,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 414
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 70,
+                    "endOffset": 121
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 70,
+                        "endOffset": 121
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 126,
+                    "endColumn": 82,
+                    "endOffset": 204
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 126,
+                        "endColumn": 82,
+                        "endOffset": 204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 209,
+                    "endLine": 5,
+                    "endColumn": 12,
+                    "endOffset": 303
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 209,
+                        "endLine": 5,
+                        "endColumn": 12,
+                        "endOffset": 303
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 308,
+                    "endLine": 7,
+                    "endColumn": 12,
+                    "endOffset": 414
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-v25\\values-v25.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 308,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 414
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
         "map": [
             {

@@ -34,7 +34,6 @@ public class RenderSystem extends IteratingSystem {
         batch.begin();
         super.update(deltaTime);
         batch.end();
-
     }
 
     @Override
