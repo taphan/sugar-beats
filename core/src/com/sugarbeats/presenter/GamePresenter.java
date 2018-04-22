@@ -173,6 +173,9 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         movement.velocity.x = veloX2;
     }
 
+    public void onBack() {
+        game.setScreen(new MainMenuPresenter(game));
+    }
     public void updateKeyPress(int key) {
         float veloX = 0.0f;
         float angle = 0.0f;
