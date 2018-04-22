@@ -35,6 +35,7 @@ public class GameView extends BaseView {
     public float angle;
     public float health;
     BitmapFont font;
+    BitmapFont font2;
 
     public GameView(SugarBeats game, GamePresenter presenter) {
         super(game.getBatch());
@@ -57,6 +58,7 @@ public class GameView extends BaseView {
         angle = 10;
         health = AssetService.health.getWidth() / 10;
         font = new BitmapFont();
+        font2 = new BitmapFont();
         AudioService.playMusic(AudioService.gameMusic);
     }
 
@@ -114,8 +116,9 @@ public class GameView extends BaseView {
         game.batch.draw(AssetService.healthBar, 10, 290, AssetService.healthBar.getWidth() / 10, AssetService.healthBar.getHeight() / 10);
         game.batch.draw(AssetService.enemyHealth, 32, 260, AssetService.enemyHealth.getWidth() / 20, AssetService.enemyHealth.getHeight() / 20);
         font.draw(game.batch, String.valueOf((int) health) + "/260", 240, 311);
-        font.draw(game.batch, "Kahoot is da best", 32, 285);
         font.draw(game.batch, "Sugar", 37, 337);
+        font2.getData().setScale(0.8f);
+        font2.draw(game.batch, "Kahoot is da best", 32, 285);
         game.batch.end();
     }
 
