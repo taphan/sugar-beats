@@ -126,7 +126,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         float veloX = 0.0f;
         float veloY = 0.0f;
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -100f;
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             veloY = 250f;
@@ -156,6 +156,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         // TODO: Find player index to current player
         engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0));
         engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
+        AudioService.playSound(AudioService.buttonPressSound);
     }
 
 
