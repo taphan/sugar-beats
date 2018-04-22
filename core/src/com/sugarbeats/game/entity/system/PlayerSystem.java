@@ -140,7 +140,6 @@ public class PlayerSystem extends IteratingSystem {
 
         StateComponent state = sm.get(entity);
         HealthComponent h = hm.get(entity);
-        // TODO: Decrease player's health and notify GamePresenter
         if (state.get() != PlayerComponent.STATE_HIT && state.get() != PlayerComponent.STATE_SHOOT
                 && state.get() != PlayerComponent.STATE_DEATH){
             state.set(PlayerComponent.STATE_HIT);
