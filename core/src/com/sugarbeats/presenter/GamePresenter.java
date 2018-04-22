@@ -141,12 +141,16 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX1 = 100f;
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            updateKeyPress(2);
-            view.angle += 10;
+            if (view.angle + 10 < 180) {
+                updateKeyPress(2);
+                view.angle += 10;
+            }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            updateKeyPress(3);
-            view.angle -= 10;
+            if (view.angle - 10 > 0) {
+                updateKeyPress(3);
+                view.angle -= 10;
+            }
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             System.out.println(view.angle);
@@ -163,7 +167,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         }
         if (Gdx.input.isKeyPressed(Input.Keys.D)) veloX2 = 100f;
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            updateFireButton(2,40,view.angle);
+            updateFireButton(2,40,50);
         }
         MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(player2);
         movement.velocity.x = veloX2;
