@@ -42,12 +42,6 @@ public class World {
     public void create() {
         createBackground();
         createGround();
-        //createPlayer(1);
-
-        //createPlayer(2);
-        //createPlayer(2);
-        //createwalking();
-
 
         this.state = WORLD_STATE_RUNNING;
     }
@@ -66,12 +60,27 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
         HealthComponent health = engine.createComponent(HealthComponent.class);
 
-        animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
-        animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim1);
-        animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim1);
-        animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim1);
-        animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
-        animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
+        if(playerNr == 1) {
+            animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
+            animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim1);
+            animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim1);
+            animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim1);
+            animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
+            animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
+
+            position.position.add(225.0f,200.0f);
+            position.scale.add(-0.9f, -0.9f);
+        } else {
+            animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character2);
+            animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim2);
+            animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim2);
+            animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim2);
+            animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim2);
+            animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim2);
+
+            position.position.add(100.0f,200.0f);
+            position.scale.add(-0.9f, -0.9f);
+        }
 
         /*
         movement.music.put(PlayerComponent.STATE_LEFT, AudioService.walkMusic);
@@ -83,13 +92,7 @@ public class World {
         bounds.bounds.height = PlayerComponent.HEIGHT;
 
         state.set(PlayerComponent.STATE_STANDBY);
-        if(playerNr == 1) {
-            position.position.add(225.0f,200.0f);
-            position.scale.add(-0.9f, -0.9f);
-        } else {
-            position.position.add(100.0f,200.0f);
-            position.scale.add(-0.9f, -0.9f);
-        }
+
 
 
         createAngle();

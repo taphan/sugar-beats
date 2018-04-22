@@ -234,6 +234,9 @@ public class AssetService {
                 new TextureRegion(death1, 4500, 0, 500, 500));
 
         // Animation and projectile animation for character 2
+        character2 = new Animation<TextureRegion>(0.2f,
+                new TextureRegion(walk2, 0, 0, 500, 500));
+
         walkAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk2, 0, 0, 500, 500),
                 new TextureRegion(walk2, 500, 0, 500, 500),
