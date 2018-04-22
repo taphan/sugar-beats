@@ -16,6 +16,10 @@ public interface IPlayService {
 
         public void  onSignInSucceeded();
 
+        void sendUnreliableMessageToOthers(byte[] messageData);
+
+        String getDisplayName();
+
 
         public void signIn();
 

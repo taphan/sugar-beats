@@ -4,15 +4,31 @@
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\4f71fdfc8f4176296c767a1285732a7e14ab18f6\\output\\res\\layout-v21\\notification_action.xml"
     },
     {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\5d03bb1dfee182309cc02fd657f8535b45200bd8\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\4f71fdfc8f4176296c767a1285732a7e14ab18f6\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\5d03bb1dfee182309cc02fd657f8535b45200bd8\\output\\res\\layout-v21\\notification_action.xml"
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\4f71fdfc8f4176296c767a1285732a7e14ab18f6\\output\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\5d03bb1dfee182309cc02fd657f8535b45200bd8\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\4f71fdfc8f4176296c767a1285732a7e14ab18f6\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\5d03bb1dfee182309cc02fd657f8535b45200bd8\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     }
 ]

@@ -111,6 +111,21 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
     }
 
     @Override
+    public void sendUnreliableMessageToOthers(byte[] messageData) {
+        if (currentRoomId == null) return;
+        if (!getGameHelper().isSignedIn()) return;
+        Games.RealTimeMultiplayer.sendUnreliableMessageToOthers(gameHelper.getApiClient(), messageData, currentRoomId);
+
+    }
+
+    @Override
+    public String getDisplayName() {
+        if (!getGameHelper().getApiClient().isConnected()) return null;
+        return Games.Players.getCurrentPlayer(getGameHelper().getApiClient()).getDisplayName();
+    }
+
+
+    @Override
     public void signIn() {
         try {
             activity.runOnUiThread(new Runnable() {
@@ -212,6 +227,10 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
             case Activity.RESULT_OK:
                 Log.d(TAG, "handleWaitingRoomResult: OK");
                 gameListener.onMultiplayerGameStarting();
+                Log.d(TAG, "gameListener.onMultiplayerGameStarting();  ==> Gdx.app.debug(SugarBeats, onMultiplayerGameStarting:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ;");
+                Log.d(TAG,"setScreen(new GamePresenter(this, new MainMenuPresenter(this))); ");
+                Log.d(TAG, "playService.setNetworkListener(this);");
+
                 List<PlayerData> playerList = new ArrayList<>();
                 String currentPlayerId = Games.Players.getCurrentPlayerId(gameHelper.getApiClient());
                 for (Participant participant : room.getParticipants()) {
@@ -225,6 +244,8 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
 
                 }
                 networkListener.onRoomReady(playerList);
+                Log.d(TAG, "networkListener.onRoomReady(playerList);");
+
                 break;
             case Activity.RESULT_CANCELED:
                 Log.d(TAG, "handleWaitingRoomResult: CANCEL");
@@ -321,6 +342,18 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
 
     @Override
     public void onRealTimeMessageReceived(RealTimeMessage realTimeMessage) {
+        if (networkListener == null) {
+            Gdx.app.debug(TAG, "onRealTimeMessageReceived: NetworkListener is null");
+            return;
+        }
+        byte[] messageData = realTimeMessage.getMessageData();
+        String senderParticipantId = realTimeMessage.getSenderParticipantId();
+        int describeContents = realTimeMessage.describeContents();
+        if (realTimeMessage.isReliable()) {
+            networkListener.onReliableMessageReceived(senderParticipantId, describeContents, messageData);
+        } else {
+            networkListener.onUnreliableMessageReceived(senderParticipantId, describeContents, messageData);
+        }
 
     }
 

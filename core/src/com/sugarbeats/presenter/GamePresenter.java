@@ -1,6 +1,9 @@
 package com.sugarbeats.presenter;
 
+import com.badlogic.ashley.core.Entity;
+import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.core.PooledEngine;
+import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -8,12 +11,17 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
+import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.PlayerComponent;
+import com.sugarbeats.game.entity.component.StateComponent;
+import com.sugarbeats.game.entity.component.TransformComponent;
 import com.sugarbeats.game.entity.system.AnimationSystem;
 import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem.CollisionListener;
 import com.sugarbeats.game.entity.system.GravitySystem;
 import com.sugarbeats.game.entity.system.MovementSystem;
+import com.sugarbeats.game.entity.system.NetworkSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.model.PlayerData;
@@ -23,6 +31,9 @@ import com.sugarbeats.service.ServiceLocator;
 import com.sugarbeats.view.GameView;
 
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 //import sun.rmi.runtime.Log;
@@ -39,13 +50,18 @@ import java.util.List;
 
 
 public class GamePresenter extends ScreenAdapter implements IPlayService.INetworkListener {
-
+    private final String TAG = "SUGAR BEATS :GamePresenter-----------------------------------------------------------------------------------";
 
     SugarBeats game;
     private Screen parent;
     protected final PooledEngine engine;
     World world;
     GameView view;
+
+    HashMap<String, PlayerData> players = new HashMap();
+    HashSet<String> remainingPlayers = new HashSet();
+    String playerParticipantId;
+    ImmutableArray<Entity> playerS;
 
 
 
@@ -56,18 +72,21 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
 
     public GamePresenter(SugarBeats game, Screen parent) {
-        Gdx.app.debug("GAMEPRESENTER FRA ANDROIDNETWORK", "oneMultiplayerGameStarting!!!!!!!!!!!!!!");
-        //Koden stopper her (Rekker ikke å printe ting som blir påkalt tidligere
-        //Må få playservice = Androidnetwork,
-        playService = ServiceLocator.getAppComponent().getNetworkService();
+        Gdx.app.debug(TAG, "GamePresenter called");
 
+        playService = ServiceLocator.getAppComponent().getNetworkService();
         playService.setNetworkListener(this);
+
+        Gdx.app.debug(TAG, "playService.setNetworkListener(this);");
+
 
 
         this.game = game;
         this.parent = parent;
         engine = new PooledEngine();
         world = new World(engine);
+        playerS = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
+
         view = new GameView(game, this);
 //        playService.setNetworkListener(this);
 
@@ -101,7 +120,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.addSystem(new MovementSystem());
         engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
-
+        engine.addSystem(new NetworkSystem(ServiceLocator.getAppComponent().getNetworkService()));
         engine.addSystem(new CollisionSystem(world, collisionListener));
     }
 
@@ -153,18 +172,60 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
     @Override
     public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
-
+        Gdx.app.debug("Sugar Beats GP", "onReliableMessageReceived: " + senderParticipantId + "," + describeContents);
     }
 
     @Override
     public void onUnreliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
+        engine.getSystem(NetworkSystem.class).processPackage(senderParticipantId, messageData);
     }
 
-        @Override
-        public void onRoomReady (List < PlayerData > players) {
-            Gdx.app.debug("SUGAR BEATS", "onRoomReady: ");
-//        addPlayers(players, true);
-//        world.initialize();
+    @Override
+    public void onRoomReady (List < PlayerData > players) {
+     Gdx.app.debug(TAG, "onRoomReady: ");
+     addPlayers(players, true);
+     //world.initialize();
+     }
+
+    public void addPlayers(Collection<PlayerData> data, boolean multiplayer) {
+        Gdx.app.debug(TAG, "addPlayers() ");
+        players = new HashMap();
+        remainingPlayers = new HashSet();
+
+        world.createPlayer(1);
+        Gdx.app.debug(TAG, "Player1 CREATED");
+        world.createPlayer(2);
+        Gdx.app.debug(TAG, "Player2 CREATED");
+//        ServiceLocator.getEntityComponent().getDrawableComponentFactory().resetOpponentCount(); MÅ LAGE SPILLERE
+        for (PlayerData player : data) {
+//            Gdx.app.debug(TAG, player.displayName);
+            players.put(player.participantId, player);
+            remainingPlayers.add(player.participantId);
+            Entity entity;
+            if (player.isSelf) {
+                Gdx.app.debug(TAG, player.displayName);
+                //Må gi meg selv en karakter her
+                entity = playerS.get(0);
+                playerParticipantId = player.participantId;
+
+                Gdx.app.debug(TAG, "PARTICIPANT ID IF SETNING = " + player.participantId);
+
+
+            } else {
+                Gdx.app.debug(TAG, player.displayName);
+                //Definere motstanderen
+                entity = playerS.get(1);
+                playerParticipantId = player.participantId;
+                Gdx.app.debug(TAG, "PARTICIPANT ID ELSE SETNING = " + player.participantId);
+            }
+
+            Gdx.app.debug(TAG, "PARTICIPANT ID = " + player.participantId);
+
+
         }
+    }
+
+
+
 
 }

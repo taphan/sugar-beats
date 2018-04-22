@@ -1,7 +1,9 @@
 package com.sugarbeats.game;
 
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.ashley.core.EntityListener;
 import com.badlogic.ashley.core.PooledEngine;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
@@ -39,9 +41,9 @@ public class World {
 
     public void create() {
         createGround();
-        createPlayer(1);
+//        createPlayer(1);
         //createPlayer(2);
-        Entity player2 = createPlayer(2);
+//        Entity player2 = createPlayer(2);
         //createwalking();
 
 
@@ -51,7 +53,7 @@ public class World {
         this.state = WORLD_STATE_RUNNING;
     }
 
-    private Entity createPlayer(int playerNr){
+    public Entity createPlayer(int playerNr){
         Entity entity = engine.createEntity();
 
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
@@ -81,7 +83,7 @@ public class World {
 
         state.set(PlayerComponent.STATE_STANDBY);
 
-        position.position.add(225.0f,200.0f);
+        position.position.add(225.0f + MathUtils.random(80),200.0f);
         position.scale.add(-0.7f, -0.7f);
 
         entity.add(animation);
@@ -140,6 +142,8 @@ public class World {
 
         engine.addEntity(entity);
     }
+
+
 
     public void update(float delta) {
         if (state == WORLD_STATE_RUNNING)

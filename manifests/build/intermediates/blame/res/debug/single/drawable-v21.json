@@ -8,11 +8,27 @@
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\8b33fca24c7bc6193d1af5201389ba253de32572\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\8b33fca24c7bc6193d1af5201389ba253de32572\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\4f71fdfc8f4176296c767a1285732a7e14ab18f6\\output\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\qpb96\\.android\\build-cache\\5d03bb1dfee182309cc02fd657f8535b45200bd8\\output\\res\\drawable-v21\\notification_action_background.xml"
     }
 ]

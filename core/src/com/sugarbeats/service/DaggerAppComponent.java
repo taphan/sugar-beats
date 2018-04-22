@@ -5,6 +5,7 @@ import dagger.internal.Preconditions;
 import javax.annotation.Generated;
 import javax.inject.Provider;
 
+
 import com.sugarbeats.service.IPlayService;
 
 @Generated(
