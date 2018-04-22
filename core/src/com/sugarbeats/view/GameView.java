@@ -44,7 +44,7 @@ public class GameView extends BaseView {
         super(game.getBatch());
         this.game = game;
         this.presenter = presenter;
-        backBtn = new Texture("button_back.png");
+        backBtn = new Texture("button_exit.png");
 
         cam = new OrthographicCamera();
         cam.setToOrtho(false, SugarBeats.WIDTH, SugarBeats.HEIGHT);
