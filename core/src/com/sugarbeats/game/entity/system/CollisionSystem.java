@@ -74,8 +74,6 @@ public class CollisionSystem extends EntitySystem {
         for (int i = 0; i < players.size(); i++) {   // Update all players at each call
             Entity player = players.get(i);
             BoundsComponent playerBounds = bm.get(player);
-            TransformComponent playerPosition = tm.get(player);
-            StateComponent state = sm.get(player);
 
 
             // Check if player has been dropped to the ground
