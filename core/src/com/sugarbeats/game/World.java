@@ -2,9 +2,7 @@ package com.sugarbeats.game;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
-import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.math.Vector2;
-import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.entity.component.AngleComponent;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
@@ -202,6 +200,8 @@ public class World {
 
         bounds.bounds.width = texture.region.getRegionWidth();
         bounds.bounds.height = texture.region.getRegionHeight();
+        position.position.add(0,0);
+        position.scale.add(-0.2f,-0.2f); //NOT GOOD, should be dynamic
 
         entity.add(background);
         entity.add(position);
