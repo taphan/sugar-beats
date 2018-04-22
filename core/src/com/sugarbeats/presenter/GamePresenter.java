@@ -140,6 +140,8 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
             veloX1 = -100f;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX1 = 100f;
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) updateKeyPress(2);
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) updateKeyPress(3);
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
             updateFireButton(1,50,150);
         }

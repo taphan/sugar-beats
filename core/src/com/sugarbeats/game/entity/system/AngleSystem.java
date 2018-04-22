@@ -36,7 +36,7 @@ public class AngleSystem extends IteratingSystem {
         am = ComponentMapper.getFor(AngleComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
-        position = new Vector2();
+        position = new Vector2(-100, -100);
         angle = 10f;
     }
 
