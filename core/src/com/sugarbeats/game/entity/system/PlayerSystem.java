@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
@@ -14,6 +15,7 @@ import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.service.AudioService;
 
 import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
 
@@ -70,11 +72,12 @@ public class PlayerSystem extends IteratingSystem {
         if(velocityX < 0) {
             if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH){
                 state.set(PlayerComponent.STATE_LEFT);
+                AudioService.playSound(AudioService.walkSound); //TODO: this only plays once. Not that important
             }
         } else if (velocityX > 0) {
             if (state.get() != PlayerComponent.STATE_RIGHT && state.get() != PlayerComponent.STATE_DEATH){
                 state.set(PlayerComponent.STATE_RIGHT);
-
+                AudioService.playSound(AudioService.walkSound);
             }
         } else {
             if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_DEATH
@@ -97,7 +100,6 @@ public class PlayerSystem extends IteratingSystem {
         PowerupComponent pwr = pwrm.get(player);
         // Set player state to outside of NORMAL?
         // If powerup = SPEED: multiply player's velocity by 1.25
-
         // If powerup = POWER: multiply player's damage by 1.25
     }
 
@@ -154,6 +156,7 @@ public class PlayerSystem extends IteratingSystem {
         StateComponent state = sm.get(entity);
         state.set(PlayerComponent.STATE_DEATH);
         entity.remove(MovementComponent.class);
+        AudioService.playSound(AudioService.deathSound);
     }
 
     public void standby(Entity entity){

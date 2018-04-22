@@ -39,7 +39,6 @@ public class AudioService {
         gameMusic.setVolume(0.5f);
         victoryMusic.setVolume(0.5f);
         defeatMusic.setVolume(0.5f);
-        //TODO: make better music logic
 
         buttonPressSound = Gdx.audio.newSound(Gdx.files.internal("btnSound.mp3"));
         sliderSound = Gdx.audio.newSound(Gdx.files.internal("sliderSound.wav"));

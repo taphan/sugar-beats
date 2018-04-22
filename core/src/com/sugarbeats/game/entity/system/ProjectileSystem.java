@@ -10,6 +10,7 @@ import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.service.AudioService;
 
 /**
  * Created by taphan on 20.04.2018.
@@ -53,6 +54,7 @@ public class ProjectileSystem extends IteratingSystem {
         if (state.get() == ProjectileComponent.STATE_START) {
             movement.velocity.x = this.velocity.x;
             movement.velocity.y = this.velocity.y;
+            AudioService.playSound(AudioService.projectileSound);
         }
 
         movement.velocity.y += -9.81f * deltaTime;  // Set velocity.(x = 0)
