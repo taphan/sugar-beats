@@ -4,16 +4,16 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
-import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
-import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.service.AudioService;
 
 import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
 
@@ -38,12 +38,9 @@ public class PlayerSystem extends IteratingSystem {
     private ComponentMapper<TransformComponent> tm;
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<HealthComponent> hm;
-    private ComponentMapper<PowerupComponent> pwrm;
-    private ComponentMapper<AnimationComponent> am;
 
     private float velocityX;
     private long startTime;
-    private long elapsedTime;
 
     public PlayerSystem(World world) {
         super(family);
@@ -55,7 +52,6 @@ public class PlayerSystem extends IteratingSystem {
         tm = ComponentMapper.getFor(TransformComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
         hm = ComponentMapper.getFor(HealthComponent.class);
-        am = ComponentMapper.getFor(AnimationComponent.class);
 
         velocityX = 0.0f;
     }
@@ -65,16 +61,18 @@ public class PlayerSystem extends IteratingSystem {
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
 
-        mov.velocity.x = this.velocityX;
+        //mov.velocity.x = this.velocityX;
 
         if(velocityX < 0) {
             if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH){
                 state.set(PlayerComponent.STATE_LEFT);
+                AudioService.playSound(AudioService.walkSound);
+                //TODO: this only plays once. Not that important, but a fix was attempted i World, similar to the animations
             }
         } else if (velocityX > 0) {
             if (state.get() != PlayerComponent.STATE_RIGHT && state.get() != PlayerComponent.STATE_DEATH){
                 state.set(PlayerComponent.STATE_RIGHT);
-
+                AudioService.playSound(AudioService.walkSound);
             }
         } else {
             if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_DEATH
@@ -85,21 +83,12 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     public void hitGround(Entity entity) {
+        if (!family.matches(entity)) return;
         MovementComponent mov = mm.get(entity);
         mov.velocity.y = 0.0f;
     }
 
-    public void gainPowerup (Entity player, Entity powerup) {
-        if (!family.matches(player)) return;
-
-        StateComponent state = sm.get(player);
-        PowerupComponent pwr = pwrm.get(player);
-        // Set player state to outside of NORMAL?
-        // If powerup = SPEED: multiply player's velocity by 1.25
-
-        // If powerup = POWER: multiply player's damage by 1.25
-    }
-
+    // Update the velocity of the player when moving
     public void setVelocity(float velocity) {
         this.velocityX = velocity;
     }
@@ -128,7 +117,7 @@ public class PlayerSystem extends IteratingSystem {
             if (!family.matches(entity)) return;
             state.set(STATE_SHOOT);
 
-            world.createProjectile(position.position.x, position.position.y+30);
+            world.createProjectile(position.position.x, position.position.y + 30);
 
             player.timeSinceLastShot = 0;
         }
@@ -139,22 +128,21 @@ public class PlayerSystem extends IteratingSystem {
 
         StateComponent state = sm.get(entity);
         HealthComponent h = hm.get(entity);
-        // TODO: Decrease player's health and notify GamePresenter
         if (state.get() != PlayerComponent.STATE_HIT && state.get() != PlayerComponent.STATE_SHOOT
                 && state.get() != PlayerComponent.STATE_DEATH){
             state.set(PlayerComponent.STATE_HIT);
         }
         h.HEALTH -= 1;
         if (h.HEALTH < 0) {
-            die(entity); //TODO: is this ok?
+            die(entity);
         }
     }
 
     public void die(Entity entity) {
         StateComponent state = sm.get(entity);
         state.set(PlayerComponent.STATE_DEATH);
-        //TODO: remove animationComponent from player entity, but also not make the game crash
-        //entity.remove(AnimationComponent.class); //This makes it crash when death occurs
+        entity.remove(MovementComponent.class);
+        AudioService.playSound(AudioService.deathSound);
     }
 
     public void standby(Entity entity){
@@ -162,5 +150,10 @@ public class PlayerSystem extends IteratingSystem {
 
         StateComponent state = sm.get(entity);
         state.set(PlayerComponent.STATE_STANDBY);
+    }
+
+    public Vector2 getPosition(Entity entity) {
+        TransformComponent position = tm.get(entity);
+        return position.position;
     }
 }

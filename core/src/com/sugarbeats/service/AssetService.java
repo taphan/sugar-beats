@@ -108,6 +108,8 @@ public class AssetService {
 
     public static Texture healthBar;
     public static Texture health;
+    public static Texture enemyHealth;
+    public static TextureRegion angle;
 
     //public static Animation walkAnim3;
     //public static Animation shootAnim3;
@@ -160,7 +162,8 @@ public class AssetService {
 
         healthBar = new Texture("health-bar.png");
         health = new Texture("health.png");
-
+        enemyHealth = new Texture("health-bar-real.png");
+        angle = new TextureRegion(loadTexture("angle2_edited.png"));
 
         //Animation logic
         //TODO: use the link below on how to make animations
@@ -233,6 +236,9 @@ public class AssetService {
                 new TextureRegion(death1, 4500, 0, 500, 500));
 
         // Animation and projectile animation for character 2
+        character2 = new Animation<TextureRegion>(0.2f,
+                new TextureRegion(walk2, 0, 0, 500, 500));
+
         walkAnim2 = new Animation<TextureRegion>(0.2f,
                 new TextureRegion(walk2, 0, 0, 500, 500),
                 new TextureRegion(walk2, 500, 0, 500, 500),

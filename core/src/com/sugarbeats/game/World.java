@@ -3,15 +3,16 @@ package com.sugarbeats.game;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.math.Vector2;
+import com.sugarbeats.game.entity.component.AngleComponent;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
-import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GravityComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
+import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
@@ -39,19 +40,14 @@ public class World {
     }
 
     public void create() {
-        createGround();
-        createPlayer(1);
-
-        //createPlayer(2);
-        //createPlayer(2);
-        //createwalking();
-
         createBackground();
+        createGround();
 
         this.state = WORLD_STATE_RUNNING;
     }
 
-    public void createPlayer(int playerNr){
+
+    public Entity createPlayer(int playerNr){
         Entity entity = engine.createEntity();
 
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
@@ -64,27 +60,42 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
         HealthComponent health = engine.createComponent(HealthComponent.class);
 
-        animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
-        animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim1);
-        animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim1);
-        animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim1);
-        animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
-        animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
+        if(playerNr == 1) {
+            animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character1);
+            animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim1);
+            animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim1);
+            animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim1);
+            animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
+            animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
 
+            position.position.add(225.0f,200.0f);
+            position.scale.add(-0.9f, -0.9f);
+        } else {
+            animation.animations.put(PlayerComponent.STATE_STANDBY, AssetService.character2);
+            animation.animations.put(PlayerComponent.STATE_LEFT, AssetService.walkAnim2);
+            animation.animations.put(PlayerComponent.STATE_RIGHT, AssetService.walkAnim2);
+            animation.animations.put(PlayerComponent.STATE_HIT, AssetService.getHitAnim2);
+            animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim2);
+            animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim2);
+
+            position.position.add(100.0f,200.0f);
+            position.scale.add(-0.9f, -0.9f);
+        }
+
+        /*
+        movement.music.put(PlayerComponent.STATE_LEFT, AudioService.walkMusic);
+        movement.music.put(PlayerComponent.STATE_RIGHT, AudioService.walkMusic);
+        movement.music.put(PlayerComponent.STATE_WALK, AudioService.walkMusic);
+        */
 
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
-        /*
-        if (playerNr == 1) {
-            state.set(PlayerComponent.STATE_DEATH);
-        } else if (playerNr == 2) {
-            state.set(PlayerComponent.STATE_DEATH);
-        }*/
 
         state.set(PlayerComponent.STATE_STANDBY);
 
-        position.position.add(225.0f,200.0f);
-        position.scale.add(-0.9f, -0.9f);
+
+
+        createAngle();
 
         entity.add(animation);
         entity.add(player);
@@ -98,6 +109,7 @@ public class World {
 
         engine.addEntity(entity);
 
+        return entity;
     }
 
     public void createProjectile(float x, float y) {
@@ -115,7 +127,6 @@ public class World {
         animation.animations.put(ProjectileComponent.STATE_MIDAIR, AssetService.projectileAnim1);
         animation.animations.put(ProjectileComponent.STATE_HIT, AssetService.projectileAnim1);
 
-
         bounds.bounds.width = ProjectileComponent.WIDTH;
         bounds.bounds.height = ProjectileComponent.HEIGHT;
 
@@ -131,6 +142,31 @@ public class World {
         entity.add(movement);
         entity.add(position);
         entity.add(projectile);
+        entity.add(texture);
+
+        engine.addEntity(entity);
+    }
+
+    private void createAngle() {
+        Entity entity = engine.createEntity();
+        StateComponent state = engine.createComponent(StateComponent.class);
+        TransformComponent transform = engine.createComponent(TransformComponent.class);
+        MovementComponent movement = engine.createComponent(MovementComponent.class);
+        AngleComponent angle = engine.createComponent(AngleComponent.class);
+        TextureComponent texture = engine.createComponent(TextureComponent.class);
+
+        texture.region = AssetService.angle;
+        // Angle arrow not visible at game start
+        transform.position.x = -100;
+        transform.position.y = -100;
+        transform.scale.add(-0.8f, -0.8f);
+
+        state.set(AngleComponent.STATE_LEFT);
+
+        entity.add(transform);
+        entity.add(state);
+        entity.add(movement);
+        entity.add(angle);
         entity.add(texture);
 
         engine.addEntity(entity);
@@ -157,7 +193,7 @@ public class World {
         engine.addEntity(entity);
     }
 
-    // Note: currently very messy background
+    //TODO: Scale background
     private void createBackground() {
         Entity entity = engine.createEntity();
 
@@ -166,10 +202,12 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
 
-        texture.region = AssetService.map1;
+        texture.region = AssetService.background2;
 
         bounds.bounds.width = texture.region.getRegionWidth();
         bounds.bounds.height = texture.region.getRegionHeight();
+        position.position.add(0,0);
+        position.scale.add(-0.2f,-0.2f); //NOT GOOD, should be dynamic
 
         entity.add(background);
         entity.add(position);

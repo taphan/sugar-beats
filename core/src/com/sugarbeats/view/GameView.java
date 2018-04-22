@@ -2,6 +2,7 @@ package com.sugarbeats.view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.sugarbeats.SugarBeats;
@@ -31,8 +32,10 @@ public class GameView extends BaseView {
     Rectangle powerBarBound;
     boolean isTouching;
     float powerBarBtnX;
-    float angle;
+    public float angle;
     public float health;
+    BitmapFont font;
+    BitmapFont font2;
 
     public GameView(SugarBeats game, GamePresenter presenter) {
         super(game.getBatch());
@@ -52,9 +55,10 @@ public class GameView extends BaseView {
 
         isTouching = false;
         powerBarBtnX = SugarBeats.WIDTH / 2;
-        angle = 70;
+        angle = 10;
         health = AssetService.health.getWidth() / 10;
-
+        font = new BitmapFont();
+        font2 = new BitmapFont();
         AudioService.playMusic(AudioService.gameMusic);
     }
 
@@ -72,11 +76,23 @@ public class GameView extends BaseView {
                 if (powerBarBound.contains(touchPoint.x, touchPoint.y)) {
                     powerBarBtnX = touchPoint.x;
                 }
+                if (upBound.contains(touchPoint.x, touchPoint.y)) {
+                    if (angle + 10 < 180) {
+                        presenter.updateKeyPress(2);
+                        angle += 10;
+                    }
+                }
+                if (downBound.contains(touchPoint.x, touchPoint.y)) {
+                    if (angle - 10 > 0) {
+                        presenter.updateKeyPress(3);
+                        angle -= 10;
+                    }
+                }
                 // Note: Can only shoot if there is one finger pressing the screen
                 if (!isTouching && touches.get(0).touched) {
                     isTouching = true;
                     if(fireBound.contains(touchPoint.x, touchPoint.y)) {
-                        presenter.updateFireButton(powerBarBtnX - powerBarBound.x + 20, angle);
+                        presenter.updateFireButton(1,powerBarBtnX - powerBarBound.x + 20, angle);
                     }
                 }
             } else if (!touches.get(0).touched){
@@ -87,7 +103,6 @@ public class GameView extends BaseView {
 
     @Override
     public void draw() {
-
         game.batch.begin();
         game.batch.draw(AssetService.fireBtn, SugarBeats.WIDTH - AssetService.fireBtn.getWidth()/5, AssetService.fireBtn.getWidth()/17, AssetService.fireBtn.getWidth() / 6, AssetService.fireBtn.getHeight() / 6);
         game.batch.draw(AssetService.leftBtn, AssetService.fireBtn.getWidth()/8 - 20, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
@@ -98,6 +113,11 @@ public class GameView extends BaseView {
         game.batch.draw(AssetService.powerBarBtn, powerBarBtnX - 10,AssetService.fireBtn.getWidth()/11, AssetService.powerBarBtn.getWidth() / 6, AssetService.powerBarBtn.getHeight() / 3);
         game.batch.draw(AssetService.health, 85, 322, health, AssetService.health.getHeight() / 10);
         game.batch.draw(AssetService.healthBar, 10, 290, AssetService.healthBar.getWidth() / 10, AssetService.healthBar.getHeight() / 10);
+        game.batch.draw(AssetService.enemyHealth, 32, 260, AssetService.enemyHealth.getWidth() / 20, AssetService.enemyHealth.getHeight() / 20);
+        font.draw(game.batch, String.valueOf((int) health) + "/260", 240, 311);
+        font.draw(game.batch, "Sugar", 37, 337);
+        font2.getData().setScale(0.8f);
+        font2.draw(game.batch, "Kahoot is da best", 32, 285);
         game.batch.end();
     }
 

@@ -13,7 +13,6 @@ import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
-import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
@@ -63,7 +62,6 @@ public class CollisionSystem extends EntitySystem {
         this.engine = engine;
         players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
         ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
-        powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
         background = engine.getEntitiesFor(Family.all(BackgroundComponent.class,BoundsComponent.class,TransformComponent.class ).get());
         projectiles = engine.getEntitiesFor(Family.all(ProjectileComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
     }
@@ -74,8 +72,6 @@ public class CollisionSystem extends EntitySystem {
         for (int i = 0; i < players.size(); i++) {   // Update all players at each call
             Entity player = players.get(i);
             BoundsComponent playerBounds = bm.get(player);
-            TransformComponent playerPosition = tm.get(player);
-            StateComponent state = sm.get(player);
 
 
             // Check if player has been dropped to the ground
@@ -95,34 +91,6 @@ public class CollisionSystem extends EntitySystem {
                 playerSystem.hitMapEdge(player);
             }
 
-            // Get hit by projectile
-
-            /*
-            for (int j = 0; j < projectiles.size(); j++){
-                Entity projectile = projectiles.get(j);
-                BoundsComponent projectileBounds = bm.get(projectile);
-
-                if (projectileBounds.bounds.overlaps(playerBounds.bounds)
-                        && state.get() != PlayerComponent.STATE_HIT ) {
-                    playerSystem.getHit(player);
-                    listener.hit();
-                }
-            }
-            */
-
-            // Check if player touched powerup
-
-            for (int j = 0; j < powerups.size(); j++) {
-                Entity powerup = powerups.get(j);
-                BoundsComponent powerupBounds = bm.get(powerup);
-
-                if (powerupBounds.bounds.overlaps(playerBounds.bounds)) {  // Check if powerup was touched by each player
-                    engine.removeEntity(powerup);  // Player eats powerup & remove it from map
-                    listener.powerup();
-                    playerSystem.gainPowerup(player,powerup); // Powerup give a state to player
-                }
-            }
-
             // Check whether the projectile hit a player or the ground
             for (int j = 0; j < projectiles.size(); j++) {
                 Entity projectile = projectiles.get(j);
@@ -134,10 +102,11 @@ public class CollisionSystem extends EntitySystem {
                     if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
                         if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
                             playerSystem.hitByProjectile(player);
+                            listener.hit();
                         }
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
-                        listener.hit();
+                        //listener.hit();
                     }
                 }
             }
