@@ -21,6 +21,8 @@ public class HelpView extends BaseView{
     Vector3 touchPoint;
     OrthographicCamera cam;
 
+    Texture help;
+
     Texture backBtn;
 
     Rectangle backBounds;
@@ -30,6 +32,7 @@ public class HelpView extends BaseView{
     private static final int WIDTH = SugarBeats.WIDTH;
     private static final int HEIGHT = SugarBeats.HEIGHT;
 
+
     public HelpView(SugarBeats game, HelpPresenter.ViewController viewController) {
         super(game.getBatch());
         this.game = game;
@@ -38,6 +41,7 @@ public class HelpView extends BaseView{
         cam = new OrthographicCamera();
         cam.setToOrtho(false, WIDTH, HEIGHT);
 
+        help = new Texture("Help.png");
         backBtn = new Texture("button_back.png");
 
         backBounds = new Rectangle(WIDTH / 2 - backBtn.getWidth()/3 / 2, HEIGHT - 350, backBtn.getWidth() / 3, backBtn.getHeight() / 3);
@@ -69,6 +73,7 @@ public class HelpView extends BaseView{
         game.batch.setProjectionMatrix(cam.combined);
         game.batch.begin();
         game.batch.draw(backBtn,WIDTH / 2 - backBtn.getWidth()/3 / 2, HEIGHT - 350, backBtn.getWidth() / 3, backBtn.getHeight() / 3 );
+        game.batch.draw(help,WIDTH / 2 - help.getWidth()/3 / 2 -100, HEIGHT - 295, help.getWidth() / 2, help.getHeight() / 2 );
         game.batch.end();
 
 
