@@ -61,6 +61,7 @@ public class AndroidLauncher extends AndroidApplication  {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		playService = new AndroidNetwork(this);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		config.useCompass = false;

@@ -24,6 +24,5 @@ abstract class BasePresenter extends ScreenAdapter {
     public void show() {
         super.show();
         getView().show();
-        //Gdx.input.setInputProcessor(getView().getInputProcessor());
     }
 }

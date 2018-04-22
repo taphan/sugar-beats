@@ -60,7 +60,6 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
     HashMap<String, PlayerData> players = new HashMap();
     HashSet<String> remainingPlayers = new HashSet();
     String playerParticipantId;
-    ImmutableArray<Entity> playerS;
 
     Entity controlledPlayer;
     private final IPlayService playService;
@@ -83,7 +82,6 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         this.parent = parent;
         engine = new PooledEngine();
         world = new World(engine);
-        playerS = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
 
         view = new GameView(game, this);
 
@@ -118,10 +116,10 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.addSystem(new MovementSystem());
         engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
-        engine.addSystem(new NetworkSystem(ServiceLocator.getAppComponent().getNetworkService()));
         engine.addSystem(new ProjectileSystem());
         engine.addSystem(new AngleSystem());
         engine.addSystem(new CollisionSystem(world, collisionListener));
+        engine.addSystem(new NetworkSystem(ServiceLocator.getAppComponent().getNetworkService()));
     }
 
     @Override
@@ -139,10 +137,11 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.update(delta);
     }
 
+    // Used to test quickly
     private void updateInput() {
         float veloX = 0.0f;
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -100f;
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
 
         MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(controlledPlayer);
@@ -155,10 +154,10 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
         switch (key) {
             case 0: // Left button pressed
-                veloX = -250f;
+                veloX = -100f;
                 break;
             case 1: // Right button pressed
-                veloX = 250f;
+                veloX = 100f;
                 break;
             case 2: // Up button pressed
                 angle = 10;

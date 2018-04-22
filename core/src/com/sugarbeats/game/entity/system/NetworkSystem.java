@@ -20,7 +20,6 @@ import java.nio.ByteBuffer;
 public class NetworkSystem extends IteratingSystem implements EntityListener {
     private IPlayService playService;
 
-    private static final  Family FAMILY = Family.all(NetworkComponent.class, TransformComponent.class, MovementComponent.class).get();
     private static final byte MOVE = 1;
 
     private ComponentMapper<MovementComponent> mm;
@@ -32,12 +31,11 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
 
 
     public NetworkSystem(IPlayService playService) {
-        super(FAMILY);
+        super(Family.all(NetworkComponent.class, TransformComponent.class, MovementComponent.class).get());
         this.playService = playService;
         id = ComponentMapper.getFor(iDComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
-        Gdx.app.log("NETWORK","NetworkSystem initialized.");
     }
 
     @Override
@@ -46,7 +44,6 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
         syncedEntities = engine.getEntitiesFor(Family.all(PlayerComponent.class).get());
         engine.addEntityListener(Family.all(NetworkListener.class).get(), this);
         player = engine.getEntitiesFor(Family.all(NetworkComponent.class, PlayerComponent.class, iDComponent.class).get());
-
     }
 
     @Override
@@ -57,8 +54,7 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
         buffer.put(MOVE);
         buffer.putFloat(transform.position.x);
         buffer.putFloat(transform.position.y);
-        Gdx.app.log("NETWORK","BUFFER PROCESSED");
-
+        buffer.putFloat(transform.rotation);
         buffer.putFloat(movement.velocity.x);
         buffer.putFloat(movement.velocity.y);
         buffer.putFloat(movement.acceleration.x);
@@ -75,24 +71,21 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
         switch (packetType) {
             case MOVE:
                 updateEntity(playerId, buffer);
-                Gdx.app.log("NETWORK","MOVE was sent through package.");
+                break;
+            default:
         }
     }
     private void updateEntity(String participantId, ByteBuffer wrap) {
         Entity entity = null;
         for (Entity syncedEntity : syncedEntities) {
-            Gdx.app.log("NETWORK", "An entity was updated.");
 
             if (id.get(syncedEntity).participantId.equals(participantId)) {
-                Gdx.app.log("NETWORK", "updateEntity: found correct ID");
-
                 entity = syncedEntity;
                 break;
             }
 
         }
         if (entity == null) {
-            Gdx.app.log("NETWORK", "updateEntity: NULL");
             return;
         }
         TransformComponent transformComponent = tm.get(entity);
@@ -100,8 +93,7 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
         if (transformComponent == null || movement == null) return;
         transformComponent.position.x = wrap.getFloat();
         transformComponent.position.y = wrap.getFloat();
-//        transformComponent.rotation.x = wrap.getFloat();
-//        transformComponent.rotation.y = wrap.getFloat();
+        transformComponent.rotation = wrap.getFloat();
         movement.velocity.x = wrap.getFloat();
         movement.velocity.y = wrap.getFloat();
         movement.acceleration.x = wrap.getFloat();

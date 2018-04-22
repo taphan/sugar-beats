@@ -11,12 +11,8 @@ public class PlayerComponent implements Component{
     public String playerID;
     public boolean isSelf;
 
-    public static final int STATE_FALL = 0;
     public static final int STATE_HIT = 1;
-    public static final int STATE_PLAY = 2;
     public static final int STATE_STANDBY = 3;
-    public static final int STATE_NORMAL = 4;
-    public static final int STATE_BOOSTED = 5;  // Ate power up
     public static final int STATE_DEATH = 6;
     public static final int STATE_SHOOT = 7;
     public static final int STATE_WALK = 8;

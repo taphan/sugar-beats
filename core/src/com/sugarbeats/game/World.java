@@ -13,11 +13,13 @@ import com.sugarbeats.game.entity.component.GravityComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
+import com.sugarbeats.game.entity.component.NetworkComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.game.entity.component.iDComponent;
 import com.sugarbeats.service.AssetService;
 
 /**
@@ -57,6 +59,7 @@ public class World {
         PlayerComponent player = engine.createComponent(PlayerComponent.class);
         player.isSelf = true;
         player.playerID = playerID;
+        entity.add(new iDComponent(playerID));
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
         GravityComponent gravity = engine.createComponent(GravityComponent.class);
         StateComponent state = engine.createComponent(StateComponent.class);
@@ -72,16 +75,10 @@ public class World {
         animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
         animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
 
-        /*
-        movement.music.put(PlayerComponent.STATE_LEFT, AudioService.walkMusic);
-        movement.music.put(PlayerComponent.STATE_RIGHT, AudioService.walkMusic);
-        movement.music.put(PlayerComponent.STATE_WALK, AudioService.walkMusic);
-        */
-
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
 
-        position.position.add(225.0f + MathUtils.random(80),200.0f);
+        position.position.add(225.0f + MathUtils.random(80.0f),200.0f);
         position.scale.add(-0.9f, -0.9f);
 
         state.set(PlayerComponent.STATE_STANDBY);
@@ -97,6 +94,7 @@ public class World {
         entity.add(position);
         entity.add(texture);
         entity.add(health);
+        entity.add(new NetworkComponent());
 
         engine.addEntity(entity);
 
@@ -198,7 +196,7 @@ public class World {
         bounds.bounds.width = texture.region.getRegionWidth();
         bounds.bounds.height = texture.region.getRegionHeight();
         position.position.add(0,0);
-        position.scale.add(-0.2f,-0.2f); //NOT GOOD, should be dynamic
+        position.scale.add(-0.2f,-0.2f);
 
         entity.add(background);
         entity.add(position);
