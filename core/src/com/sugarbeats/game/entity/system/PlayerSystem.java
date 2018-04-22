@@ -85,6 +85,7 @@ public class PlayerSystem extends IteratingSystem {
     }
 
     public void hitGround(Entity entity) {
+        if (!family.matches(entity)) return;
         MovementComponent mov = mm.get(entity);
         mov.velocity.y = 0.0f;
     }
@@ -146,15 +147,14 @@ public class PlayerSystem extends IteratingSystem {
         }
         h.HEALTH -= 1;
         if (h.HEALTH < 0) {
-            die(entity); //TODO: is this ok?
+            die(entity);
         }
     }
 
     public void die(Entity entity) {
         StateComponent state = sm.get(entity);
         state.set(PlayerComponent.STATE_DEATH);
-        //TODO: remove animationComponent from player entity, but also not make the game crash
-        //entity.remove(AnimationComponent.class); //This makes it crash when death occurs
+        entity.remove(MovementComponent.class);
     }
 
     public void standby(Entity entity){
