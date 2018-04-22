@@ -90,6 +90,7 @@ public class GameView extends BaseView {
     public void draw() {
 
         game.batch.begin();
+        //game.batch.draw(AssetService.background1, 0,0, SugarBeats.WIDTH, SugarBeats.HEIGHT);
         game.batch.draw(AssetService.fireBtn, SugarBeats.WIDTH - AssetService.fireBtn.getWidth()/5, AssetService.fireBtn.getWidth()/17, AssetService.fireBtn.getWidth() / 6, AssetService.fireBtn.getHeight() / 6);
         game.batch.draw(AssetService.leftBtn, AssetService.fireBtn.getWidth()/8 - 20, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);
         game.batch.draw(AssetService.rightBtn, AssetService.fireBtn.getWidth()/4 + 5, AssetService.fireBtn.getWidth()/9, AssetService.leftBtn.getWidth() / 6, AssetService.leftBtn.getHeight() / 6);

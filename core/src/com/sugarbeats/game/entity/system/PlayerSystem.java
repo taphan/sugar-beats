@@ -72,7 +72,8 @@ public class PlayerSystem extends IteratingSystem {
         if(velocityX < 0) {
             if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH){
                 state.set(PlayerComponent.STATE_LEFT);
-                AudioService.playSound(AudioService.walkSound); //TODO: this only plays once. Not that important
+                AudioService.playSound(AudioService.walkSound);
+                //TODO: this only plays once. Not that important, but a fix was attempted i World, similar to the animations
             }
         } else if (velocityX > 0) {
             if (state.get() != PlayerComponent.STATE_RIGHT && state.get() != PlayerComponent.STATE_DEATH){

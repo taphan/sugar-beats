@@ -156,7 +156,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         // TODO: Find player index to current player
         engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0));
         engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
-        AudioService.playSound(AudioService.buttonPressSound);
+        AudioService.playSound(AudioService.buttonPressSound); //Makes double sound, maybe unneccesary?
     }
 
 

@@ -14,6 +14,7 @@ public class AudioService {
     public static Music gameMusic;
     public static Music victoryMusic;
     public static Music defeatMusic;
+    public static Music walkMusic;
 
     //Sound effects
     public static Sound buttonPressSound;
@@ -39,6 +40,13 @@ public class AudioService {
         gameMusic.setVolume(0.5f);
         victoryMusic.setVolume(0.5f);
         defeatMusic.setVolume(0.5f);
+
+        /*
+        walkMusic = Gdx.audio.newMusic(Gdx.files.internal("walkSound.wav"));
+        walkMusic.setVolume(0.5f);
+        walkMusic.setLooping(true);
+        //walkMusic.play();
+        */
 
         buttonPressSound = Gdx.audio.newSound(Gdx.files.internal("btnSound.mp3"));
         sliderSound = Gdx.audio.newSound(Gdx.files.internal("sliderSound.wav"));
