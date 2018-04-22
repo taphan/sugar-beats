@@ -1,12 +1,19 @@
 package com.sugarbeats.game.entity.component;
 
 import com.badlogic.ashley.core.Component;
+import com.badlogic.gdx.utils.Pool;
 
 /**
  * Created by Quynh on 4/11/2018.
  */
 
 public class PlayerComponent implements Component{
+    public String playerID;
+    public boolean isSelf;
+    public boolean controlledPlayer;
+
+
+
     public static final int STATE_FALL = 0;
     public static final int STATE_HIT = 1;
     public static final int STATE_PLAY = 2;

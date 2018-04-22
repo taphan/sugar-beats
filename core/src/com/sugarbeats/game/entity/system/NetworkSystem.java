@@ -34,6 +34,10 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
     public NetworkSystem(IPlayService playService) {
         super(FAMILY);
         this.playService = playService;
+        id = ComponentMapper.getFor(iDComponent.class);
+        mm = ComponentMapper.getFor(MovementComponent.class);
+        tm = ComponentMapper.getFor(TransformComponent.class);
+        Gdx.app.log("NETWORK","NetworkSystem initialized.");
     }
 
     @Override
@@ -53,7 +57,7 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
         buffer.put(MOVE);
         buffer.putFloat(transform.position.x);
         buffer.putFloat(transform.position.y);
-
+        Gdx.app.log("NETWORK","BUFFER PROCESSED");
 
         buffer.putFloat(movement.velocity.x);
         buffer.putFloat(movement.velocity.y);
@@ -66,21 +70,29 @@ public class NetworkSystem extends IteratingSystem implements EntityListener {
     public void processPackage(String playerId, byte[] messageData) {
         ByteBuffer buffer = ByteBuffer.wrap(messageData);
         byte packetType = buffer.get();
+        Gdx.app.log("NETWORK","A package was processed.");
+
         switch (packetType) {
             case MOVE:
                 updateEntity(playerId, buffer);
+                Gdx.app.log("NETWORK","MOVE was sent through package.");
         }
     }
     private void updateEntity(String participantId, ByteBuffer wrap) {
         Entity entity = null;
         for (Entity syncedEntity : syncedEntities) {
+            Gdx.app.log("NETWORK", "An entity was updated.");
+
             if (id.get(syncedEntity).participantId.equals(participantId)) {
+                Gdx.app.log("NETWORK", "updateEntity: found correct ID");
+
                 entity = syncedEntity;
                 break;
             }
+
         }
         if (entity == null) {
-            Gdx.app.debug("SUGAR BEATS", "updateEntity: NULL");
+            Gdx.app.log("NETWORK", "updateEntity: NULL");
             return;
         }
         TransformComponent transformComponent = tm.get(entity);

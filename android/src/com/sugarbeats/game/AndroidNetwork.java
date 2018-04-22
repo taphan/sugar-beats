@@ -304,13 +304,10 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
 
     @Override
     public void setGameListener(IGameListener gameListener) {
-
-        Log.d("AndroidNetworkService", "SETGAMELISTENER BLE KALT");
         this.gameListener = gameListener;
     }
     @Override
     public void setNetworkListener(INetworkListener networkListener) {
-        Log.d("AndroidNetworkService", "SETNETWORKKLISTENER BLE KALT");
         this.networkListener = networkListener;
 
     }
@@ -343,7 +340,7 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
     @Override
     public void onRealTimeMessageReceived(RealTimeMessage realTimeMessage) {
         if (networkListener == null) {
-            Gdx.app.debug(TAG, "onRealTimeMessageReceived: NetworkListener is null");
+            Log.d("ANDROIDNETWORK", "onRealTimeMessageReceived: NetworkListener is null");
             return;
         }
         byte[] messageData = realTimeMessage.getMessageData();
@@ -351,8 +348,11 @@ public class AndroidNetwork implements IPlayService, RoomUpdateListener, RealTim
         int describeContents = realTimeMessage.describeContents();
         if (realTimeMessage.isReliable()) {
             networkListener.onReliableMessageReceived(senderParticipantId, describeContents, messageData);
+            Log.d("ANDROIDNETWORK","Reliable msg received");
         } else {
             networkListener.onUnreliableMessageReceived(senderParticipantId, describeContents, messageData);
+            Log.d("ANDROIDNETWORK","Unreliable msg received");
+
         }
 
     }

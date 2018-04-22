@@ -55,7 +55,6 @@ public class PlayerSystem extends IteratingSystem {
         velocityX = 0.0f;
     }
 
-    // TODO: Finish all player logics (change states)
 
     @Override
     public void processEntity(Entity entity, float deltaTime) {
@@ -65,7 +64,7 @@ public class PlayerSystem extends IteratingSystem {
         PlayerComponent player = pm.get(entity);
         AnimationComponent animaton = am.get(entity);
 
-        mov.velocity.x = this.velocityX;
+       // mov.velocity.x = this.velocityX;
         if(velocityX != 0) {
             if (state.get() != PlayerComponent.STATE_WALK){
                 //System.out.println(state.get());

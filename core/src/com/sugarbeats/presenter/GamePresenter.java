@@ -1,5 +1,6 @@
 package com.sugarbeats.presenter;
 
+import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.core.PooledEngine;
@@ -12,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
@@ -63,6 +65,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
     String playerParticipantId;
     ImmutableArray<Entity> playerS;
 
+    Entity controlledPlayer;
 
 
     CollisionListener collisionListener;
@@ -147,11 +150,9 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             veloY = 250f;
-
-
         }
-
-        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+        MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(controlledPlayer);
+        movement.velocity.x = veloX;
     }
 
     public void updateKeyPress(int key) {
@@ -167,60 +168,49 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
                 veloX = 250f;
                 break;
         }
-        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+        MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(controlledPlayer);
+        movement.velocity.x = veloX;
     }
 
     @Override
     public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
-        Gdx.app.debug("Sugar Beats GP", "onReliableMessageReceived: " + senderParticipantId + "," + describeContents);
+        Gdx.app.log("SUGAR BEATS", "ReliableMessageReceived: " + senderParticipantId + "," + describeContents);
     }
 
     @Override
     public void onUnreliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {
         engine.getSystem(NetworkSystem.class).processPackage(senderParticipantId, messageData);
+        Gdx.app.log("SUGAR BEATS", "UNReliableMessageReceived: " + senderParticipantId + "," + describeContents);
     }
 
     @Override
     public void onRoomReady (List < PlayerData > players) {
-     Gdx.app.debug(TAG, "onRoomReady: ");
-     addPlayers(players, true);
-     //world.initialize();
+         addPlayers(players, true);
+     }
+
+     private void setControlledPlayer(Entity player){
+        this.controlledPlayer = player;
      }
 
     public void addPlayers(Collection<PlayerData> data, boolean multiplayer) {
-        Gdx.app.debug(TAG, "addPlayers() ");
         players = new HashMap();
         remainingPlayers = new HashSet();
 
-        world.createPlayer(1);
-        Gdx.app.debug(TAG, "Player1 CREATED");
-        world.createPlayer(2);
-        Gdx.app.debug(TAG, "Player2 CREATED");
-//        ServiceLocator.getEntityComponent().getDrawableComponentFactory().resetOpponentCount(); MÅ LAGE SPILLERE
         for (PlayerData player : data) {
-//            Gdx.app.debug(TAG, player.displayName);
             players.put(player.participantId, player);
             remainingPlayers.add(player.participantId);
             Entity entity;
             if (player.isSelf) {
-                Gdx.app.debug(TAG, player.displayName);
-                //Må gi meg selv en karakter her
-                entity = playerS.get(0);
+                entity = world.createPlayer(player.participantId);
                 playerParticipantId = player.participantId;
-
-                Gdx.app.debug(TAG, "PARTICIPANT ID IF SETNING = " + player.participantId);
-
-
-            } else {
-                Gdx.app.debug(TAG, player.displayName);
-                //Definere motstanderen
-                entity = playerS.get(1);
+                setControlledPlayer(entity);
+                Gdx.app.log("GamePresenter","Add current player.");
+            }  // Opponent
+            else {
+                world.createPlayer(player.participantId);
                 playerParticipantId = player.participantId;
-                Gdx.app.debug(TAG, "PARTICIPANT ID ELSE SETNING = " + player.participantId);
+                Gdx.app.log("GamePresenter","Add opponent.");
             }
-
-            Gdx.app.debug(TAG, "PARTICIPANT ID = " + player.participantId);
-
 
         }
     }

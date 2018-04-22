@@ -53,11 +53,13 @@ public class World {
         this.state = WORLD_STATE_RUNNING;
     }
 
-    public Entity createPlayer(int playerNr){
+    public Entity createPlayer(String playerID){
         Entity entity = engine.createEntity();
 
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
         PlayerComponent player = engine.createComponent(PlayerComponent.class);
+        player.isSelf = true;
+        player.playerID = playerID;
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
         GravityComponent gravity = engine.createComponent(GravityComponent.class);
         StateComponent state = engine.createComponent(StateComponent.class);
