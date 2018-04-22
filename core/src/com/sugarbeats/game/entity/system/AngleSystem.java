@@ -45,7 +45,7 @@ public class AngleSystem extends IteratingSystem {
     protected void processEntity(Entity entity, float deltaTime) {
         MovementComponent movement = mm.get(entity);
         TransformComponent pos = tm.get(entity);
-        System.out.println(this.position);
+
         pos.position.x = this.position.x + 12.5f;
         pos.position.y = this.position.y + 30;
         //pos.rotation = this.angle;

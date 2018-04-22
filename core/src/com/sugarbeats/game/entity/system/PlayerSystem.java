@@ -63,7 +63,7 @@ public class PlayerSystem extends IteratingSystem {
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
 
-        mov.velocity.x = this.velocityX;
+        //mov.velocity.x = this.velocityX;
 
         if(velocityX < 0) {
             if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH){

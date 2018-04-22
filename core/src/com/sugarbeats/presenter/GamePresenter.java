@@ -1,5 +1,6 @@
 package com.sugarbeats.presenter;
 
+import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.core.PooledEngine;
@@ -14,6 +15,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BoundsComponent;
+import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
@@ -53,6 +55,8 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
     private GameView view;
     private CollisionListener collisionListener;
     private IPlayService playService;
+    private Entity player1;
+    private Entity player2;
 
 
     public GamePresenter(SugarBeats game, Screen parent) {
@@ -95,6 +99,8 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         setupEngine(engine, game.getBatch());
         world.create();
 
+        player1 = world.createPlayer(1);
+        player2 = world.createPlayer(2);
     }
 
     private void setupEngine(PooledEngine engine, SpriteBatch batch) {
@@ -126,16 +132,30 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
     }
 
     private void updateInput() {
-        float veloX = 0.0f;
-        float veloY = 0.0f;
+        float veloX1 = 0.0f;
+        float veloY1 = 0.0f;
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -100f;
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
-        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            veloY = 250f;
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            veloX1 = -100f;
         }
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX1 = 100f;
 
-        engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+        //engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+        MovementComponent movement1 = ComponentMapper.getFor(MovementComponent.class).get(player1);
+        movement1.velocity.x = veloX1;
+
+        float veloX2 = 0.0f;
+
+        if (Gdx.input.isKeyPressed(Input.Keys.A)) {
+            veloX2 = -100f;
+            System.out.println("A pressed!");
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.D)) veloX2 = 100f;
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+            updateFireButton(2,50,50);
+        }
+        MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(player2);
+        movement.velocity.x = veloX2;
     }
 
     public void updateKeyPress(int key) {
@@ -164,10 +184,13 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.getSystem(AngleSystem.class).updateAngle(angle);
     }
 
-    public void updateFireButton(float v0, float angle) {
+    public void updateFireButton(int playerNr, float v0, float angle) {
         ImmutableArray<Entity> players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
-        // TODO: Find player index to current player
-        engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0));
+        if (playerNr == 1) {
+            engine.getSystem(PlayerSystem.class).fireProjectile(player1);
+        } else {
+            engine.getSystem(PlayerSystem.class).fireProjectile(player2);
+        }
         engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
         AudioService.playSound(AudioService.buttonPressSound); //Makes double sound, maybe unneccesary?
     }

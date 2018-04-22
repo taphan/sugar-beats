@@ -85,7 +85,7 @@ public class GameView extends BaseView {
                 if (!isTouching && touches.get(0).touched) {
                     isTouching = true;
                     if(fireBound.contains(touchPoint.x, touchPoint.y)) {
-                        presenter.updateFireButton(powerBarBtnX - powerBarBound.x + 20, angle);
+                        presenter.updateFireButton(1,powerBarBtnX - powerBarBound.x + 20, angle);
                     }
                 }
             } else if (!touches.get(0).touched){

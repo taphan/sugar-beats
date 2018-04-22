@@ -42,7 +42,7 @@ public class World {
     public void create() {
         createBackground();
         createGround();
-        createPlayer(1);
+        //createPlayer(1);
 
         //createPlayer(2);
         //createPlayer(2);
@@ -52,7 +52,8 @@ public class World {
         this.state = WORLD_STATE_RUNNING;
     }
 
-    public void createPlayer(int playerNr){
+
+    public Entity createPlayer(int playerNr){
         Entity entity = engine.createEntity();
 
         AnimationComponent animation = engine.createComponent(AnimationComponent.class);
@@ -82,9 +83,14 @@ public class World {
         bounds.bounds.height = PlayerComponent.HEIGHT;
 
         state.set(PlayerComponent.STATE_STANDBY);
+        if(playerNr == 1) {
+            position.position.add(225.0f,200.0f);
+            position.scale.add(-0.9f, -0.9f);
+        } else {
+            position.position.add(100.0f,200.0f);
+            position.scale.add(-0.9f, -0.9f);
+        }
 
-        position.position.add(225.0f,200.0f);
-        position.scale.add(-0.9f, -0.9f);
 
         createAngle(position.position);
 
@@ -99,6 +105,8 @@ public class World {
         entity.add(health);
 
         engine.addEntity(entity);
+
+        return entity;
     }
 
     public void createProjectile(float x, float y) {
