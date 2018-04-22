@@ -36,7 +36,6 @@ public class AngleSystem extends IteratingSystem {
         am = ComponentMapper.getFor(AngleComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
-
         position = new Vector2();
         angle = 0f;
     }
@@ -45,17 +44,15 @@ public class AngleSystem extends IteratingSystem {
     protected void processEntity(Entity entity, float deltaTime) {
         MovementComponent movement = mm.get(entity);
         TransformComponent pos = tm.get(entity);
-        System.out.println(this.position);
-        pos.position.x = this.position.x + 12.5f;
-        pos.position.y = this.position.y + 30;
-        //pos.rotation = this.angle;
-        Vector2 arrowPos = new Vector2(pos.position).setAngle(pos.rotation);
-        pos.position.rotate(this.angle);
+        pos.position.x = position.x ;
+        pos.position.y = position.y ;
+        pos.rotation = this.angle;
     }
 
     // TODO: Call this method when up/down buttons are pressed
     public void updateAngle(float angle) {
-        if (angle > 0 && angle < 180)
+        float newAngle = this.angle + angle;
+        if (newAngle <= 180 && newAngle >= 0)
             this.angle += angle;
     }
 

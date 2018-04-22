@@ -146,7 +146,8 @@ public class World {
 
         texture.region = AssetService.angle;
         System.out.println(position);
-        transform.position.add(position);
+        transform.position.x = position.x;
+        transform.position.y = position.y;
         transform.scale.add(-0.8f, -0.8f);
 
         state.set(AngleComponent.STATE_LEFT);
