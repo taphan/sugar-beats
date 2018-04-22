@@ -80,6 +80,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
             @Override
 
             public void ground() {
+
             }
 
             @Override

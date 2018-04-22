@@ -86,7 +86,7 @@ public class World {
         position.position.add(225.0f,200.0f);
         position.scale.add(-0.9f, -0.9f);
 
-        createAngle(position.position);
+        createAngle();
 
         entity.add(animation);
         entity.add(player);
@@ -136,7 +136,7 @@ public class World {
         engine.addEntity(entity);
     }
 
-    private void createAngle(Vector2 position) {
+    private void createAngle() {
         Entity entity = engine.createEntity();
         StateComponent state = engine.createComponent(StateComponent.class);
         TransformComponent transform = engine.createComponent(TransformComponent.class);
@@ -145,9 +145,9 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
         texture.region = AssetService.angle;
-        System.out.println(position);
-        transform.position.x = position.x;
-        transform.position.y = position.y;
+        // Angle arrow not visible at game start
+        transform.position.x = -100;
+        transform.position.y = -100;
         transform.scale.add(-0.8f, -0.8f);
 
         state.set(AngleComponent.STATE_LEFT);
