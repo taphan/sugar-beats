@@ -75,17 +75,14 @@ public class World {
 
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
-        /*
-        if (playerNr == 1) {
-            state.set(PlayerComponent.STATE_DEATH);
-        } else if (playerNr == 2) {
-            state.set(PlayerComponent.STATE_DEATH);
-        }*/
 
         state.set(PlayerComponent.STATE_STANDBY);
 
         position.position.add(225.0f,200.0f);
         position.scale.add(-0.9f, -0.9f);
+        position.rotation = 90f;
+
+        createAngle(position.position);
 
         entity.add(animation);
         entity.add(player);
@@ -98,8 +95,6 @@ public class World {
         entity.add(health);
 
         engine.addEntity(entity);
-
-        createAngle(position.position.x, position.position.y);
     }
 
     public void createProjectile(float x, float y) {
@@ -116,7 +111,6 @@ public class World {
         animation.animations.put(ProjectileComponent.STATE_START, AssetService.projectileAnim1);
         animation.animations.put(ProjectileComponent.STATE_MIDAIR, AssetService.projectileAnim1);
         animation.animations.put(ProjectileComponent.STATE_HIT, AssetService.projectileAnim1);
-
 
         bounds.bounds.width = ProjectileComponent.WIDTH;
         bounds.bounds.height = ProjectileComponent.HEIGHT;
@@ -138,22 +132,24 @@ public class World {
         engine.addEntity(entity);
     }
 
-    private void createAngle(float x, float y) {
+    private void createAngle(Vector2 position) {
         Entity entity = engine.createEntity();
         StateComponent state = engine.createComponent(StateComponent.class);
-        TransformComponent position = engine.createComponent(TransformComponent.class);
+        TransformComponent transform = engine.createComponent(TransformComponent.class);
+        MovementComponent movement = engine.createComponent(MovementComponent.class);
         AngleComponent angle = engine.createComponent(AngleComponent.class);
         TextureComponent texture = engine.createComponent(TextureComponent.class);
 
         texture.region = AssetService.angle;
-
-        position.position.add(x,y);
-        position.scale.add(-0.8f, -0.8f);
+        System.out.println(position);
+        transform.position.add(position);
+        transform.scale.add(-0.8f, -0.8f);
 
         state.set(AngleComponent.STATE_LEFT);
 
-        entity.add(position);
+        entity.add(transform);
         entity.add(state);
+        entity.add(movement);
         entity.add(angle);
         entity.add(texture);
 

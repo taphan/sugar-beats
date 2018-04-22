@@ -1,58 +1,58 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:1:1-29:12
+ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:1:1-29:12
 	package
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:2:5-36
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:2:5-36
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:1:11-69
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:1:11-69
 	android:versionCode
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
 uses-sdk
-ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:4:5-74
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\sirenfj\.android\build-cache\d6f98f78ff99a36b73d787134f3501558fb5eda8\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\sirenfj\.android\build-cache\726100c12fef837c2e1d3df1a48004a7663cdcee\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\sirenfj\.android\build-cache\03c024ea3b3bc783c39744729a72d9cdb1dbdf97\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\sirenfj\.android\build-cache\384f0f76be1a33f1fd39d9d4618c90a9feafbbe0\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\sirenfj\.android\build-cache\da24717613116968b4a21cac9c589b72723dc284\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\sirenfj\.android\build-cache\be635fd9634e7ebe72a7d957f1e1a86be4025b9e\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\sirenfj\.android\build-cache\793e60a5a46a2d81104240184b1fb00bdbe6cd93\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\sirenfj\.android\build-cache\1d5adb2f75cdbbcf026777861ab841e2b9539769\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\sirenfj\.android\build-cache\be178224d77039c1e3a2c3fcc8199454a73da2ce\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\sirenfj\.android\build-cache\4df6d830e3fe16eb1a2bd7529ca179ae3067a414\output\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\sirenfj\.android\build-cache\6e973b43124cd93f973afb613c7f85202890d0f3\output\AndroidManifest.xml:20:5-44
+ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:4:5-74
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\trucp\.android\build-cache\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\trucp\.android\build-cache\4866e942e9c7414a678d1ef9c4f5505efe39c3f5\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\trucp\.android\build-cache\771ce94e7d8f495de1488c2ada159c430ab45a19\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\trucp\.android\build-cache\d0f69f5b892c5c9aa1fd6bba8a7b7c1d5d7cf200\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\trucp\.android\build-cache\359b95eb29545e55962c6bde7959a3e6d96795b1\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\trucp\.android\build-cache\1da8dad2ce47827c1abc3ace4667983cce1eb162\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\trucp\.android\build-cache\9b833b174ebe4bec486ca19b7f290c32d3642ef4\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\trucp\.android\build-cache\f45902b2269e886a32a5bda90b59ea6724bc799d\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\trucp\.android\build-cache\f5ff74a9a15ee70ea61a66838b9d17ebab552fe3\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\trucp\.android\build-cache\863cf2f9d855ab707d2a85d0af1fae5437e86edf\output\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\trucp\.android\build-cache\057c29ca97302f38d8f7aadfd18c7643937a8b2d\output\AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:4:42-71
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:4:42-71
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:4:15-41
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:4:15-41
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:5:22-64
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:6:5-79
+ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:6:22-76
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:8:5-26:19
+ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:8:5-26:19
 meta-data#com.google.android.gms.games.APP_ID
-ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:18:9-20:44
+ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:18:9-20:44
 	android:value
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:20:13-41
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:20:13-41
 	android:name
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:19:13-63
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:19:13-63
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:21:9-23:40
+ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:21:9-23:40
 	android:value
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:23:13-37
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:23:13-37
 	android:name
-		ADDED from C:\Users\sirenfj\AndroidStudioProjects\sugar-beats\manifests\src\main\AndroidManifest.xml:22:13-58
+		ADDED from C:\Users\trucp\Documents\V2018\Programvarearkitektur\sugar-beats\manifests\src\main\AndroidManifest.xml:22:13-58

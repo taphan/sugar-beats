@@ -10,5 +10,5 @@ public class AngleComponent implements Component{
     public static final int STATE_LEFT = 0;
     public static final int STATE_RIGHT = 1;
 
-    public static float angle;
+    public float angle = 0f;
 }

@@ -4,10 +4,10 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
-import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
@@ -39,11 +39,9 @@ public class PlayerSystem extends IteratingSystem {
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<HealthComponent> hm;
     private ComponentMapper<PowerupComponent> pwrm;
-    private ComponentMapper<AnimationComponent> am;
 
     private float velocityX;
     private long startTime;
-    private long elapsedTime;
 
     public PlayerSystem(World world) {
         super(family);
@@ -55,7 +53,6 @@ public class PlayerSystem extends IteratingSystem {
         tm = ComponentMapper.getFor(TransformComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
         hm = ComponentMapper.getFor(HealthComponent.class);
-        am = ComponentMapper.getFor(AnimationComponent.class);
 
         velocityX = 0.0f;
     }
@@ -100,6 +97,7 @@ public class PlayerSystem extends IteratingSystem {
         // If powerup = POWER: multiply player's damage by 1.25
     }
 
+    // Update the velocity of the player when moving
     public void setVelocity(float velocity) {
         this.velocityX = velocity;
     }
@@ -128,7 +126,7 @@ public class PlayerSystem extends IteratingSystem {
             if (!family.matches(entity)) return;
             state.set(STATE_SHOOT);
 
-            world.createProjectile(position.position.x, position.position.y+30);
+            world.createProjectile(position.position.x, position.position.y + 30);
 
             player.timeSinceLastShot = 0;
         }
@@ -162,5 +160,10 @@ public class PlayerSystem extends IteratingSystem {
 
         StateComponent state = sm.get(entity);
         state.set(PlayerComponent.STATE_STANDBY);
+    }
+
+    public Vector2 getPosition(Entity entity) {
+        TransformComponent position = tm.get(entity);
+        return position.position;
     }
 }

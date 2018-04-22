@@ -10,12 +10,14 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BoundsComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+import com.sugarbeats.game.entity.system.AngleSystem;
 import com.sugarbeats.game.entity.system.AnimationSystem;
 import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
@@ -101,6 +103,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
         engine.addSystem(new ProjectileSystem());
+        engine.addSystem(new AngleSystem());
 
         engine.addSystem(new CollisionSystem(world, collisionListener));
     }
@@ -146,7 +149,11 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
                 veloX = 250f;
                 break;
         }
+        ImmutableArray<Entity> players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
+
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
+        Vector2 playerPosition = engine.getSystem(PlayerSystem.class).getPosition(players.get(0));
+        engine.getSystem(AngleSystem.class).setPosition(playerPosition);
     }
 
     public void updateFireButton(float v0, float angle) {
