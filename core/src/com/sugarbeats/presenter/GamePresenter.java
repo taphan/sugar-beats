@@ -85,7 +85,9 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
             @Override
             public void hit() {
                 AudioService.playSound(AudioService.damageSound);
-                view.health -= 20;
+                if (view.health > 0) {
+                    view.health -= 20;
+                }
             }
 
         };
@@ -127,7 +129,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         float veloX = 0.0f;
         float veloY = 0.0f;
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -100f;
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             veloY = 250f;
@@ -138,15 +140,20 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
     public void updateKeyPress(int key) {
         float veloX = 0.0f;
+        float angle = 0.0f;
 
         switch (key) {
-            case 0:
-                // Left button pressed
+            case 0: // Left button pressed
                 veloX = -250f;
                 break;
-            case 1:
-                // Right button pressed
+            case 1: // Right button pressed
                 veloX = 250f;
+                break;
+            case 2: // Up button pressed
+                angle = 10;
+                break;
+            case 3: // Down button pressed
+                angle = -10;
                 break;
         }
         ImmutableArray<Entity> players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
@@ -154,6 +161,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.getSystem(PlayerSystem.class).setVelocity(veloX);
         Vector2 playerPosition = engine.getSystem(PlayerSystem.class).getPosition(players.get(0));
         engine.getSystem(AngleSystem.class).setPosition(playerPosition);
+        engine.getSystem(AngleSystem.class).updateAngle(angle);
     }
 
     public void updateFireButton(float v0, float angle) {
@@ -161,6 +169,7 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         // TODO: Find player index to current player
         engine.getSystem(PlayerSystem.class).fireProjectile(players.get(0));
         engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
+        AudioService.playSound(AudioService.buttonPressSound); //Makes double sound, maybe unneccesary?
     }
 
 

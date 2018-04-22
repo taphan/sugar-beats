@@ -95,20 +95,6 @@ public class CollisionSystem extends EntitySystem {
                 playerSystem.hitMapEdge(player);
             }
 
-            // Get hit by projectile
-
-            /*
-            for (int j = 0; j < projectiles.size(); j++){
-                Entity projectile = projectiles.get(j);
-                BoundsComponent projectileBounds = bm.get(projectile);
-
-                if (projectileBounds.bounds.overlaps(playerBounds.bounds)
-                        && state.get() != PlayerComponent.STATE_HIT ) {
-                    playerSystem.getHit(player);
-                    listener.hit();
-                }
-            }
-            */
 
             // Check if player touched powerup
 
@@ -134,10 +120,11 @@ public class CollisionSystem extends EntitySystem {
                     if(projectileBounds.bounds.overlaps(groundBounds.bounds) ) {
                         if (projectileBounds.bounds.overlaps(playerBounds.bounds)){
                             playerSystem.hitByProjectile(player);
+                            listener.hit();
                         }
                         projectile.getComponent(ProjectileComponent.class).isDead = true;
                         projectileState.set(ProjectileComponent.STATE_HIT);
-                        listener.hit();
+                        //listener.hit();
                     }
                 }
             }

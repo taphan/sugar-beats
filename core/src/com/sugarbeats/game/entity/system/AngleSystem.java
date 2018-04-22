@@ -27,6 +27,7 @@ public class AngleSystem extends IteratingSystem {
     private ComponentMapper<MovementComponent> mm;
 
     private Vector2 position;
+    private float angle;
 
     public AngleSystem() {
         super(family);
@@ -35,21 +36,27 @@ public class AngleSystem extends IteratingSystem {
         am = ComponentMapper.getFor(AngleComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
+
         position = new Vector2();
+        angle = 0f;
     }
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         MovementComponent movement = mm.get(entity);
         TransformComponent pos = tm.get(entity);
-        pos.position.x = position.x + 12.5f;
-        pos.position.y = position.y + 30;
-        pos.rotation = 140f;
+        System.out.println(this.position);
+        pos.position.x = this.position.x + 12.5f;
+        pos.position.y = this.position.y + 30;
+        //pos.rotation = this.angle;
+        Vector2 arrowPos = new Vector2(pos.position).setAngle(pos.rotation);
+        pos.position.rotate(this.angle);
     }
 
     // TODO: Call this method when up/down buttons are pressed
-    public void addAngle() {
-
+    public void updateAngle(float angle) {
+        if (angle > 0 && angle < 180)
+            this.angle += angle;
     }
 
     // Move together with the player

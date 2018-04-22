@@ -7,5 +7,5 @@ import com.badlogic.ashley.core.Component;
  */
 
 public class HealthComponent implements Component{
-    public int HEALTH = 3;
+    public int HEALTH = 12; //The right value is 12
 }

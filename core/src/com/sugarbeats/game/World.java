@@ -7,12 +7,12 @@ import com.sugarbeats.game.entity.component.AngleComponent;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
 import com.sugarbeats.game.entity.component.BoundsComponent;
-import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GravityComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
+import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TextureComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
@@ -40,6 +40,7 @@ public class World {
     }
 
     public void create() {
+        createBackground();
         createGround();
         createPlayer(1);
 
@@ -47,7 +48,6 @@ public class World {
         //createPlayer(2);
         //createwalking();
 
-        createBackground();
 
         this.state = WORLD_STATE_RUNNING;
     }
@@ -72,6 +72,11 @@ public class World {
         animation.animations.put(PlayerComponent.STATE_SHOOT, AssetService.shootAnim1);
         animation.animations.put(PlayerComponent.STATE_DEATH, AssetService.deathAnim1);
 
+        /*
+        movement.music.put(PlayerComponent.STATE_LEFT, AudioService.walkMusic);
+        movement.music.put(PlayerComponent.STATE_RIGHT, AudioService.walkMusic);
+        movement.music.put(PlayerComponent.STATE_WALK, AudioService.walkMusic);
+        */
 
         bounds.bounds.width = PlayerComponent.WIDTH;
         bounds.bounds.height = PlayerComponent.HEIGHT;
@@ -80,7 +85,6 @@ public class World {
 
         position.position.add(225.0f,200.0f);
         position.scale.add(-0.9f, -0.9f);
-        position.rotation = 90f;
 
         createAngle(position.position);
 
@@ -177,7 +181,7 @@ public class World {
         engine.addEntity(entity);
     }
 
-    // Note: currently very messy background
+    //TODO: Scale background
     private void createBackground() {
         Entity entity = engine.createEntity();
 
@@ -186,10 +190,12 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
 
-        texture.region = AssetService.map1;
+        texture.region = AssetService.background2;
 
         bounds.bounds.width = texture.region.getRegionWidth();
         bounds.bounds.height = texture.region.getRegionHeight();
+        position.position.add(0,0);
+        position.scale.add(-0.2f,-0.2f); //NOT GOOD, should be dynamic
 
         entity.add(background);
         entity.add(position);
