@@ -25,6 +25,7 @@
         "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
@@ -37,9 +38,15 @@
         "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_light.png",
         "source": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
 =======
+=======
+>>>>>>> 19876ec8600f6bbadff9111e011fef3983fb7c96
         "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_dark.png",
         "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
 >>>>>>> projectile
+    },
+    {
+        "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "C:\\Users\\KieuV\\.android\\build-cache\\8b33fca24c7bc6193d1af5201389ba253de32572\\output\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
@@ -110,13 +117,13 @@
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
-        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
         "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_light.png",
         "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
 >>>>>>> projectile
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
@@ -193,18 +200,24 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\4f71fdfc8f4176296c767a1285732a7e14ab18f6\\output\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
 =======
         "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
         "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
 >>>>>>> projectile
+=======
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+>>>>>>> 19876ec8600f6bbadff9111e011fef3983fb7c96
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_light.png",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\8b33fca24c7bc6193d1af5201389ba253de32572\\output\\res\\drawable-hdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\8b33fca24c7bc6193d1af5201389ba253de32572\\output\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
@@ -215,19 +228,28 @@
 =======
         "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
         "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+=======
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+>>>>>>> 19876ec8600f6bbadff9111e011fef3983fb7c96
     },
     {
-        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_text_select_handle_middle_mtrl_light.png",
-        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_focused_holo.9.png",
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
         "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
 >>>>>>> projectile
+=======
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_text_select_handle_middle_mtrl_light.png",
+        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
+>>>>>>> 19876ec8600f6bbadff9111e011fef3983fb7c96
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
@@ -258,17 +280,22 @@
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
-        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
+        "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png",
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
         "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
 >>>>>>> projectile
+=======
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+>>>>>>> 19876ec8600f6bbadff9111e011fef3983fb7c96
     },
     {
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
@@ -378,6 +405,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "merged": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_dark.png",
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\8b33fca24c7bc6193d1af5201389ba253de32572\\output\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
@@ -397,8 +425,14 @@
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\4df6d830e3fe16eb1a2bd7529ca179ae3067a414\\output\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
+=======
+>>>>>>> 19876ec8600f6bbadff9111e011fef3983fb7c96
         "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_48dp.png",
         "source": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\drawable-hdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\4df6d830e3fe16eb1a2bd7529ca179ae3067a414\\output\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png",
@@ -486,12 +520,12 @@
         "source": "C:\\Users\\KieuV\\.android\\build-cache\\8b33fca24c7bc6193d1af5201389ba253de32572\\output\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
-        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",

@@ -13,7 +13,6 @@ import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
-import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 

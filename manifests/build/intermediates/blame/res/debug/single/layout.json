@@ -208,16 +208,16 @@
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\9705f7ebf7532134124ad362eda9b52ef9f703a0\\output\\res\\layout\\notification_action.xml"
     },
     {
         "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
-        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
-        "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\9705f7ebf7532134124ad362eda9b52ef9f703a0\\output\\res\\layout\\notification_action.xml"
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
@@ -228,12 +228,12 @@
         "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
-        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
         "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",

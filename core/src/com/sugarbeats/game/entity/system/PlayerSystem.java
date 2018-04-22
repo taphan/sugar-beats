@@ -11,7 +11,6 @@ import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
-import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 import com.sugarbeats.service.AudioService;
@@ -84,6 +83,7 @@ public class PlayerSystem extends IteratingSystem {
         MovementComponent mov = mm.get(entity);
         mov.velocity.y = 0.0f;
     }
+
 
     // Prevent player from going outside of the world's width
     public void hitMapEdge(Entity entity) {

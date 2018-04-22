@@ -108,6 +108,7 @@ public class AssetService {
 
     public static Texture healthBar;
     public static Texture health;
+    public static Texture enemyHealth;
     public static TextureRegion angle;
 
     //public static Animation walkAnim3;
@@ -161,6 +162,7 @@ public class AssetService {
 
         healthBar = new Texture("health-bar.png");
         health = new Texture("health.png");
+        enemyHealth = new Texture("health-bar-real.png");
         angle = new TextureRegion(loadTexture("angle2_edited.png"));
 
         //Animation logic
