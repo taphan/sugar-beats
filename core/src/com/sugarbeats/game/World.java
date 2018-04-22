@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.math.Vector2;
+import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.entity.component.AngleComponent;
 import com.sugarbeats.game.entity.component.AnimationComponent;
 import com.sugarbeats.game.entity.component.BackgroundComponent;
@@ -188,7 +189,7 @@ public class World {
         engine.addEntity(entity);
     }
 
-    // Note: currently very messy background
+    //TODO: Scale background
     private void createBackground() {
         Entity entity = engine.createEntity();
 
@@ -197,7 +198,7 @@ public class World {
         TextureComponent texture = engine.createComponent(TextureComponent.class);
         BoundsComponent bounds = engine.createComponent(BoundsComponent.class);
 
-        texture.region = AssetService.background1;
+        texture.region = AssetService.background2;
 
         bounds.bounds.width = texture.region.getRegionWidth();
         bounds.bounds.height = texture.region.getRegionHeight();
