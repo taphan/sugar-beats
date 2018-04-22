@@ -32,7 +32,7 @@ public class GameView extends BaseView {
     Rectangle powerBarBound;
     boolean isTouching;
     float powerBarBtnX;
-    float angle;
+    public float angle;
     public float health;
     BitmapFont font;
 
@@ -112,7 +112,10 @@ public class GameView extends BaseView {
         game.batch.draw(AssetService.powerBarBtn, powerBarBtnX - 10,AssetService.fireBtn.getWidth()/11, AssetService.powerBarBtn.getWidth() / 6, AssetService.powerBarBtn.getHeight() / 3);
         game.batch.draw(AssetService.health, 85, 322, health, AssetService.health.getHeight() / 10);
         game.batch.draw(AssetService.healthBar, 10, 290, AssetService.healthBar.getWidth() / 10, AssetService.healthBar.getHeight() / 10);
-        font.draw(game.batch, String.valueOf((int) health) + "/260", 260, 311);
+        game.batch.draw(AssetService.enemyHealth, 32, 260, AssetService.enemyHealth.getWidth() / 20, AssetService.enemyHealth.getHeight() / 20);
+        font.draw(game.batch, String.valueOf((int) health) + "/260", 240, 311);
+        font.draw(game.batch, "Kahoot is da best", 32, 285);
+        font.draw(game.batch, "Sugar", 37, 337);
         game.batch.end();
     }
 
