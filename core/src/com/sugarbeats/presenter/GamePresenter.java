@@ -5,11 +5,13 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.ashley.utils.ImmutableArray;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.BoundsComponent;
@@ -17,6 +19,8 @@ import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
+
+import com.sugarbeats.game.entity.system.AngleSystem;
 import com.sugarbeats.game.entity.system.AnimationSystem;
 import com.sugarbeats.game.entity.system.BoundsSystem;
 import com.sugarbeats.game.entity.system.CollisionSystem;
@@ -25,10 +29,11 @@ import com.sugarbeats.game.entity.system.GravitySystem;
 import com.sugarbeats.game.entity.system.MovementSystem;
 import com.sugarbeats.game.entity.system.NetworkSystem;
 import com.sugarbeats.game.entity.system.PlayerSystem;
+import com.sugarbeats.game.entity.system.ProjectileSystem;
 import com.sugarbeats.game.entity.system.RenderSystem;
 import com.sugarbeats.model.PlayerData;
+import com.sugarbeats.service.AudioService;
 import com.sugarbeats.service.IPlayService;
-
 import com.sugarbeats.service.ServiceLocator;
 import com.sugarbeats.view.GameView;
 
@@ -36,14 +41,10 @@ import com.sugarbeats.view.GameView;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+
 import java.util.List;
 
 //import sun.rmi.runtime.Log;
-
-
-import com.sugarbeats.view.GameView;
-
-import java.util.List;
 
 
 /**
@@ -54,11 +55,7 @@ import java.util.List;
 public class GamePresenter extends ScreenAdapter implements IPlayService.INetworkListener {
     private final String TAG = "SUGAR BEATS :GamePresenter-----------------------------------------------------------------------------------";
 
-    SugarBeats game;
-    private Screen parent;
     protected final PooledEngine engine;
-    World world;
-    GameView view;
 
     HashMap<String, PlayerData> players = new HashMap();
     HashSet<String> remainingPlayers = new HashSet();
@@ -66,13 +63,13 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
     ImmutableArray<Entity> playerS;
 
     Entity controlledPlayer;
-
-
-    CollisionListener collisionListener;
-
-
     private final IPlayService playService;
 
+    private SugarBeats game;
+    private Screen parent;
+    private World world;
+    private GameView view;
+    private CollisionListener collisionListener;
 
     public GamePresenter(SugarBeats game, Screen parent) {
         Gdx.app.debug(TAG, "GamePresenter called");
@@ -82,8 +79,6 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
         Gdx.app.debug(TAG, "playService.setNetworkListener(this);");
 
-
-
         this.game = game;
         this.parent = parent;
         engine = new PooledEngine();
@@ -91,22 +86,22 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         playerS = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
 
         view = new GameView(game, this);
-//        playService.setNetworkListener(this);
 
         collisionListener = new CollisionListener() {
-            @Override
-            public void powerup() {
-                System.out.println("Power up sound");
-            }
+
 
             @Override
+
             public void ground() {
-                System.out.println("Touched the ground!!!");
+
             }
 
             @Override
             public void hit() {
-                System.out.println("Ouchie got hit..");
+                AudioService.playSound(AudioService.damageSound);
+                if (view.health > 0) {
+                    view.health -= 20;
+                }
             }
 
         };
@@ -124,6 +119,8 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
         engine.addSystem(new BoundsSystem());
         engine.addSystem(new GravitySystem());
         engine.addSystem(new NetworkSystem(ServiceLocator.getAppComponent().getNetworkService()));
+        engine.addSystem(new ProjectileSystem());
+        engine.addSystem(new AngleSystem());
         engine.addSystem(new CollisionSystem(world, collisionListener));
     }
 
@@ -144,33 +141,45 @@ public class GamePresenter extends ScreenAdapter implements IPlayService.INetwor
 
     private void updateInput() {
         float veloX = 0.0f;
-        float veloY = 0.0f;
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) veloX = -250f;
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) veloX = 100f;
-        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
-            veloY = 250f;
-        }
+
         MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(controlledPlayer);
         movement.velocity.x = veloX;
     }
 
     public void updateKeyPress(int key) {
         float veloX = 0.0f;
+        float angle = 0.0f;
 
         switch (key) {
-            case 0:
-                // Left button pressed
+            case 0: // Left button pressed
                 veloX = -250f;
                 break;
-            case 1:
-                // Right button pressed
+            case 1: // Right button pressed
                 veloX = 250f;
+                break;
+            case 2: // Up button pressed
+                angle = 10;
+                break;
+            case 3: // Down button pressed
+                angle = -10;
                 break;
         }
         MovementComponent movement = ComponentMapper.getFor(MovementComponent.class).get(controlledPlayer);
         movement.velocity.x = veloX;
+        Vector2 playerPosition = engine.getSystem(PlayerSystem.class).getPosition(controlledPlayer);
+        engine.getSystem(AngleSystem.class).setPosition(playerPosition);
+        engine.getSystem(AngleSystem.class).updateAngle(angle);
     }
+
+    public void updateFireButton(float v0, float angle) {
+        engine.getSystem(PlayerSystem.class).fireProjectile(controlledPlayer);
+        engine.getSystem(ProjectileSystem.class).initializeVelocity(v0, angle);
+        AudioService.playSound(AudioService.buttonPressSound);
+    }
+
 
     @Override
     public void onReliableMessageReceived(String senderParticipantId, int describeContents, byte[] messageData) {

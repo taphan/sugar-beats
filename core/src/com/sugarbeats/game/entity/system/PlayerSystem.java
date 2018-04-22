@@ -4,17 +4,19 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.sugarbeats.SugarBeats;
 import com.sugarbeats.game.World;
-import com.sugarbeats.game.entity.component.AnimationComponent;
+import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
 import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
-import com.sugarbeats.presenter.GamePresenter;
+import com.sugarbeats.service.AudioService;
+
+import static com.sugarbeats.game.entity.component.PlayerComponent.STATE_SHOOT;
 
 /**
  * Created by Quynh on 4/12/2018.
@@ -27,8 +29,8 @@ public class PlayerSystem extends IteratingSystem {
     private static final Family family = Family.all(PlayerComponent.class,
             StateComponent.class,
             TransformComponent.class,
-            MovementComponent.class,AnimationComponent.class).get();
-    // Deleting HealthComponent.class from the family makes it possible to process this system!!
+            HealthComponent.class,
+            MovementComponent.class).get();
 
     private World world;
 
@@ -36,10 +38,9 @@ public class PlayerSystem extends IteratingSystem {
     private ComponentMapper<StateComponent> sm;
     private ComponentMapper<TransformComponent> tm;
     private ComponentMapper<MovementComponent> mm;
-    private ComponentMapper<PowerupComponent> pwrm;
-    private ComponentMapper<AnimationComponent> am;
+    private ComponentMapper<HealthComponent> hm;
 
-    private float velocityX;
+    private long startTime;
 
     public PlayerSystem(World world) {
         super(family);
@@ -50,53 +51,38 @@ public class PlayerSystem extends IteratingSystem {
         sm = ComponentMapper.getFor(StateComponent.class);
         tm = ComponentMapper.getFor(TransformComponent.class);
         mm = ComponentMapper.getFor(MovementComponent.class);
-        am = ComponentMapper.getFor(AnimationComponent.class);
+        hm = ComponentMapper.getFor(HealthComponent.class);
 
-        velocityX = 0.0f;
     }
-
 
     @Override
     public void processEntity(Entity entity, float deltaTime) {
-        TransformComponent t = tm.get(entity);
         StateComponent state = sm.get(entity);
         MovementComponent mov = mm.get(entity);
-        PlayerComponent player = pm.get(entity);
-        AnimationComponent animaton = am.get(entity);
 
-       // mov.velocity.x = this.velocityX;
-        if(velocityX != 0) {
-            if (state.get() != PlayerComponent.STATE_WALK){
-                //System.out.println(state.get());
-                state.set(PlayerComponent.STATE_WALK);
+
+        if(mov.velocity.x < 0) {
+            if (state.get() != PlayerComponent.STATE_LEFT && state.get() != PlayerComponent.STATE_DEATH){
+                state.set(PlayerComponent.STATE_LEFT);
+                AudioService.playSound(AudioService.walkSound);
+            }
+        } else if (mov.velocity.x > 0) {
+            if (state.get() != PlayerComponent.STATE_RIGHT && state.get() != PlayerComponent.STATE_DEATH){
+                state.set(PlayerComponent.STATE_RIGHT);
+                AudioService.playSound(AudioService.walkSound);
             }
         } else {
-            if (state.get() != PlayerComponent.STATE_STANDBY){
+            if (state.get() != PlayerComponent.STATE_STANDBY && state.get() != PlayerComponent.STATE_DEATH
+                    && state.get() != STATE_SHOOT && state.get() != PlayerComponent.STATE_HIT){
                 state.set(PlayerComponent.STATE_STANDBY);
             }
         }
     }
 
     public void hitGround(Entity entity) {
-        StateComponent state = sm.get(entity);
+        if (!family.matches(entity)) return;
         MovementComponent mov = mm.get(entity);
         mov.velocity.y = 0.0f;
-    }
-
-    //TODO: powerup logic
-    public void gainPowerup (Entity player, Entity powerup) {
-        if (!family.matches(player)) return;
-
-        StateComponent state = sm.get(player);
-        PowerupComponent pwr = pwrm.get(player);
-        // Set player state to outside of NORMAL?
-        // If powerup = SPEED: multiply player's velocity by 1.25
-
-        // If powerup = POWER: multiply player's damage by 1.25
-    }
-
-    public void setVelocity(float velocity) {
-        this.velocityX = velocity;
     }
 
     // Prevent player from going outside of the world's width
@@ -106,24 +92,60 @@ public class PlayerSystem extends IteratingSystem {
         if (t.position.x < 0) {
             t.position.x = 0;
         }
-        if (t.position.x > SugarBeats.WIDTH- PlayerComponent.WIDTH) {
-            t.position.x = SugarBeats.WIDTH-PlayerComponent.WIDTH;
+        if (t.position.x > SugarBeats.WIDTH - PlayerComponent.WIDTH) {
+            t.position.x = SugarBeats.WIDTH - PlayerComponent.WIDTH;
         }
     }
 
-    public void getHit(Entity entity){
-        if (!family.matches(entity)) return;
-
+    public void fireProjectile(Entity entity) {
+        TransformComponent position = tm.get(entity);
+        PlayerComponent player = pm.get(entity);
         StateComponent state = sm.get(entity);
-        state.set(PlayerComponent.STATE_HIT);
+
+        // Player can only shoot another projectile after player.shootDelay milliseconds interval
+        player.timeSinceLastShot = TimeUtils.timeSinceMillis(startTime);
+        if (player.timeSinceLastShot >= player.shootDelay) {
+            startTime = TimeUtils.millis();
+            if (!family.matches(entity)) return;
+            state.set(STATE_SHOOT);
+
+            world.createProjectile(position.position.x, position.position.y + 30);
+
+            player.timeSinceLastShot = 0;
+        }
     }
 
-    public void walking(Entity entity){
+    public void hitByProjectile(Entity entity) {
         if (!family.matches(entity)) return;
 
         StateComponent state = sm.get(entity);
-        AnimationComponent animation = am.get(entity);
+        HealthComponent h = hm.get(entity);
+        if (state.get() != PlayerComponent.STATE_HIT && state.get() != PlayerComponent.STATE_SHOOT
+                && state.get() != PlayerComponent.STATE_DEATH){
+            state.set(PlayerComponent.STATE_HIT);
+        }
+        h.HEALTH -= 1;
+        if (h.HEALTH < 0) {
+            die(entity);
+        }
+    }
 
-        state.set(PlayerComponent.STATE_PLAY);
+    public void die(Entity entity) {
+        StateComponent state = sm.get(entity);
+        state.set(PlayerComponent.STATE_DEATH);
+        entity.remove(MovementComponent.class);
+        AudioService.playSound(AudioService.deathSound);
+    }
+
+    public void standby(Entity entity){
+        if (!family.matches(entity)) return;
+
+        StateComponent state = sm.get(entity);
+        state.set(PlayerComponent.STATE_STANDBY);
+    }
+
+    public Vector2 getPosition(Entity entity) {
+        TransformComponent position = tm.get(entity);
+        return position.position;
     }
 }

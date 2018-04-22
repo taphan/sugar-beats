@@ -347,7 +347,11 @@
         ]
     },
     {
+<<<<<<< HEAD
         "outputFile": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rXC\\values-en-rXC.xml",
+=======
+        "outputFile": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
         "map": [
             {
                 "to": {
@@ -358,7 +362,11 @@
                     "endOffset": 305
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -377,7 +385,11 @@
                     "endOffset": 505
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -396,7 +408,11 @@
                     "endOffset": 714
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -415,7 +431,11 @@
                     "endOffset": 899
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -434,7 +454,11 @@
                     "endOffset": 1101
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -453,7 +477,11 @@
                     "endOffset": 1316
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -472,7 +500,11 @@
                     "endOffset": 1489
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -491,7 +523,11 @@
                     "endOffset": 1666
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -510,7 +546,11 @@
                     "endOffset": 1850
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -529,7 +569,11 @@
                     "endOffset": 2054
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -548,7 +592,11 @@
                     "endOffset": 2259
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -567,7 +615,11 @@
                     "endOffset": 2460
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -586,7 +638,11 @@
                     "endOffset": 2667
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -605,7 +661,11 @@
                     "endOffset": 2869
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -624,7 +684,11 @@
                     "endOffset": 3074
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -643,7 +707,11 @@
                     "endOffset": 3346
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -662,7 +730,11 @@
                     "endOffset": 3546
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -681,7 +753,705 @@
                     "endOffset": 3725
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "C:\\Users\\qpb96\\.android\\build-cache\\25cb313bf01b963c722c0b2338b995c02a0818a3\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+=======
+                    "file": "C:\\Users\\trucp\\.android\\build-cache\\d9f0be7fc6e21b82fa62cac650f25f89f3e30401\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 3551,
+                        "endColumn": 178,
+                        "endOffset": 3725
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rXC\\values-en-rXC.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 204,
+                    "endOffset": 305
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 204,
+                        "endOffset": 305
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 310,
+                    "endColumn": 199,
+                    "endOffset": 505
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 310,
+                        "endColumn": 199,
+                        "endOffset": 505
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 510,
+                    "endColumn": 208,
+                    "endOffset": 714
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 510,
+                        "endColumn": 208,
+                        "endOffset": 714
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 719,
+                    "endColumn": 184,
+                    "endOffset": 899
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 719,
+                        "endColumn": 184,
+                        "endOffset": 899
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 904,
+                    "endColumn": 201,
+                    "endOffset": 1101
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 904,
+                        "endColumn": 201,
+                        "endOffset": 1101
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 1106,
+                    "endColumn": 214,
+                    "endOffset": 1316
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 1106,
+                        "endColumn": 214,
+                        "endOffset": 1316
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 1321,
+                    "endColumn": 172,
+                    "endOffset": 1489
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 1321,
+                        "endColumn": 172,
+                        "endOffset": 1489
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 1494,
+                    "endColumn": 176,
+                    "endOffset": 1666
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 1494,
+                        "endColumn": 176,
+                        "endOffset": 1666
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 1671,
+                    "endColumn": 183,
+                    "endOffset": 1850
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 1671,
+                        "endColumn": 183,
+                        "endOffset": 1850
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1855,
+                    "endColumn": 203,
+                    "endOffset": 2054
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1855,
+                        "endColumn": 203,
+                        "endOffset": 2054
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 2059,
+                    "endColumn": 204,
+                    "endOffset": 2259
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 2059,
+                        "endColumn": 204,
+                        "endOffset": 2259
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 2264,
+                    "endColumn": 200,
+                    "endOffset": 2460
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 2264,
+                        "endColumn": 200,
+                        "endOffset": 2460
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 2465,
+                    "endColumn": 206,
+                    "endOffset": 2667
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 2465,
+                        "endColumn": 206,
+                        "endOffset": 2667
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 2672,
+                    "endColumn": 201,
+                    "endOffset": 2869
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 2672,
+                        "endColumn": 201,
+                        "endOffset": 2869
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 2874,
+                    "endColumn": 204,
+                    "endOffset": 3074
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 2874,
+                        "endColumn": 204,
+                        "endOffset": 3074
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 3079,
+                    "endColumn": 271,
+                    "endOffset": 3346
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 3079,
+                        "endColumn": 271,
+                        "endOffset": 3346
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 3351,
+                    "endColumn": 199,
+                    "endOffset": 3546
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 3351,
+                        "endColumn": 199,
+                        "endOffset": 3546
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 3551,
+                    "endColumn": 178,
+                    "endOffset": 3725
+                },
+                "from": {
+                    "file": "C:\\Users\\Quynh Phan\\.android\\build-cache\\901cf2eaeb10ddec15910f080e5cbc472d1e6b26\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 3551,
+                        "endColumn": 178,
+                        "endOffset": 3725
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rXC\\values-en-rXC.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 204,
+                    "endOffset": 305
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 204,
+                        "endOffset": 305
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 310,
+                    "endColumn": 199,
+                    "endOffset": 505
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 310,
+                        "endColumn": 199,
+                        "endOffset": 505
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 510,
+                    "endColumn": 208,
+                    "endOffset": 714
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 510,
+                        "endColumn": 208,
+                        "endOffset": 714
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 719,
+                    "endColumn": 184,
+                    "endOffset": 899
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 719,
+                        "endColumn": 184,
+                        "endOffset": 899
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 904,
+                    "endColumn": 201,
+                    "endOffset": 1101
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 904,
+                        "endColumn": 201,
+                        "endOffset": 1101
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 1106,
+                    "endColumn": 214,
+                    "endOffset": 1316
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 1106,
+                        "endColumn": 214,
+                        "endOffset": 1316
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 1321,
+                    "endColumn": 172,
+                    "endOffset": 1489
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 1321,
+                        "endColumn": 172,
+                        "endOffset": 1489
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 1494,
+                    "endColumn": 176,
+                    "endOffset": 1666
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 1494,
+                        "endColumn": 176,
+                        "endOffset": 1666
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 1671,
+                    "endColumn": 183,
+                    "endOffset": 1850
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 1671,
+                        "endColumn": 183,
+                        "endOffset": 1850
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1855,
+                    "endColumn": 203,
+                    "endOffset": 2054
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1855,
+                        "endColumn": 203,
+                        "endOffset": 2054
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 2059,
+                    "endColumn": 204,
+                    "endOffset": 2259
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 2059,
+                        "endColumn": 204,
+                        "endOffset": 2259
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 2264,
+                    "endColumn": 200,
+                    "endOffset": 2460
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 2264,
+                        "endColumn": 200,
+                        "endOffset": 2460
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 2465,
+                    "endColumn": 206,
+                    "endOffset": 2667
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 2465,
+                        "endColumn": 206,
+                        "endOffset": 2667
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 2672,
+                    "endColumn": 201,
+                    "endOffset": 2869
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 2672,
+                        "endColumn": 201,
+                        "endOffset": 2869
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 2874,
+                    "endColumn": 204,
+                    "endOffset": 3074
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 2874,
+                        "endColumn": 204,
+                        "endOffset": 3074
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 3079,
+                    "endColumn": 271,
+                    "endOffset": 3346
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 3079,
+                        "endColumn": 271,
+                        "endOffset": 3346
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 3351,
+                    "endColumn": 199,
+                    "endOffset": 3546
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 3351,
+                        "endColumn": 199,
+                        "endOffset": 3546
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 3551,
+                    "endColumn": 178,
+                    "endOffset": 3725
+                },
+                "from": {
+                    "file": "C:\\Users\\sirenfj\\.android\\build-cache\\d6f98f78ff99a36b73d787134f3501558fb5eda8\\output\\res\\values-en-rXC\\values-en-rXC.xml",
+>>>>>>> projectile
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,

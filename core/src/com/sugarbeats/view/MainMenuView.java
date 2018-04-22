@@ -48,6 +48,7 @@ public class MainMenuView extends BaseView{
         multiplayerBounds= new Rectangle(WIDTH / 2 + AssetService.mBtn.getWidth()/3 * 3 / 2 - 20, HEIGHT / 2 - 25, AssetService.mBtn.getWidth() / 3, AssetService.mBtn.getHeight() / 3);
 
         touchPoint = new Vector3();
+        AudioService.playMusic(AudioService.menuMusic);
     }
 
     @Override
@@ -96,13 +97,12 @@ public class MainMenuView extends BaseView{
     @Override
     public void draw() {
         // Draw menu buttons
-        // TODO: Add title picture/text and background (K: Jeg har laget en quickfix på dette, men ikke en endelig losning)
         // TODO: Discuss about whether its necessary to constantly call the draw() function from render, is it enough to call it once during creation of class?
         cam.update();
         game.batch.setProjectionMatrix(cam.combined);
 
         game.batch.begin();
-        game.batch.draw(AssetService.mainMenu, 0, 0, WIDTH, HEIGHT); //BAD!! Needs to be more dynamic
+        game.batch.draw(AssetService.mainMenu, 0, 0, WIDTH, HEIGHT);
         game.batch.draw(AssetService.playBtn, WIDTH / 2 + AssetService.playBtn.getWidth()/3 / 2 + 120, HEIGHT / 2 + 25, AssetService.playBtn.getWidth() / 3, AssetService.playBtn.getHeight() / 3);
         game.batch.draw(AssetService.settingBtn, WIDTH / 2 - AssetService.settingBtn.getWidth()/3*3 / 2 - 135, HEIGHT / 2 - 30, AssetService.settingBtn.getWidth() / 3, AssetService.settingBtn.getHeight() / 3);
         game.batch.draw(AssetService.helpBtn, WIDTH / 2 - AssetService.helpBtn.getWidth()/3 * 3 / 2 - 130, HEIGHT / 4 + 18, AssetService.helpBtn.getWidth() / 3, AssetService.helpBtn.getHeight() / 3);

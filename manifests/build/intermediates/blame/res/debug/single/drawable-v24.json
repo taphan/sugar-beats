@@ -4,7 +4,20 @@
         "source": "C:\\Users\\KieuV\\AndroidStudioProjects\\sugar-beats\\manifests\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v24\\ic_launcher_foreground.xml",
         "source": "C:\\Users\\qpb96\\Documents\\sugar-beats\\manifests\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+=======
+        "merged": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v24\\ic_launcher_foreground.xml",
+        "source": "C:\\Users\\sirenfj\\AndroidStudioProjects\\sugar-beats\\manifests\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v24\\ic_launcher_foreground.xml",
+        "source": "C:\\Users\\Quynh Phan\\Documents\\NTNU\\ProgArk\\prosjekt\\sugar-beats\\manifests\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\build\\intermediates\\res\\merged\\debug\\drawable-v24\\ic_launcher_foreground.xml",
+        "source": "C:\\Users\\trucp\\Documents\\V2018\\Programvarearkitektur\\sugar-beats\\manifests\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+>>>>>>> projectile
     }
 ]

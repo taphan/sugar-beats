@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sugarbeats.presenter.GamePresenter;
 import com.sugarbeats.presenter.MainMenuPresenter;
-import com.sugarbeats.presenter.MultiPlayerGamePresenter;
 import com.sugarbeats.service.AssetService;
 import com.sugarbeats.service.AudioService;
 import com.sugarbeats.service.IPlayService;
@@ -28,26 +27,24 @@ public class SugarBeats extends Game implements IPlayService.IGameListener {
 
 	public SugarBeats(IPlayService playServices){
 		this.playServices = playServices;
-		playServices.setGameListener(this);
 	}
 
 	// For Desktop to work
 	public SugarBeats() {}
 
-
-
-
 	@Override
 	public void create () {
-
-		ServiceLocator.initializeAppComponent(playServices);
-		//playServices.setGameListener(this);
-		ServiceLocator.getAppComponent().getNetworkService().setGameListener(this);
+	    if(Gdx.app.getType() == Application.ApplicationType.Android) {
+            playServices.setGameListener(this);
+            ServiceLocator.initializeAppComponent(playServices);
+            ServiceLocator.getAppComponent().getNetworkService().setGameListener(this);
+        }
 
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 
 
 		batch = new SpriteBatch();
+
 		//Load graphics and animations
 		AssetService.load();
 		//Load music and soundeffects
