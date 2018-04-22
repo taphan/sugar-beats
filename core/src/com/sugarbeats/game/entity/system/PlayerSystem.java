@@ -11,7 +11,6 @@ import com.sugarbeats.game.World;
 import com.sugarbeats.game.entity.component.HealthComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
-import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 import com.sugarbeats.service.AudioService;
@@ -39,7 +38,6 @@ public class PlayerSystem extends IteratingSystem {
     private ComponentMapper<TransformComponent> tm;
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<HealthComponent> hm;
-    private ComponentMapper<PowerupComponent> pwrm;
 
     private float velocityX;
     private long startTime;
@@ -88,16 +86,6 @@ public class PlayerSystem extends IteratingSystem {
         if (!family.matches(entity)) return;
         MovementComponent mov = mm.get(entity);
         mov.velocity.y = 0.0f;
-    }
-
-    public void gainPowerup (Entity player, Entity powerup) {
-        if (!family.matches(player)) return;
-
-        StateComponent state = sm.get(player);
-        PowerupComponent pwr = pwrm.get(player);
-        // Set player state to outside of NORMAL?
-        // If powerup = SPEED: multiply player's velocity by 1.25
-        // If powerup = POWER: multiply player's damage by 1.25
     }
 
     // Update the velocity of the player when moving

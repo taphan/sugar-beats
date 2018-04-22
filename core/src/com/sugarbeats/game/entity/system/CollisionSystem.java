@@ -13,7 +13,6 @@ import com.sugarbeats.game.entity.component.ProjectileComponent;
 import com.sugarbeats.game.entity.component.GroundComponent;
 import com.sugarbeats.game.entity.component.MovementComponent;
 import com.sugarbeats.game.entity.component.PlayerComponent;
-import com.sugarbeats.game.entity.component.PowerupComponent;
 import com.sugarbeats.game.entity.component.StateComponent;
 import com.sugarbeats.game.entity.component.TransformComponent;
 
@@ -63,7 +62,6 @@ public class CollisionSystem extends EntitySystem {
         this.engine = engine;
         players = engine.getEntitiesFor(Family.all(PlayerComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
         ground = engine.getEntitiesFor(Family.all(GroundComponent.class, BoundsComponent.class, TransformComponent.class).get());
-        powerups = engine.getEntitiesFor(Family.all(PowerupComponent.class, BoundsComponent.class).get());
         background = engine.getEntitiesFor(Family.all(BackgroundComponent.class,BoundsComponent.class,TransformComponent.class ).get());
         projectiles = engine.getEntitiesFor(Family.all(ProjectileComponent.class, BoundsComponent.class, TransformComponent.class, StateComponent.class).get());
     }
@@ -91,20 +89,6 @@ public class CollisionSystem extends EntitySystem {
 
             if (playerBounds.bounds.overlaps(backgroundBounds.bounds)) {
                 playerSystem.hitMapEdge(player);
-            }
-
-
-            // Check if player touched powerup
-
-            for (int j = 0; j < powerups.size(); j++) {
-                Entity powerup = powerups.get(j);
-                BoundsComponent powerupBounds = bm.get(powerup);
-
-                if (powerupBounds.bounds.overlaps(playerBounds.bounds)) {  // Check if powerup was touched by each player
-                    engine.removeEntity(powerup);  // Player eats powerup & remove it from map
-                    listener.powerup();
-                    playerSystem.gainPowerup(player,powerup); // Powerup give a state to player
-                }
             }
 
             // Check whether the projectile hit a player or the ground
